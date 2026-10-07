@@ -14,8 +14,13 @@ C = {"socle": (40, 120, 235), "coulisseau": (70, 190, 250), "cible": (240, 240, 
 
 # une image par fichier STL (tel qu'il sera imprimé)
 views = {"socle": (-120, 28), "coulisseau": (-60, 32), "poulie": (-60, 35), "cible": (-60, 35),
-         "bobine_tete": (-60, 35), "bobine_ecrou": (-60, 35), "entretoises_grappe": (-60, 35),
-         "support_laser": (-55, 30)}
+         "bobine_tete": (-60, 35), "bobine_ecrou": (-60, 35), "entretoises_grappe": (-60, 35)}
+supports = sorted(f[:-4] for f in os.listdir(STL) if f.startswith("support_laser_") and f.endswith(".stl"))
+for f in os.listdir(OUT):                                   # images des versions de support qui n'existent plus
+    if f.startswith("support_laser_") and f[:-4] not in supports and f[:-4] not in ("support_laser_arriere", "support_laser_bec", "support_laser_encoche"):
+        os.remove(OUT + f)
+for s in supports:
+    views[s] = (-55, 30); C[s] = C["support_laser"]
 for name, (az, el) in views.items():
     render([(load(STL + name + ".stl"), C[name])], az, el, OUT + name + ".png", W=1200, H=850,
            label=name + ".stl (orientation d'impression)")
@@ -28,10 +33,10 @@ render(asm("asm", names), -50, 22, OUT + "banc_ouvert_avant.png", label="banc en
 render(asm("asm", notable), -90, 0, OUT + "banc_ouvert_profil.png", label="banc en service, profil")
 render(asm("asm_plie", notable), -125, 22, OUT + "banc_plie.png", label="banc plie pour le transport")
 render(asm("asm_plie", notable), -90, 0, OUT + "banc_plie_profil.png", label="banc plie, profil")
-sl = load(STL + "support_laser.stl")
+sl = load(STL + supports[0] + ".stl")                                 # les vues de principe : la premiere version de la liste
 use = np.stack([sl[:, :, 0], -sl[:, :, 2], sl[:, :, 1]], axis=2)      # remis en service : bec a l'avant, auge vers le haut
 render([(use, C["support_laser"])], -55, 30, OUT + "support_laser_arriere.png", W=1200, H=850, label="support laser en service, vu de l'arriere : le telemetre se couche dans l'auge, face avant au ras du bec")
-render([(use, C["support_laser"])], 130, -30, OUT + "support_laser_bec.png", W=1200, H=850, label="support laser vu de dessous : le bec, sa bande de renfort et l'encoche de la suspente")
+render([(use, C["support_laser"])], 130, -30, OUT + "support_laser_bec.png", W=1200, H=850, label="support laser vu de dessous : le bec et l'encoche de la suspente")
 render([(use, C["support_laser"])], 65, 12, OUT + "support_laser_encoche.png", W=1200, H=850, label="support laser : l'auge du telemetre et, sous l'avant, le bec avec l'encoche de la suspente")
 ill = names + ["elevateurs"]
 render(asm("asm", ill), -42, 38, OUT + "accrochage_elevateurs.png", label="accrochage : chaque elevateur a plat sur sa bobine, la sangle dans son couloir",

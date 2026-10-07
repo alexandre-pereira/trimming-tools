@@ -45,9 +45,36 @@ if (mode === "all" || mode === "print") {
     fs.writeFileSync(path.join(outPrint, p + ".stl"), stl);
     console.log(p, JSON.stringify(stats(stl)), log.filter(l => /warn|error/i.test(l)).join(" | "));
   }
-  const { stl, log } = await render("support_laser.scad", {});
-  if (stl) { fs.writeFileSync(path.join(outPrint, "support_laser.stl"), stl); console.log("support_laser", JSON.stringify(stats(stl))); }
-  else console.log("support_laser ECHEC", log.join("\n"));
+}
+if (mode === "all" || mode === "print" || mode === "lasers") {
+  // un support par télémètre de la liste outils/lasers.json (cotes constructeur ; le jeu est dans le .scad)
+  const lasers = JSON.parse(fs.readFileSync("c:/Users/alexa/banc3d/outils/lasers.json", "utf8"));
+  for (const f of fs.readdirSync(outPrint)) if (/^support_laser.*\.stl$/.test(f)) fs.unlinkSync(path.join(outPrint, f));
+  const faits = [];
+  for (const m of lasers) {
+    const { stl, log } = await render("support_laser.scad", { laser_w: m.largeur, laser_l: m.longueur, laser_h: m.epaisseur, ...(m.jeu ? { fit: m.jeu } : {}) });
+    const f = `support_laser_${m.slug}.stl`;
+    if (!stl) { console.log(f, "ECHEC", log.join("\n")); continue; }
+    fs.writeFileSync(path.join(outPrint, f), stl);
+    const s = stats(stl);
+    console.log(f, JSON.stringify(s));
+    faits.push([m, f]);
+  }
+  // une ligne de tableau par support, dans la langue du README ; les télémètres qui ne mesurent que
+  // depuis leur face arrière donnent une lecture plus longue de leur propre longueur
+  const repere = (m, en) => m.reference === "avant" ? (en ? "front or rear" : "avant ou arrière")
+    : (en ? `rear only: subtract ${m.longueur} mm from the reading` : `arrière seulement : retranchez ${m.longueur} mm de la lecture`);
+  const ligne = (m, f, en) => `| ${m.modele} | ${m.longueur} × ${m.largeur} × ${m.epaisseur} | ${repere(m, en)} | \`${f}\` ([image](apercu/support_laser_${m.slug}.png)) |`;
+  // le tableau des versions dans le README de chaque langue, entre les deux repères
+  for (const [nom, entete, en] of [["README.md", "| Télémètre | Cotes constructeur (mm) | Repère de mesure | Fichier |", false],
+                                   ["README.en.md", "| Distance meter | Manufacturer's dimensions (mm) | Measuring reference | File |", true]]) {
+    const readme = "c:/Users/alexa/banc3d/" + nom;
+    if (!fs.existsSync(readme)) continue;
+    const txt = fs.readFileSync(readme, "utf8");
+    const bloc = "<!-- supports:debut -->\n" + entete + "\n|---|---|---|---|\n" + faits.map(([m, f]) => ligne(m, f, en)).join("\n") + "\n<!-- supports:fin -->";
+    const nouveau = txt.replace(/<!-- supports:debut -->[\s\S]*?<!-- supports:fin -->/, bloc);
+    if (nouveau !== txt) { fs.writeFileSync(readme, nouveau); console.log(nom, ": tableau des supports mis à jour"); }
+  }
 }
 if (mode === "all" || mode === "asm") {
   for (const [dir, plie] of [["./asm", "false"], ["./asm_plie", "true"]])

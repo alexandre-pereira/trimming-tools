@@ -101,7 +101,7 @@ Deux variantes plus courtes ont été essayées puis écartées :
 | `bobine_tete.stl` | bobine dont le chapeau loge la tête de vis | [image](apercu/bobine_tete.png) | 2 cm³ |
 | `bobine_ecrou.stl` | bobine dont le chapeau loge l'écrou frein | [image](apercu/bobine_ecrou.png) | 2 cm³ |
 | `entretoises_grappe.stl` | les 8 entretoises (4 pour les roues, 2 pour la poulie, 2 de rechange) réunies par une barrette, à détacher au cutter | [image](apercu/entretoises_grappe.png) | 1 cm³ |
-| `support_laser.stl` | support du télémètre, côté voile, avec son bec à encoche | [image](apercu/support_laser.png), [en service](apercu/support_laser_arriere.png) | 21 cm³ |
+| `support_laser_<modèle>.stl` | support du télémètre, côté voile, avec son bec à encoche ; une version par télémètre | [en service](apercu/support_laser_arriere.png), [le bec](apercu/support_laser_bec.png) | ≈ 20 à 50 cm³ |
 
 Une pièce par fichier, chaque fichier à imprimer une fois ; seules les entretoises sont
 groupées, parce qu'un service d'impression refuse les pièces minuscules.
@@ -122,7 +122,7 @@ Les modèles paramétriques sont `scad/banc.scad` (variable `part` pour choisir 
 Repris de votre « TEST.stl », même principe : le télémètre est couché dans une auge ouverte
 à l'avant ; sous l'avant, un bec plat descend sous le fond et porte une encoche. On y glisse
 la suspente par en dessous, sa patte d'attache (ou son nœud), trop grosse, bute contre le
-bec : sous 5 kg, la suspente reste dans l'axe du faisceau. Vues : [impression](apercu/support_laser.png),
+bec : sous 5 kg, la suspente reste dans l'axe du faisceau. Vues :
 [en service, vu de l'arrière](apercu/support_laser_arriere.png), [le bec](apercu/support_laser_bec.png).
 
 - **Cotes du télémètre en paramètres** : `laser_w`, `laser_l`, `laser_h` (largeur, longueur,
@@ -133,17 +133,18 @@ bec : sous 5 kg, la suspente reste dans l'axe du faisceau. Vues : [impression](a
 - **Boutons sur le côté** : `btn_cote` (0 aucun, 1 droite, -1 gauche, 2 les deux) abaisse la
   paroi en face des boutons, entre `btn_y0` et `btn_y0 + btn_len` depuis la face arrière du
   télémètre, en ne laissant que `btn_h` (4 mm) de paroi.
-- **Encoche renforcée** : le bec fait 5 mm au lieu de 4, et une bande de 4 mm d'épaisseur en
-  plus court le long de ses deux bords inclinés et sous l'encoche, là où la suspente tire.
-  L'encoche fait 3 mm de large (`slit_w`), avec une entrée en V et un fond rond : toutes les
-  suspentes passent, la patte d'attache ou son nœud non.
-- **Constante** : la patte bute sur la face arrière de la bande, 9 mm derrière la face avant
-  du bec, elle-même 0,5 mm (le jeu `fit`) devant la face avant du télémètre : 8,5 mm entre
-  la face avant du télémètre et la butée de la boucle. Côté banc, la face visée de la cible
-  (`sl_front + tg_t` = 51) est 21 mm derrière l'axe des bobines (`sl_front + pin_x` = 72).
-  D'où l'offset théorique de 30 mm, plus la boucle d'attache, détaillé dans le README. En réglant le
-  télémètre sur « mesure depuis l'avant », la longueur vaut donc lecture + 9 mm ; sinon
-  l'étalonnage de K (plus bas) absorbe tout.
+- **Encoche** : 3 mm de large (`slit_w`), entrée en V, fond rond : toutes les suspentes
+  passent, la patte d'attache ou son nœud non. Le bec garde la forme et l'épaisseur (4 mm)
+  de TEST.stl ; une première version avec une bande de renfort derrière le bec a été
+  retirée le 7 octobre 2026 : elle débordait sous le fond.
+- **Offset** : l'outil de calage attend la distance entre l'axe d'accrochage de l'élévateur
+  et la cible. L'élévateur entier est pris sur la bobine ; la face visée de la cible
+  (`sl_front + tg_t` = 51) est 21 mm derrière l'axe des bobines (`sl_front + pin_x` = 72),
+  vu du laser. Offset = 21 mm, le télémètre réglé « mesure depuis l'avant » (sa face avant
+  affleure le bec, au jeu `fit` près).
+- **Versions** : une par télémètre de `outils/lasers.json` (Leica DISTO et Bosch à moins de
+  500 €, cotes constructeur) ; `node outils/generer_stl.mjs lasers` regénère les STL et le
+  tableau du README.
 - Deux rainures pour un élastique qui tient le télémètre, un trou de dragonne dans la face
   arrière, 21 cm³.
 
@@ -169,7 +170,7 @@ Prix indicatifs relevés en ligne ou estimés ; à vérifier au moment de la com
 | Lest de 5 kg | 1 / — | 0 € | votre poche à eau, ou un bidon d'eau de 5 L à poignée |
 | Sangle velcro 20 mm | — | 0 € | fonds de tiroir |
 | **Visserie d'un banc** | | **≈ 3 €, hors port** | |
-| Impression des 8 fichiers (≈ 210 cm³, ≈ 130 g de PETG ; plus grande pièce 164 × 80 × 31 mm) | 1 / 10 | 5–25 € | fablab, ou [devis JLC3DP](https://jlc3dp.com/3d-printing-quote) |
+| Impression des 7 fichiers du banc et du support (≈ 210 cm³, ≈ 130 g de PETG ; plus grande pièce 164 × 80 × 31 mm) | 1 / 10 | 5–25 € | fablab, ou [devis JLC3DP](https://jlc3dp.com/3d-printing-quote) |
 | Télémètre Bluetooth HOTO QWCJY001, 99,5 × 44,1 × 23,3 mm, 30 m, ±2 mm | 1 | 35–39 € | [ulen.eu](https://ulen.eu/fr/product/hoto-qwcjy001-telemetre-laser-bluetooth/), [domotique-store.fr](https://www.domotique-store.fr/maison/outillage/4240-metre-laser-intelligent-bluetooth-hoto-qwcjy001.html), [AliExpress](https://www.aliexpress.com/i/1005002004493544.html) |
 
 Prix relevés sur les pages produit le 4 octobre 2026 ; les frais de port ne sont pas vérifiés.
@@ -325,7 +326,7 @@ le 5 octobre 2026.
 | `socle.stl`, `coulisseau.stl` | SLS, nylon 3201PA-F | gris-noir | pièces de structure ; le nylon est tenace (35 % d'allongement) et n'a pas de sens de couche |
 | `poulie.stl`, `bobine_tete.stl`, `bobine_ecrou.stl`, `entretoises_grappe.stl` | SLS, nylon 3201PA-F | gris-noir | trop petites pour le FDM de JLC3DP (taille minimale 30 × 30 × 15 mm en ASA) |
 | `cible.stl` | SLS, nylon Precimid 1172 Pro | blanc, grain mat | elle doit être blanche et mate pour le point laser ; à 7 mm d'épaisseur, elle est aussi sous la taille minimale du FDM |
-| `support_laser.stl` | SLS, nylon 3201PA-F | gris-noir | le bec de l'encoche travaille en tension et prend des chocs : pas de résine |
+| `support_laser_<modèle>.stl` | SLS, nylon 3201PA-F | gris-noir | le bec de l'encoche travaille en tension et prend des chocs : pas de résine |
 
 - **Pas de PLA** : sa tenue en température est de 65 °C, il se déforme dans une voiture au
   soleil.
@@ -373,7 +374,7 @@ Pour obtenir le devis :
 
 1. Créer un compte sur [jlc3dp.com/3d-printing-quote](https://jlc3dp.com/3d-printing-quote)
    (c'est le compte JLCPCB).
-2. Déposer les 8 fichiers STL (formats acceptés : STL, STEP, OBJ, 3MF), en millimètres.
+2. Déposer les 7 fichiers du banc et le support de votre télémètre (formats acceptés : STL, STEP, OBJ, 3MF), en millimètres.
 3. Pour chaque fichier, choisir le procédé, la matière, la couleur et la quantité.
 4. Le prix s'affiche aussitôt, pièce par pièce ; changer de matière le met à jour.
 5. Ajouter au panier, choisir la livraison (c'est elle qui pèse le plus sur une petite
@@ -415,7 +416,7 @@ lest ne sont pas comptés : chacun utilise le sien.
   compter une dizaine d'heures d'impression par banc. Les plus grandes pièces mesurent
   164 × 80 mm (socle) et 130 × 85 mm (coulisseau) : un plateau de 180 mm suffit. Une imprimante d'entrée de gamme est amortie dès
   le deuxième ou le troisième lot par rapport à un service.
-- **JLC3DP** (Chine) : devis instantané en déposant les 8 STL en quantité 10. Les services
+- **JLC3DP** (Chine) : devis instantané en déposant les 8 STL (banc + support) en quantité 10. Les services
   d'impression à dépôt de fil facturent typiquement 0,05 à 0,15 $ le gramme plus des frais
   par pièce ; à ce tarif, compter 100 à 250 € par lot, port et TVA compris, et deux à trois
   semaines. À confirmer par le devis.
@@ -573,8 +574,8 @@ Ce dossier est le dépôt public <https://github.com/alexandre-pereira/trimming-
 (scripts qui produisent les STL, les images et le site). Le site est publié sur
 <https://trimming-tools.weflare.fr> (et <https://alexandre-pereira.github.io/trimming-tools/>).
 
-Le site de présentation est construit à partir de ce fichier par `outils/site.py` : il
-reprend ces sections, les images et propose les STL au téléchargement. GitHub Actions le
+Le site de présentation est construit à partir du README par `outils/site.py` : il
+reprend ses sections, les images et propose les STL au téléchargement. GitHub Actions le
 reconstruit et le publie à chaque changement sur la branche `main`
 (`.github/workflows/pages.yml`), si bien que le site suit le dossier. Pour le voir en local :
 
@@ -584,6 +585,18 @@ python outils/site.py
 ```
 
 puis ouvrir `_site/index.html`.
+
+Le site existe en deux langues : en anglais à sa racine (la langue par défaut), depuis
+`README.en.md`, et en français dans `fr/`, depuis `README.md`. **Ce qui change dans un README
+se reporte dans l'autre**, sinon les deux pages ne disent plus la même chose ; seul le
+tableau des supports du laser est écrit dans les deux par `outils/generer_stl.mjs`. Un
+visiteur dont le navigateur est en français arrive sur la page française, et le choix fait
+avec le sélecteur EN / FR est retenu.
+
+L'habillage (`outils/weflare.css`, `weflare.svg`, `weflare-mark.svg` : feuille de style,
+logo, icône de l'onglet) est celui de tous les outils WeFlare ; les mêmes fichiers sont dans
+le dépôt de PG Soundings (`scripts/`). Une modification s'y reporte telle quelle ; ce qui
+est propre à cette page reste dans `site.py`.
 
 ## Ce qui a été vérifié, et ce qui ne l'a pas été
 

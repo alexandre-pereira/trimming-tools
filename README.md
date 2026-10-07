@@ -1,5 +1,7 @@
 # Banc de calage parapente
 
+[English version](README.en.md)
+
 Pour vérifier le calage de sa voile, il faut mesurer chaque suspente sous la même tension.
 Ici, deux pièces imprimées en 3D font le travail avec un télémètre laser et une poche à eau
 de 5 L : un **banc** qui se pose sur le bord d'une table et tend la suspente à 5 kg, et un
@@ -7,7 +9,7 @@ de 5 L : un **banc** qui se pose sur le bord d'une table et tend la suspente à 
 
 | Le banc, suspente tendue | Plié : 164 × 93 × 52 mm | Le support du laser et son encoche |
 |---|---|---|
-| ![banc ouvert](apercu/banc_ouvert_avant.png) | ![banc plié](apercu/banc_plie.png) | ![support laser](apercu/support_laser_encoche.png) |
+| ![Le banc en service, vu du côté de la voile](apercu/banc_ouvert_avant.png) | ![Le banc plié pour le transport](apercu/banc_plie.png) | ![Le support du télémètre laser, avec l'encoche de la suspente sous l'avant](apercu/support_laser_encoche.png) |
 
 ## Comment ça marche
 
@@ -18,13 +20,14 @@ de 5 L : un **banc** qui se pose sur le bord d'une table et tend la suspente à 
   tendue à exactement 5 kg.
 - Devant les élévateurs, une **cible blanche** se relève et se verrouille d'équerre.
 - Côté voile, on glisse la suspente dans l'**encoche du support**, la patte vient en butée,
-  et le laser couché dans le support vise la cible. **Longueur de la suspente = lecture +
-  constante**, la constante se mesure une fois au mètre ruban.
+  et le laser couché dans le support vise la cible. L'outil de calage en ligne fait le reste,
+  avec l'offset indiqué plus bas.
 - Pour voyager : cible rabattue, un velcro autour.
 
 ## Fichiers à imprimer
 
-Huit fichiers, un par pièce, déjà orientés pour l'impression, sans support.
+Sept fichiers pour le banc, un par pièce, déjà orientés pour l'impression, sans support ;
+puis le support du laser, dans la version de votre télémètre.
 
 | Fichier | Pièce |
 |---|---|
@@ -34,12 +37,38 @@ Huit fichiers, un par pièce, déjà orientés pour l'impression, sans support.
 | `poulie.stl` | la poulie de la cordelette ([image](apercu/poulie.png)) |
 | `bobine_tete.stl`, `bobine_ecrou.stl` | les deux bobines des élévateurs ([image](apercu/bobine_tete.png)) |
 | `entretoises_grappe.stl` | 8 petites entretoises sur une barrette, à détacher au cutter ([image](apercu/entretoises_grappe.png)) |
-| `support_laser.stl` | le support du laser ([image](apercu/support_laser.png), [l'encoche](apercu/support_laser_encoche.png)) |
 
-**Le support est à la taille de votre laser.** Mesurez-le (largeur, longueur, épaisseur),
-reportez les trois cotes dans `scad/support_laser.scad` et regénérez le STL. S'il a des
-boutons sur le côté, `btn_cote` ouvre la paroi en face. Le support est un peu moins haut
-que le laser, pour le saisir facilement.
+### Le support du laser, à la taille de votre télémètre
+
+Même pièce ([l'encoche](apercu/support_laser_encoche.png), [vue de dessous](apercu/support_laser_bec.png)),
+une version par télémètre : les Leica DISTO et les Bosch à moins de 500 €, aux cotes du
+constructeur plus 0,5 mm de jeu. Le support est 3 mm moins haut que le télémètre, pour le
+saisir et atteindre ses boutons. Certains télémètres ne mesurent que depuis leur face
+arrière : leur lecture est plus longue de leur propre longueur, le tableau dit combien
+retrancher. GLM 100, 120 et 150 : pointe arrière rentrée.
+
+<!-- supports:debut -->
+| Télémètre | Cotes constructeur (mm) | Repère de mesure | Fichier |
+|---|---|---|---|
+| Leica DISTO D1 | 115 × 43.5 × 23.5 | arrière seulement : retranchez 115 mm de la lecture | `support_laser_leica_d1.stl` ([image](apercu/support_laser_leica_d1.png)) |
+| Leica DISTO D110 / E7100i | 120 × 37 × 23 | arrière seulement : retranchez 120 mm de la lecture | `support_laser_leica_d110.stl` ([image](apercu/support_laser_leica_d110.png)) |
+| Leica DISTO D2 (v1, 100 m) | 116 × 44 × 26 | avant ou arrière | `support_laser_leica_d2_v1.stl` ([image](apercu/support_laser_leica_d2_v1.png)) |
+| Leica DISTO D2 (2025, 150 m) / D2G | 127 × 50.5 × 24.5 | avant ou arrière | `support_laser_leica_d2_2025.stl` ([image](apercu/support_laser_leica_d2_2025.png)) |
+| Leica DISTO X1 | 125 × 53.5 × 25.5 | arrière seulement : retranchez 125 mm de la lecture | `support_laser_leica_x1.stl` ([image](apercu/support_laser_leica_x1.png)) |
+| Leica DISTO X3 / X4 | 132 × 56 × 29 | avant ou arrière | `support_laser_leica_x3_x4.stl` ([image](apercu/support_laser_leica_x3_x4.png)) |
+| Bosch GLM 40 / GLM 30 | 105 × 41 × 24 | avant ou arrière | `support_laser_bosch_glm40.stl` ([image](apercu/support_laser_bosch_glm40.png)) |
+| Bosch GLM 50-22 / 50-25 G / 50-27 C / 50-27 CG / 40-31 | 119 × 53 × 29 | avant ou arrière | `support_laser_bosch_glm50.stl` ([image](apercu/support_laser_bosch_glm50.png)) |
+| Bosch GLM 80 | 111 × 51 × 30 | avant ou arrière | `support_laser_bosch_glm80.stl` ([image](apercu/support_laser_bosch_glm80.png)) |
+| Bosch GLM 100-25 C / 150-27 C / 120 C | 142 × 64 × 28 | avant ou arrière | `support_laser_bosch_glm100_150.stl` ([image](apercu/support_laser_bosch_glm100_150.png)) |
+| Bosch Zamo (IV, 2025) | 104 × 38 × 23 | arrière seulement : retranchez 104 mm de la lecture | `support_laser_bosch_zamo.stl` ([image](apercu/support_laser_bosch_zamo.png)) |
+| Bosch PLM30-21 / EasyDistance 20 | 94 × 36 × 23 | arrière seulement : retranchez 94 mm de la lecture | `support_laser_bosch_plm30.stl` ([image](apercu/support_laser_bosch_plm30.png)) |
+| Bosch PLM40-23 / 50-23 / 60-23C / 70-23C, UniversalDistance 30 / 40C / 50 / 50C, PLR 30 C / 40 C | 100 × 42 × 22 | avant ou arrière | `support_laser_bosch_plm40_70.stl` ([image](apercu/support_laser_bosch_plm40_70.png)) |
+| Bosch PLM70-27 / AdvancedDistance 50C / PLR 50 C | 115 × 50 × 23 | avant ou arrière | `support_laser_bosch_plm70_27.stl` ([image](apercu/support_laser_bosch_plm70_27.png)) |
+<!-- supports:fin -->
+
+Autre télémètre : mesurez-le (largeur, longueur, épaisseur), reportez les trois cotes dans
+`scad/support_laser.scad` et regénérez le STL ; `btn_cote` ouvre une paroi en face de boutons
+latéraux.
 
 ## Quelle matière
 
@@ -93,25 +122,13 @@ dès qu'on tire.
 
 ## Régler l'offset dans l'outil de calage
 
-Le laser réglé pour mesurer **depuis sa face avant**, la lecture est la distance entre le
-laser et la cible. Sur le banc, le centre de la boucle d'élévateur (l'axe de la bobine) est
-21 mm derrière la cible, et la boucle de la suspente bute 8,5 mm derrière la face avant du
-laser. Donc :
+L'outil demande la distance entre le point d'accrochage de l'élévateur et la cible. Sur le
+banc, l'élévateur entier est pris sur la bobine : l'axe de sa vis est à **21 mm** de la face
+de la cible, du côté du laser.
 
-**longueur de la suspente, élévateur compris = lecture + 30 mm + boucle d'attache**
+**Offset à saisir : 21 mm.**
 
-La « boucle d'attache », c'est la partie de la suspente qui dépasse du bec, jusqu'au bout de
-la boucle : 10 à 20 mm selon la voile, à mesurer une fois au réglet. Offset à saisir dans
-l'outil, typiquement **40 à 50 mm**.
-
-- Les constructeurs donnent le plus souvent les longueurs élévateur compris, du centre de la
-  boucle de mousqueton à la patte d'attache sur la voile, sous 5 kg : c'est ce que mesure le
-  banc, la bobine jouant le rôle du mousqueton. Si vos valeurs de référence sont données sans
-  élévateurs (depuis les maillons), retirez la longueur de l'élévateur, indiquée dessus.
-  Vérifiez la convention dans la fiche de contrôle de votre voile.
-- Pour contrôler l'offset : mesurez une suspente au mètre ruban acier selon la méthode du
-  constructeur, et comparez à la lecture du laser au même moment.
-- Si le laser mesure depuis sa face arrière, retirez la longueur du laser de l'offset.
+Réglez le télémètre pour mesurer **depuis sa face avant** : elle affleure le bec du support.
 
 ## Pour aller plus loin
 

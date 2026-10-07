@@ -10,9 +10,8 @@
 //   - cotes du télémètre en paramètres : largeur, longueur, épaisseur ;
 //   - parois moins hautes que le télémètre (moins_epais), pour le saisir et atteindre ses boutons ;
 //   - dégagement réglable dans une paroi pour les boutons placés sur le côté ;
-//   - encoche renforcée : une bande épaisse court le long des deux bords du bec et sous
-//     l'encoche, et le bec lui-même est plus épais ;
-//   - fond du bec arrondi, entrée en V, deux rainures pour un élastique, trou de dragonne.
+//   - encoche de 3 mm, entrée en V, fond rond ; deux rainures pour un élastique, trou de dragonne.
+//  Le bec garde strictement la forme de TEST.stl (4 mm, rien ne dépasse derrière lui).
 //
 //  Repère : y = sens du faisceau, face arrière du support en y = 0 ; z vers le haut, dessous
 //  du fond en z = 0. Le bec est à l'avant (y = len), ses faces sont perpendiculaires au faisceau.
@@ -38,15 +37,13 @@ floor_t = 3;       // fond
 r_ext   = 2;       // arrondi des arêtes verticales
 
 // --- Bec et encoche (le bec reprend les 5 kg de la suspente) ---
-bec_t    = 5;      // épaisseur du bec (4 sur TEST.stl)
+bec_t    = 4;      // épaisseur du bec, comme sur TEST.stl
 bec_drop = 11;     // descente du bec sous le fond
 bec_bas  = 14;     // largeur du bec en bas
 slit_w   = 3;      // largeur de l'encoche : la suspente passe, la patte (ou son nœud) non
 slit_d   = 2.5;    // profondeur de la partie droite de l'encoche, au-dessus du V d'entrée
 v_w      = 7;      // V d'entrée : largeur en bas…
 v_d      = 2;      // …et profondeur
-band     = 4;      // bande de renfort : largeur le long des bords du bec…
-band_t   = 4;      // …et surépaisseur vers l'arrière (le bec fait bec_t + band_t sur ses bords)
 
 // --- Divers ---
 elastique = true;  // deux rainures autour du support pour un élastique qui tient le télémètre
@@ -78,14 +75,8 @@ module encoche_profil() {
 
 module bec() {
     difference() {
-        union() {
-            prism_y(len - bec_t, bec_t) bec_profil();                                   // plaque
-            intersection() {                                                            // bande de renfort, sous le fond seulement
-                prism_y(len - bec_t - band_t, band_t) difference() { bec_profil(); offset(delta = -band) bec_profil(); }
-                translate([-1, 0, -bec_drop - 1]) cube([tray_w + 2, len + 1, bec_drop + 1]);
-            }
-        }
-        prism_y(len - bec_t - band_t - 1, bec_t + band_t + 2) encoche_profil();          // encoche, à travers plaque et bande
+        prism_y(len - bec_t, bec_t) bec_profil();                                       // plaque
+        prism_y(len - bec_t - 1, bec_t + 2) encoche_profil();                           // encoche
     }
 }
 
