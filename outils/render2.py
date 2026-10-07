@@ -32,6 +32,7 @@ sl = load(STL + "support_laser.stl")
 use = np.stack([sl[:, :, 0], -sl[:, :, 2], sl[:, :, 1]], axis=2)      # remis en service : bec a l'avant, auge vers le haut
 render([(use, C["support_laser"])], -55, 30, OUT + "support_laser_arriere.png", W=1200, H=850, label="support laser en service, vu de l'arriere : le telemetre se couche dans l'auge, face avant au ras du bec")
 render([(use, C["support_laser"])], 130, -30, OUT + "support_laser_bec.png", W=1200, H=850, label="support laser vu de dessous : le bec, sa bande de renfort et l'encoche de la suspente")
+render([(use, C["support_laser"])], 65, 12, OUT + "support_laser_encoche.png", W=1200, H=850, label="support laser : l'auge du telemetre et, sous l'avant, le bec avec l'encoche de la suspente")
 ill = names + ["elevateurs"]
 render(asm("asm", ill), -42, 38, OUT + "accrochage_elevateurs.png", label="accrochage : chaque elevateur a plat sur sa bobine, la sangle dans son couloir",
        zoom_box=list(itertools.product([37, 257], [-80, 80], [0, 60])))
