@@ -91,7 +91,8 @@ pul_w    = 9.4;
 slot_w   = 5 + 2*spacer_h + 0.2;   // fente de la poulie entre les joues (roulement 5 + une entretoise de chaque côté + jeu)
 cord_d   = 2;      // cordelette 2 mm
 axle_d   = 4.95;   // trou des joues, hexagonal (cote sur plats) : ses six pans serrent la goupille Ø5 sans colle,
-                   // et ses angles laissent la matière se déformer sans fendre la joue
+                   // et ses angles laissent la matière se déformer sans fendre la joue.
+                   // Cette cote et ear_d se règlent sur votre imprimante avec calibre_goupilles.scad, avant d'imprimer le banc.
 axle_l   = 40;     // longueur de la goupille : elle reste 5 mm en retrait de chaque flanc, hors du passage des roues
 
 // --- Cible articulée à l'avant du coulisseau, verrouillée d'équerre quand elle est relevée ---
@@ -109,8 +110,8 @@ ear_r     = 4;
 knuckle_w = 7;     // charnons de la cible
 knuckle_r = 3.5;
 hinge_d   = 3.4;   // lumière des charnons, pour la moitié lisse de la goupille Ø3
-ear_d     = 2.95;  // trou des oreilles, hexagonal (cote sur plats) : il serre sans colle une goupille Ø3 × 12, lisse
-                   // ou cannelée. La moitié de la goupille prise dans l'oreille ne bouge plus, l'autre sert d'axe à la cible.
+ear_d     = 2.95;  // trou des oreilles, hexagonal (cote sur plats) : il serre sans colle le bout moleté (ou cannelé) d'une
+                   // goupille Ø3 × 12. La moitié de la goupille prise dans l'oreille ne bouge plus, l'autre sert d'axe à la cible.
                    // Les lumières des charnons sont borgnes côté intérieur : la goupille ne peut pas non plus rentrer.
 lift      = 5.5;   // course de soulèvement pour déverrouiller
 lip_z     = 6.5;   // sommet de la lèvre, au-dessus du dessous du coulisseau

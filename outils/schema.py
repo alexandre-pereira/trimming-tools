@@ -174,17 +174,17 @@ def p_roue():
 
 
 def p_poulie():
-    P = [(tube((0, -82, 0), Y, 40, 5, n=20), ACIER),                               # goupille Ø5 × 40
+    P = [(np.concatenate([tube((0, -82, 0), Y, 40, 5, n=20), tube((0, -82, 0), Y, 3.5, 5.6, n=20)]), ACIER),   # goupille Ø5 × 40 et son bout moleté
          (box((-9, -30, -9), (9, -22, 9)), BLEU),                                  # joue du socle
          (tube((0, -8, 0), Y, 3.3, 8, 5.3), BLANC),
          (tube((0, 10, 0), Y, 5, 16, 5), ACIER),                                   # roulement 625
          (tube((0, 30, 0), Y, 10, 25, 16.2), GRIS),                                # poulie
          (tube((0, 56, 0), Y, 3.3, 8, 5.3), BLANC),
          (box((-9, 72, -9), (9, 80, 9)), BLEU)]
-    L = [((0, -60, -2.5), "goupille cylindrique lisse Ø5 h8 × 40 : emmanchée dans\nles deux joues, elle reste 5 mm en retrait de chaque flanc", -215, 175),
-         ((0, -26, 9), "joue du socle,\npercée à 4,8", -60, -90),
+    L = [((0, -60, -2.5), "goupille Ø5 × 40, moletée à un bout : emmanchée dans les deux\njoues, bout lisse en premier, 5 mm en retrait de chaque flanc", -215, 175),
+         ((0, -26, 9), "joue du socle : trou à six pans\nde 4,95 sur plats", -60, -90),
          ((0, -6, -4), "entretoise imprimée", -60, 150),
-         ((0, 12.5, 8), "roulement 625ZZ (5 × 16 × 5), à emmancher\ndans la poulie ; il glisse sur la goupille", -110, -160),
+         ((0, 12.5, 8), "roulement 625ZZ (5 × 16 × 5), à emmancher\ndans la poulie ; il glisse sur la partie lisse", -110, -160),
          ((0, 35, -12.5), "poulie imprimée Ø25", -40, 110),
          ((0, 58, 4), "entretoise imprimée", -20, -130),
          ((0, 76, -9), "joue du socle", -20, 80)]
@@ -225,13 +225,13 @@ def p_axe():
 def p_charniere():
     slot = np.concatenate([tube((0, 6, 0), Y, 7, 7, 3.4), tube((0, 6, -5.5), Y, 7, 7, 3.4), box((-3.5, 6, -5.5), (3.5, 13, 0)),
                            box((-3.5, 6, -9), (-0.5, 13, 40))])
-    P = [(tube((0, -34, 0), Y, 12, 3, n=20), ACIER),
+    P = [(np.concatenate([tube((0, -34, 0), Y, 12, 3, n=20), tube((0, -34, 0), Y, 3.5, 3.5, n=20)]), ACIER),   # goupille Ø3 × 12 et son bout moleté
          (np.concatenate([box((-4, -10, -12), (4, -4, 0)), tube((0, -10, 0), Y, 6, 8, 2.9)]), BLEU2),
          (slot, BLANC)]
-    L = [((0, -28, 1.5), "goupille Ø3 × 12, lisse ou cannelée :\nune moitié est serrée dans l'oreille,\nl'autre sert d'axe", -60, -120),
-         ((0, -7, -8), "oreille du coulisseau : son trou à six pans\nserre la goupille, sans colle", -230, 80),
+    L = [((0, -28, 1.5), "goupille Ø3 × 12, moletée à un bout :\nce bout est serré dans l'oreille,\nla partie lisse sert d'axe", -60, -120),
+         ((0, -7, -8), "oreille du coulisseau : son trou à six pans\nserre le bout moleté, sans colle", -230, 80),
          ((-2, 10, 25), "cible", 60, -40),
-         ((2, 13, -3), "charnon à lumière borgne : la cible tourne\net coulisse sur la moitié lisse ;\nla goupille ne peut ni sortir ni rentrer", 60, 40)]
+         ((2, 13, -3), "charnon à lumière borgne : la cible tourne\net coulisse sur la partie lisse ;\nla goupille ne peut ni sortir ni rentrer", 60, 40)]
     return panel("D — Charnière de la cible (×2)", P, L, -30, 16, margin=130, axes=[((0, -40, 0), (0, 20, 0))])
 
 
@@ -363,9 +363,9 @@ if __name__ == "__main__":
     d.text((lx, y + 20), "Visserie et pièces achetées", font=f_tit, fill=(0, 0, 0))
     lines = ["A   4 roues V Ø24 × 10,2, roulements 625 inclus",
              "A   4 vis M5×25 tête bombée, 4 écrous frein M5, 4 entretoises imprimées",
-             "B   1 roulement 625ZZ, 1 goupille cylindrique Ø5 h8 × 40, 2 entretoises et 1 poulie imprimées",
+             "B   1 roulement 625ZZ, 1 goupille Ø5 × 40 moletée à un bout, 2 entretoises et 1 poulie imprimées",
              "C   1 vis CHC M5×80, 1 écrou frein M5, 2 bobines imprimées",
-             "D   2 goupilles cylindriques Ø3 × 12, lisses ou cannelées",
+             "D   2 goupilles Ø3 × 12 moletées à un bout",
              "E   cordelette de 2 mm, lest de 5 kg",
              "",
              "Ni colle ni frein-filet : écrous frein et goupilles serrées.",

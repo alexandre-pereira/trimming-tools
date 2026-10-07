@@ -38,6 +38,20 @@ puis le support du laser, dans la version de votre télémètre.
 | `bobine_tete.stl`, `bobine_ecrou.stl` | les deux bobines des élévateurs ([image](apercu/bobine_tete.png)) |
 | `entretoises_grappe.stl` | 8 petites entretoises sur une barrette, à détacher au cutter ([image](apercu/entretoises_grappe.png)) |
 
+### À imprimer d'abord : le calibre des goupilles
+
+Les goupilles tiennent par serrage dans des trous à six pans, et ce serrage se joue à quelques
+centièmes de millimètre, moins que la précision d'une imprimante. `calibre_goupilles.stl`
+([image](apercu/calibre_goupilles.png)) porte les mêmes trous en huit cotes, de 4,85 à 5,20 mm
+et de 2,85 à 3,20 mm ; le nombre gravé au-dessus de chacun est sa cote en centièmes
+(295 = 2,95 mm).
+
+Imprimez-le sur la même imprimante et dans la même matière que le banc, puis enfoncez-y vos
+goupilles à fond, le bout lisse en premier. Repérez le plus grand trou d'où la goupille ne
+ressort pas à la main, et retenez la cote juste en dessous. Le modèle est tracé pour 4,95 et 2,95 :
+si vous trouvez autre chose, reportez vos deux cotes dans `axle_d` et `ear_d` de
+`scad/banc.scad` et regénérez le socle et le chariot.
+
 ### Le support du laser, à la taille de votre télémètre
 
 Même pièce ([l'encoche](apercu/support_laser_encoche.png), [vue de dessous](apercu/support_laser_bec.png)),
@@ -75,15 +89,16 @@ latéraux.
 **PETG**, 4 périmètres, 25 % de remplissage, cible en blanc mat. Pas de PLA : il se déforme
 dans une voiture au soleil.
 
-Si vous faites imprimer chez [JLC3DP](https://jlc3dp.com/3d-printing-quote) : socle et cible
-en **résine SLA 9000HE** blanche, tout le reste en **nylon SLS 3201PA-F**. Comptez ≈ 30 $ de
-pièces et ≈ 10 $ de port. Les pièces qui serrent des goupilles ou tirent sur une suspente
-(chariot, support du laser) ne doivent pas être en résine.
+Si vous faites imprimer chez [JLC3DP](https://jlc3dp.com/3d-printing-quote) : tout en
+**nylon SLS 3201PA-F**, sauf la cible en **résine SLA 9000HE** blanche. Comptez ≈ 44 $ de
+pièces pour le banc et ≈ 10 $ de port. Les pièces qui serrent des goupilles ou tirent sur
+une suspente (socle, chariot, support du laser) ne doivent pas être en résine : elle casse
+au lieu de plier.
 
 ## Ce qu'il faut acheter
 
-Tout sur AliExpress, chez des vendeurs notés. Prix lus le 5 octobre 2026 ; vérifiez la
-variante cochée avant de payer.
+Tout sur AliExpress, chez des vendeurs notés. Prix lus le 5 octobre 2026 (goupilles : le 8) ;
+vérifiez la variante cochée avant de payer.
 
 | Pièce | Variante à cocher | Il en faut | Prix | Lien |
 |---|---|---|---|---|
@@ -91,28 +106,34 @@ variante cochée avant de payer.
 | Vis M5 × 25 tête bombée | « 10Pcs M5x25 » | 4 sur 10 | 4,29 € | [annonce](https://fr.aliexpress.com/item/32850409234.html) |
 | Écrous frein M5 (bague nylon) | « M5 X 50pcs » | 5 sur 50 | 3,39 € | [annonce](https://fr.aliexpress.com/item/1005002375633274.html) |
 | Vis M5 × 80 tête cylindrique | « M5 10 pièces », puis « 80 mm » | 1 sur 10 | 5,09 € | [annonce](https://fr.aliexpress.com/item/32968483467.html) |
-| Goupille Ø 5 × 40 (axe de la poulie) | « M5 10pcs », puis « 40mm » | 1 sur 10 | ≈ 1,50 € | [annonce](https://fr.aliexpress.com/item/1005004143852668.html) |
-| Goupilles Ø 3 × 12 (charnière de la cible) | « M3 25pcs », puis « 12mm » | 2 sur 25 | ≈ 1,50 € | [même annonce](https://fr.aliexpress.com/item/1005004143852668.html) |
+| Goupille moletée Ø 5 × 40 (axe de la poulie) | « M5-5pcs », puis « 40mm » | 1 sur 5 | 2,11 € | [annonce](https://fr.aliexpress.com/item/1005007894767899.html) |
+| Goupilles moletées Ø 3 × 12 (charnière de la cible) | « M3-10pcs », puis « 12 mm » | 2 sur 10 | 1,02 € | [même annonce](https://fr.aliexpress.com/item/1005007894767899.html) |
 | Cordelette 2 mm | « 10 meters » | 1,5 m | 1,62 € | [annonce](https://fr.aliexpress.com/item/1005011930498059.html) |
 
 **≈ 27 € port compris.** Le roulement de la poulie se récupère sur la cinquième roue, le lest
 est votre poche à eau, et il n'y a ni colle ni frein-filet. Le laser n'est pas compté : un
 télémètre Bluetooth de 30 m (HOTO QWCJY001 ou équivalent) vaut 30 à 40 €.
 
+Les goupilles sont lisses, sauf un bout moleté de 3,5 mm, plus gros de 0,1 mm : c'est lui qui
+mord dans le plastique et retient la goupille. Une goupille entièrement lisse ne tiendrait
+que si le trou sort de l'imprimante à quelques centièmes près.
+
 ## Montage
 
 Le schéma complet, avec la visserie : [schema_montage.png](apercu/schema_montage.png).
 
 1. **Poulie** : sortez un roulement d'une roue en trop, emmanchez-le dans la poulie. Posez la
-   poulie dans sa fente avec une entretoise de chaque côté et enfoncez la goupille Ø 5 à
-   travers les deux crochets, jusqu'à ce qu'elle soit en retrait des flancs.
+   poulie dans sa fente avec une entretoise de chaque côté et enfoncez la goupille Ø 5, le
+   bout lisse en premier, à travers les deux crochets, jusqu'à ce qu'elle soit en retrait des
+   flancs.
 2. **Roues** : un écrou frein dans chacun des 4 logements du chariot, puis pour chaque roue
    une vis M5 × 25 par le dessous, à travers la roue et une entretoise.
 3. **Jeu** : serrez le côté fixe, poussez les deux autres roues au fond de leur rainure (trous
    oblongs), serrez. Le chariot doit rouler tout seul quand on incline le socle.
 4. **Bobines** : sur la vis M5 × 80, une bobine, la nervure du chariot, l'autre bobine, l'écrou
    frein dans le chapeau. On n'y touche plus.
-5. **Cible** : entre les oreilles du chariot, une goupille Ø 3 de chaque côté, enfoncée à ras.
+5. **Cible** : entre les oreilles du chariot, une goupille Ø 3 de chaque côté, le bout lisse
+   en premier, enfoncée à ras : le bout moleté reste dans l'oreille.
 6. **Cordelette** : nœud en huit dans le puits derrière la cible ; le brin file dans le canal
    du socle, passe sur la poulie et se noue à la poignée de la poche. Pesez la poche pleine à
    **5,00 kg**.

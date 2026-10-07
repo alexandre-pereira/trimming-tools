@@ -38,6 +38,20 @@ then the laser holder, in the version for your distance meter.
 | `bobine_tete.stl`, `bobine_ecrou.stl` | the two riser spools ([image](apercu/bobine_tete.png)) |
 | `entretoises_grappe.stl` | 8 small spacers on a sprue, to cut off with a craft knife ([image](apercu/entretoises_grappe.png)) |
 
+### Print this first: the pin gauge
+
+The pins are held by a press fit in hexagonal holes, and that fit is a matter of a few
+hundredths of a millimetre, less than the accuracy of a printer. `calibre_goupilles.stl`
+([image](apercu/calibre_goupilles.png)) carries the same holes in eight sizes, from 4.85 to
+5.20 mm and from 2.85 to 3.20 mm; the number engraved above each hole is its size in
+hundredths (295 = 2.95 mm).
+
+Print it on the same printer and in the same material as the bench, then push your pins all
+the way in, smooth end first. Find the largest hole the pin cannot be pulled out of by hand,
+and keep the size just below it. The model is drawn for 4.95 and 2.95: if you find something
+else, enter your two sizes as `axle_d` and `ear_d` in `scad/banc.scad` and regenerate the
+base and the carriage.
+
 ### The laser holder, sized for your distance meter
 
 Same part ([the notch](apercu/support_laser_encoche.png), [seen from below](apercu/support_laser_bec.png)),
@@ -75,15 +89,15 @@ buttons.
 **PETG**, 4 perimeters, 25 % infill, target in matt white. No PLA: it warps in a car left in
 the sun.
 
-If you have it printed by [JLC3DP](https://jlc3dp.com/3d-printing-quote): base and target in
-white **SLA 9000HE resin**, everything else in **SLS 3201PA-F nylon**. Allow ≈ $30 for the
-parts and ≈ $10 for shipping. The parts that grip pins or pull on a line (carriage, laser
-holder) must not be in resin.
+If you have it printed by [JLC3DP](https://jlc3dp.com/3d-printing-quote): everything in
+**SLS 3201PA-F nylon**, except the target in white **SLA 9000HE resin**. Allow ≈ $44 for the
+parts of the bench and ≈ $10 for shipping. The parts that grip pins or pull on a line (base,
+carriage, laser holder) must not be in resin: it breaks instead of bending.
 
 ## What to buy
 
-Everything on AliExpress, from rated sellers. Prices read on 5 October 2026; check the
-selected variant before paying. The variant names are those shown on the listings.
+Everything on AliExpress, from rated sellers. Prices read on 5 October 2026 (pins: on the
+8th); check the selected variant before paying. The variant names are those shown on the listings.
 
 | Part | Variant to select | You need | Price | Link |
 |---|---|---|---|---|
@@ -91,28 +105,33 @@ selected variant before paying. The variant names are those shown on the listing
 | M5 × 25 button head screws | “10Pcs M5x25” | 4 of 10 | €4.29 | [listing](https://fr.aliexpress.com/item/32850409234.html) |
 | M5 lock nuts (nylon insert) | “M5 X 50pcs” | 5 of 50 | €3.39 | [listing](https://fr.aliexpress.com/item/1005002375633274.html) |
 | M5 × 80 socket head cap screw | “M5 10 pièces” (10 pieces), then “80 mm” | 1 of 10 | €5.09 | [listing](https://fr.aliexpress.com/item/32968483467.html) |
-| Ø 5 × 40 pin (pulley axle) | “M5 10pcs”, then “40mm” | 1 of 10 | ≈ €1.50 | [listing](https://fr.aliexpress.com/item/1005004143852668.html) |
-| Ø 3 × 12 pins (target hinge) | “M3 25pcs”, then “12mm” | 2 of 25 | ≈ €1.50 | [same listing](https://fr.aliexpress.com/item/1005004143852668.html) |
+| Ø 5 × 40 knurled pin (pulley axle) | “M5-5pcs”, then “40mm” | 1 of 5 | €2.11 | [listing](https://fr.aliexpress.com/item/1005007894767899.html) |
+| Ø 3 × 12 knurled pins (target hinge) | “M3-10pcs”, then “12 mm” | 2 of 10 | €1.02 | [same listing](https://fr.aliexpress.com/item/1005007894767899.html) |
 | 2 mm cord | “10 meters” | 1.5 m | €1.62 | [listing](https://fr.aliexpress.com/item/1005011930498059.html) |
 
 **≈ €27 including shipping.** The pulley bearing is taken from the fifth wheel, the weight is
 your water bag, and there is no glue and no threadlocker. The laser is not counted: a 30 m
 Bluetooth distance meter (HOTO QWCJY001 or equivalent) costs €30 to €40.
 
+The pins are smooth, except for a 3.5 mm knurled end that is 0.1 mm larger: that end bites
+into the plastic and holds the pin. A fully smooth pin would only hold if the hole came out
+of the printer within a few hundredths of a millimetre.
+
 ## Assembly
 
 The full diagram, with the hardware (labels in French): [schema_montage.png](apercu/schema_montage.png).
 
 1. **Pulley**: take a bearing out of a spare wheel and press it into the pulley. Place the
-   pulley in its slot with a spacer on each side and push the Ø 5 pin through both hooks,
-   until it sits below the surface of the sides.
+   pulley in its slot with a spacer on each side and push the Ø 5 pin, smooth end first,
+   through both hooks, until it sits below the surface of the sides.
 2. **Wheels**: a lock nut in each of the 4 pockets of the carriage, then for each wheel an
    M5 × 25 screw from underneath, through the wheel and a spacer.
 3. **Play**: tighten the fixed side, push the two other wheels to the bottom of their groove
    (slotted holes), tighten. The carriage must roll by itself when you tilt the base.
 4. **Spools**: on the M5 × 80 screw, one spool, the rib of the carriage, the other spool, the
    lock nut in the cap. Leave it alone from then on.
-5. **Target**: between the lugs of the carriage, a Ø 3 pin on each side, pushed in flush.
+5. **Target**: between the lugs of the carriage, a Ø 3 pin on each side, smooth end first,
+   pushed in flush: the knurled end stays in the lug.
 6. **Cord**: figure-eight knot in the well behind the target; the cord runs in the channel of
    the base, goes over the pulley and is tied to the handle of the bag. Weigh the full bag at
    **5.00 kg**.

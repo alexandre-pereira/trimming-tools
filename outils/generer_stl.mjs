@@ -46,6 +46,15 @@ if (mode === "all" || mode === "print") {
     console.log(p, JSON.stringify(stats(stl)), log.filter(l => /warn|error/i.test(l)).join(" | "));
   }
 }
+if (mode === "all" || mode === "print" || mode === "calibre") {
+  // la barrette d'essai des goupilles, à imprimer avant le banc
+  const { stl, log } = await render("calibre_goupilles.scad", {});
+  if (!stl) console.log("calibre_goupilles ECHEC", log.join("\n"));
+  else {
+    fs.writeFileSync(path.join(outPrint, "calibre_goupilles.stl"), stl);
+    console.log("calibre_goupilles", JSON.stringify(stats(stl)), log.filter(l => /warn|error/i.test(l)).join(" | "));
+  }
+}
 if (mode === "all" || mode === "print" || mode === "lasers") {
   // un support par télémètre de la liste outils/lasers.json (cotes constructeur ; le jeu est dans le .scad)
   const lasers = JSON.parse(fs.readFileSync("c:/Users/alexa/banc3d/outils/lasers.json", "utf8"));

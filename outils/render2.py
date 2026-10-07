@@ -10,11 +10,12 @@ C = {"socle": (40, 120, 235), "coulisseau": (70, 190, 250), "cible": (240, 240, 
      "roues": (90, 90, 95), "divers": (255, 90, 30), "table": (170, 140, 105),
      "bobines": (240, 240, 235), "elevateurs": (200, 40, 60),
      "bobine_tete": (240, 240, 235), "bobine_ecrou": (240, 240, 235), "entretoises_grappe": (240, 240, 235),
-     "support_laser": (70, 190, 250)}
+     "support_laser": (70, 190, 250), "calibre_goupilles": (240, 240, 235)}
 
 # une image par fichier STL (tel qu'il sera imprimé)
 views = {"socle": (-120, 28), "coulisseau": (-60, 32), "poulie": (-60, 35), "cible": (-60, 35),
-         "bobine_tete": (-60, 35), "bobine_ecrou": (-60, 35), "entretoises_grappe": (-60, 35)}
+         "bobine_tete": (-60, 35), "bobine_ecrou": (-60, 35), "entretoises_grappe": (-60, 35),
+         "calibre_goupilles": (-75, 40)}
 supports = sorted(f[:-4] for f in os.listdir(STL) if f.startswith("support_laser_") and f.endswith(".stl"))
 for f in os.listdir(OUT):                                   # images des versions de support qui n'existent plus
     if f.startswith("support_laser_") and f[:-4] not in supports and f[:-4] not in ("support_laser_arriere", "support_laser_bec", "support_laser_encoche"):
