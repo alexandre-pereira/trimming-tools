@@ -10,7 +10,7 @@ import markdown
 RACINE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OUT = sys.argv[1] if len(sys.argv) > 1 else os.path.join(RACINE, "_site")
 TITRE = "Banc de calage parapente"
-SOUS_TITRE = "Banc de calage des suspentes et support de télémètre laser, imprimés en 3D : 8 fichiers, 27 € de quincaillerie, une poche à eau de 5 kg."
+SOUS_TITRE = "Mesurer ses suspentes au laser, sous 5 kg, avec deux pièces imprimées en 3D : 8 fichiers, 27 € de quincaillerie, une poche à eau."
 
 STYLE = """
 :root { --bg: #f4f5f7; --surface: #ffffff; --fg: #1a2330; --muted: #5d6b7c; --line: #d7dde6; --accent: #1b5fc7; --accent-fg: #fff; --code: #eef1f5; }
@@ -62,7 +62,7 @@ def main():
     readme = open(os.path.join(RACINE, "README.md"), encoding="utf-8").read()
     # le titre de premier niveau et le tableau d'images d'entrée passent dans la bannière
     readme = re.sub(r"^# .*\n", "", readme, count=1)
-    readme = re.sub(r"\n\| Le banc en service \|.*?\n\n", "\n\n", readme, count=1, flags=re.S)   # le tableau d'images d'entrée est remplacé par la bannière
+    readme = re.sub(r"\n\| Le banc, [^\n]*\n\|---[^\n]*\n\|[^\n]*\n", "\n\n", readme, count=1, flags=re.S)   # le tableau d'images d'entrée est remplacé par la bannière
     corps = markdown.markdown(readme, extensions=["tables", "fenced_code", "toc", "sane_lists"],
                               extension_configs={"toc": {"toc_depth": "2"}})
     corps = corps.replace("<table>", '<div class="scroll"><table>').replace("</table>", "</table></div>")
@@ -98,9 +98,9 @@ def main():
 <h1>{TITRE}</h1>
 <p>{html.escape(SOUS_TITRE)}</p>
 <div class="vues">
-<figure><img src="apercu/banc_ouvert_avant.png" alt="Le banc en service, vu du côté de la voile"><figcaption>Le banc en service</figcaption></figure>
+<figure><img src="apercu/banc_ouvert_avant.png" alt="Le banc en service, vu du côté de la voile"><figcaption>Le banc, suspente tendue</figcaption></figure>
 <figure><img src="apercu/banc_plie.png" alt="Le banc plié pour le transport"><figcaption>Plié : 164 × 93 × 52 mm</figcaption></figure>
-<figure><img src="apercu/support_laser_arriere.png" alt="Le support du télémètre laser"><figcaption>Le support du laser, à vos cotes</figcaption></figure>
+<figure><img src="apercu/support_laser_encoche.png" alt="Le support du télémètre laser, avec l'encoche de la suspente sous l'avant"><figcaption>Le support du laser et son encoche</figcaption></figure>
 </div>
 </div></header>
 <div class="page">
