@@ -91,6 +91,28 @@ Le schéma complet, avec la visserie : [schema_montage.png](apercu/schema_montag
 Réglez la cordelette pour que la poche touche le sol quand la suspente est molle, et décolle
 dès qu'on tire.
 
+## Régler l'offset dans l'outil de calage
+
+Le laser réglé pour mesurer **depuis sa face avant**, la lecture est la distance entre le
+laser et la cible. Sur le banc, le centre de la boucle d'élévateur (l'axe de la bobine) est
+21 mm derrière la cible, et la boucle de la suspente bute 8,5 mm derrière la face avant du
+laser. Donc :
+
+**longueur de la suspente, élévateur compris = lecture + 30 mm + boucle d'attache**
+
+La « boucle d'attache », c'est la partie de la suspente qui dépasse du bec, jusqu'au bout de
+la boucle : 10 à 20 mm selon la voile, à mesurer une fois au réglet. Offset à saisir dans
+l'outil, typiquement **40 à 50 mm**.
+
+- Les constructeurs donnent le plus souvent les longueurs élévateur compris, du centre de la
+  boucle de mousqueton à la patte d'attache sur la voile, sous 5 kg : c'est ce que mesure le
+  banc, la bobine jouant le rôle du mousqueton. Si vos valeurs de référence sont données sans
+  élévateurs (depuis les maillons), retirez la longueur de l'élévateur, indiquée dessus.
+  Vérifiez la convention dans la fiche de contrôle de votre voile.
+- Pour contrôler l'offset : mesurez une suspente au mètre ruban acier selon la méthode du
+  constructeur, et comparez à la lecture du laser au même moment.
+- Si le laser mesure depuis sa face arrière, retirez la longueur du laser de l'offset.
+
 ## Pour aller plus loin
 
 - [NOTES.md](https://github.com/alexandre-pereira/trimming-tools/blob/main/NOTES.md) : les

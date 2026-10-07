@@ -138,7 +138,10 @@ bec : sous 5 kg, la suspente reste dans l'axe du faisceau. Vues : [impression](a
   L'encoche fait 3 mm de large (`slit_w`), avec une entrée en V et un fond rond : toutes les
   suspentes passent, la patte d'attache ou son nœud non.
 - **Constante** : la patte bute sur la face arrière de la bande, 9 mm derrière la face avant
-  du bec, elle-même au ras de la face avant du télémètre (au jeu près). En réglant le
+  du bec, elle-même 0,5 mm (le jeu `fit`) devant la face avant du télémètre : 8,5 mm entre
+  la face avant du télémètre et la butée de la boucle. Côté banc, la face visée de la cible
+  (`sl_front + tg_t` = 51) est 21 mm derrière l'axe des bobines (`sl_front + pin_x` = 72).
+  D'où l'offset théorique de 30 mm, plus la boucle d'attache, détaillé dans le README. En réglant le
   télémètre sur « mesure depuis l'avant », la longueur vaut donc lecture + 9 mm ; sinon
   l'étalonnage de K (plus bas) absorbe tout.
 - Deux rainures pour un élastique qui tient le télémètre, un trou de dragonne dans la face
