@@ -119,5 +119,5 @@ l'outil, typiquement **40 à 50 mm**.
   choix de conception, les cotes, les prix relevés, les variantes écartées et ce qui a été
   vérifié.
 - Les modèles OpenSCAD sont dans `scad/`, les scripts qui regénèrent STL, images et ce site
-  dans `outils/`. Dépôt : <https://github.com/alexandre-pereira/trimming-tools>.
+  dans `outils/`. Dépôt : <https://github.com/alexandre-pereira/trimming-tools>, site : <https://trimming-tools.weflare.fr>.
 - Rien n'a encore été imprimé ni essayé sous charge : c'est un modèle, pas un produit testé.
