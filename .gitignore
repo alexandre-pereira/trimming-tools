@@ -1,0 +1,10 @@
+# dépendances et résultats intermédiaires des outils
+outils/node_modules/
+outils/asm/
+outils/asm_plie/
+outils/*.log
+outils/__pycache__/
+*.log
+
+# site construit localement (GitHub Actions le reconstruit)
+_site/
