@@ -567,9 +567,10 @@ Par ordre d'intérêt ; aucune n'est faite.
 
 ## Le dépôt et le site
 
-Ce dossier est un dépôt git public : `scad/` (modèles), `stl/` (fichiers à imprimer),
-`apercu/` (images et schémas), `outils/` (scripts qui produisent les STL, les images et le
-site).
+Ce dossier est le dépôt public <https://github.com/alexandre-pereira/trim-tools-3d> :
+`scad/` (modèles), `stl/` (fichiers à imprimer), `apercu/` (images et schémas), `outils/`
+(scripts qui produisent les STL, les images et le site). Le site est publié sur
+<https://alexandre-pereira.github.io/trim-tools-3d/>.
 
 Le site de présentation est construit à partir de ce fichier par `outils/site.py` : il
 reprend ces sections, les images et propose les STL au téléchargement. GitHub Actions le
