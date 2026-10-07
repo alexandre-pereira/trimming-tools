@@ -93,19 +93,15 @@ Deux variantes plus courtes ont été essayées puis écartées :
 |---|---|---|---|
 | `socle.stl` | socle, butées, crochets de table, logement de la poulie, canal de la cordelette | [image](apercu/socle.png) | 101 cm³ |
 | `coulisseau.stl` | plaque mobile, couloirs des élévateurs, lèvre de verrouillage, oreilles de charnière | [image](apercu/coulisseau.png) | 58 cm³ |
-| `petites_pieces.stl` | les 2 bobines à chapeau des élévateurs + 8 entretoises | [image](apercu/petites_pieces.png) | 4 cm³ |
 | `poulie.stl` | poulie Ø25, avec le logement du roulement 625 | [image](apercu/poulie.png) | 2 cm³ |
 | `cible.stl` | cible articulée 84 × 101, avec mire gravée | [image](apercu/cible.png) | 25 cm³ |
-| `support_laser.stl` | support du télémètre, côté voile, avec son bec à encoche | [image](apercu/support_laser.png), [en service](apercu/support_laser_arriere.png) | 21 cm³ |
-
-Pour un service d'impression, qui veut une seule pièce par fichier et refuse les pièces
-minuscules, trois fichiers remplacent `petites_pieces.stl` :
-
-| Fichier | Pièce | Aperçu | Volume |
-|---|---|---|---|
 | `bobine_tete.stl` | bobine dont le chapeau loge la tête de vis | [image](apercu/bobine_tete.png) | 2 cm³ |
 | `bobine_ecrou.stl` | bobine dont le chapeau loge l'écrou frein | [image](apercu/bobine_ecrou.png) | 2 cm³ |
-| `entretoises_grappe.stl` | les 8 entretoises réunies par une barrette, à détacher au cutter | [image](apercu/entretoises_grappe.png) | 1 cm³ |
+| `entretoises_grappe.stl` | les 8 entretoises (4 pour les roues, 2 pour la poulie, 2 de rechange) réunies par une barrette, à détacher au cutter | [image](apercu/entretoises_grappe.png) | 1 cm³ |
+| `support_laser.stl` | support du télémètre, côté voile, avec son bec à encoche | [image](apercu/support_laser.png), [en service](apercu/support_laser_arriere.png) | 21 cm³ |
+
+Une pièce par fichier, chaque fichier à imprimer une fois ; seules les entretoises sont
+groupées, parce qu'un service d'impression refuse les pièces minuscules.
 
 Toutes sortent orientées pour l'impression, sans support : socle dessus contre le plateau,
 coulisseau dessous contre le plateau, cible dos contre le plateau, poulie à plat, bobines
@@ -167,7 +163,7 @@ Prix indicatifs relevés en ligne ou estimés ; à vérifier au moment de la com
 | Lest de 5 kg | 1 / — | 0 € | votre poche à eau, ou un bidon d'eau de 5 L à poignée |
 | Sangle velcro 20 mm | — | 0 € | fonds de tiroir |
 | **Visserie d'un banc** | | **≈ 3 €, hors port** | |
-| Impression des 5 fichiers (≈ 190 cm³, ≈ 120 g de PETG ; plus grande pièce 164 × 80 × 31 mm) | 1 / 10 | 5–25 € | fablab, ou [devis JLC3DP](https://jlc3dp.com/3d-printing-quote) |
+| Impression des 8 fichiers (≈ 210 cm³, ≈ 130 g de PETG ; plus grande pièce 164 × 80 × 31 mm) | 1 / 10 | 5–25 € | fablab, ou [devis JLC3DP](https://jlc3dp.com/3d-printing-quote) |
 | Télémètre Bluetooth HOTO QWCJY001, 99,5 × 44,1 × 23,3 mm, 30 m, ±2 mm | 1 | 35–39 € | [ulen.eu](https://ulen.eu/fr/product/hoto-qwcjy001-telemetre-laser-bluetooth/), [domotique-store.fr](https://www.domotique-store.fr/maison/outillage/4240-metre-laser-intelligent-bluetooth-hoto-qwcjy001.html), [AliExpress](https://www.aliexpress.com/i/1005002004493544.html) |
 
 Prix relevés sur les pages produit le 4 octobre 2026 ; les frais de port ne sont pas vérifiés.
@@ -185,7 +181,7 @@ Ce qui a fait baisser la facture :
   main ou avec une vis.
 - **L'axe de poulie est une simple goupille lisse**, sans vis ni écrou.
 - **Plus aucune rondelle à acheter** : les rondelles M5 sont remplacées par 6 entretoises
-  imprimées (4 pour les roues, 2 pour la poulie), fournies dans `petites_pieces.stl` avec
+  imprimées (4 pour les roues, 2 pour la poulie), fournies dans `entretoises_grappe.stl` avec
   deux de rechange ; la
   rondelle M4 du nœud est supprimée.
 - **Charnière sur deux goupilles**, sans vis ni écrou, et **bobines sans rondelle**.
@@ -371,8 +367,7 @@ Pour obtenir le devis :
 
 1. Créer un compte sur [jlc3dp.com/3d-printing-quote](https://jlc3dp.com/3d-printing-quote)
    (c'est le compte JLCPCB).
-2. Déposer les 8 fichiers STL ci-dessus (formats acceptés : STL, STEP, OBJ, 3MF), en
-   millimètres. Ne pas déposer `petites_pieces.stl`, qui contient plusieurs pièces.
+2. Déposer les 8 fichiers STL (formats acceptés : STL, STEP, OBJ, 3MF), en millimètres.
 3. Pour chaque fichier, choisir le procédé, la matière, la couleur et la quantité.
 4. Le prix s'affiche aussitôt, pièce par pièce ; changer de matière le met à jour.
 5. Ajouter au panier, choisir la livraison (c'est elle qui pèse le plus sur une petite
@@ -407,14 +402,14 @@ lest ne sont pas comptés : chacun utilise le sien.
 | Sangle velcro 20 mm | 10 | magasin de bricolage | ≈ 8 € |
 | **Quincaillerie pour 10 bancs** | | | **≈ 60–100 €** |
 
-### Où faire imprimer 50 pièces (≈ 1,2 kg de PETG par lot)
+### Où faire imprimer 80 pièces (≈ 1,3 kg de PETG par lot)
 
 - **Votre propre imprimante** : c'est le bon choix à ce volume. Le filament revient à
   ≈ 30 € par lot (≈ 2,5 centimes le gramme en Europe), soit 3 € par banc ;
   compter une dizaine d'heures d'impression par banc. Les plus grandes pièces mesurent
   164 × 80 mm (socle) et 130 × 85 mm (coulisseau) : un plateau de 180 mm suffit. Une imprimante d'entrée de gamme est amortie dès
   le deuxième ou le troisième lot par rapport à un service.
-- **JLC3DP** (Chine) : devis instantané en déposant les 5 STL en quantité 10. Les services
+- **JLC3DP** (Chine) : devis instantané en déposant les 8 STL en quantité 10. Les services
   d'impression à dépôt de fil facturent typiquement 0,05 à 0,15 $ le gramme plus des frais
   par pièce ; à ce tarif, compter 100 à 250 € par lot, port et TVA compris, et deux à trois
   semaines. À confirmer par le devis.

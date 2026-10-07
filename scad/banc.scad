@@ -13,8 +13,7 @@
 //  dessus de la table en z = 0. La poche à eau pend en x < 0.
 // ============================================================
 
-part = "assemblage";   // socle | coulisseau | poulie | cible | petites_pieces | assemblage
-                       // pour un service d'impression (une pièce par fichier) : bobine_tete | bobine_ecrou | entretoises_grappe
+part = "assemblage";   // socle | coulisseau | poulie | cible | bobine_tete | bobine_ecrou | entretoises_grappe | assemblage
 plie = false;          // assemblage : true = cible rabattue, coulisseau en butée arrière (transport)
 alleg = true;          // socle et coulisseau évidés : un cinquième de matière en moins, donc moins cher chez un imprimeur
 
@@ -40,7 +39,7 @@ wheel_px   = 30;     // entraxe longitudinal des roues. Chaque mm d'entraxe en m
 spacer_h   = 2.7;    // entretoise imprimée entre la roue et le coulisseau.
                      // Vis M5×25 : 11 (roue) + 2,7 (entretoise) + 5,3 (matière sous l'écrou) = 19 ; l'écrou frein (5 mm)
                      // va de 19 à 24, la vis le dépasse de 1 mm (bague nylon en prise) et reste sous le dessus du coulisseau.
-n_spacer   = 8;      // entretoises dans petites_pieces (4 pour les roues, 2 pour la poulie, 2 de rechange)
+n_spacer   = 8;      // entretoises dans la grappe (4 pour les roues, 2 pour la poulie, 2 de rechange)
 groove_flat  = 5.0;  // fond de la rainure du socle, plus étroit que le méplat :
 groove_depth = 3.0;  // la roue porte sur ses chanfreins, pas sur le fond
 
@@ -394,12 +393,8 @@ if (part == "socle")            translate([0, 0, T]) rotate([180, 0, 0]) socle()
 else if (part == "coulisseau")  coulisseau();                                       // dessous sur le plateau
 else if (part == "poulie")      poulie();
 else if (part == "cible")       rotate([0, -90, 0]) cible();                        // dos sur le plateau
-else if (part == "petites_pieces") {                                                 // 2 bobines + entretoises (2 de rechange)
-    bobine(ecrou = false); translate([bob_fl + 4, 0, 0]) bobine(ecrou = true);
-    for (i = [0 : n_spacer/2 - 1], j = [0, 1]) translate([i*12 - 9, -16 - j*12, 0]) entretoise();
-}
-// Variantes pour un service d'impression, qui veut une seule pièce par fichier et refuse les pièces minuscules :
-// les deux bobines séparées, et les 8 entretoises réunies en grappe par une barrette à couper au cutter.
+// Une pièce par fichier : les deux bobines séparées, et les 8 entretoises réunies en grappe par une barrette
+// à couper au cutter (un service d'impression refuse les pièces minuscules).
 else if (part == "bobine_tete")   bobine(ecrou = false);
 else if (part == "bobine_ecrou")  bobine(ecrou = true);
 else if (part == "entretoises_grappe") {

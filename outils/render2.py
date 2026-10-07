@@ -8,13 +8,13 @@ STL = "c:/Users/alexa/banc3d/stl/"
 os.makedirs(OUT, exist_ok=True)
 C = {"socle": (40, 120, 235), "coulisseau": (70, 190, 250), "cible": (240, 240, 235), "poulie": (225, 225, 225),
      "roues": (90, 90, 95), "divers": (255, 90, 30), "table": (170, 140, 105),
-     "bobines": (240, 240, 235), "petites_pieces": (240, 240, 235), "elevateurs": (200, 40, 60),
+     "bobines": (240, 240, 235), "elevateurs": (200, 40, 60),
      "bobine_tete": (240, 240, 235), "bobine_ecrou": (240, 240, 235), "entretoises_grappe": (240, 240, 235),
      "support_laser": (70, 190, 250)}
 
 # une image par fichier STL (tel qu'il sera imprimé)
 views = {"socle": (-120, 28), "coulisseau": (-60, 32), "poulie": (-60, 35), "cible": (-60, 35),
-         "petites_pieces": (-60, 35), "bobine_tete": (-60, 35), "bobine_ecrou": (-60, 35), "entretoises_grappe": (-60, 35),
+         "bobine_tete": (-60, 35), "bobine_ecrou": (-60, 35), "entretoises_grappe": (-60, 35),
          "support_laser": (-55, 30)}
 for name, (az, el) in views.items():
     render([(load(STL + name + ".stl"), C[name])], az, el, OUT + name + ".png", W=1200, H=850,

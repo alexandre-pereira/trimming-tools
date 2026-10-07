@@ -39,7 +39,7 @@ async function render(file, defs) {
 
 const mode = process.argv[2] || "all";
 if (mode === "all" || mode === "print") {
-  for (const p of ["socle", "coulisseau", "poulie", "cible", "petites_pieces", "bobine_tete", "bobine_ecrou", "entretoises_grappe"]) {
+  for (const p of ["socle", "coulisseau", "poulie", "cible", "bobine_tete", "bobine_ecrou", "entretoises_grappe"]) {
     const { stl, log } = await render("banc.scad", { part: `"${p}"` });
     if (!stl) { console.log(p, "ECHEC", log.join("\n")); continue; }
     fs.writeFileSync(path.join(outPrint, p + ".stl"), stl);
