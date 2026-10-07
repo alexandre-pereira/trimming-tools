@@ -1,0 +1,6 @@
+* text=auto
+*.stl text eol=lf
+*.scad text eol=lf
+*.py text eol=lf
+*.md text eol=lf
+*.png binary
