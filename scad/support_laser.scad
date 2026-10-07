@@ -34,7 +34,7 @@ btn_h    = 4;      // hauteur de paroi conservée sous le dégagement
 // --- Auge ---
 wall    = 3;       // parois
 floor_t = 3;       // fond
-r_ext   = 2;       // arrondi des arêtes verticales
+r_ext   = 2;       // arrondi des arêtes du dessus et de l'arête arrière du dessous (comme TEST.stl)
 
 // --- Bec et encoche (le bec reprend les 5 kg de la suspente) ---
 bec_t    = 4;      // épaisseur du bec, comme sur TEST.stl
@@ -80,10 +80,27 @@ module bec() {
     }
 }
 
+// Bloc de l'auge, arrondi comme TEST.stl : les deux arêtes du dessus (le long du faisceau) et
+// l'arête arrière du dessous. Les arêtes verticales restent vives, pour que le bec, qui prend
+// toute la largeur, affleure les flancs sans lèvre.
+module bloc() {
+    intersection() {
+        rotate([90, 0, 0]) translate([0, 0, -len]) linear_extrude(len) hull() {          // profil x-z : dessus arrondi
+            square([tray_w, H - r_ext]);
+            for (x = [r_ext, tray_w - r_ext]) translate([x, H - r_ext]) circle(r_ext);
+        }
+        rotate([90, 0, 90]) linear_extrude(tray_w) hull() {                              // profil y-z : arête arrière-dessous arrondie
+            translate([r_ext, 0]) square([len - r_ext, H]);
+            translate([0, r_ext]) square([len, H - r_ext]);
+            translate([r_ext, r_ext]) circle(r_ext);
+        }
+    }
+}
+
 module support_laser() {
     difference() {
         union() {
-            linear_extrude(H) offset(r = r_ext) offset(delta = -r_ext) square([tray_w, len]);   // bloc de l'auge
+            bloc();
             bec();
         }
         translate([wall, wall, floor_t]) cube([W, L + 1, H]);                                // logement, ouvert à l'avant
