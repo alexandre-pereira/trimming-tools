@@ -136,8 +136,8 @@ bec : sous 5 kg, la suspente reste dans l'axe du faisceau. Vues : [impression](a
   télémètre, en ne laissant que `btn_h` (4 mm) de paroi.
 - **Encoche renforcée** : le bec fait 5 mm au lieu de 4, et une bande de 4 mm d'épaisseur en
   plus court le long de ses deux bords inclinés et sous l'encoche, là où la suspente tire.
-  L'encoche a une entrée en V et un fond rond (`slit_w`, 1,2 mm : la suspente passe, la
-  patte non).
+  L'encoche fait 3 mm de large (`slit_w`), avec une entrée en V et un fond rond : toutes les
+  suspentes passent, la patte d'attache ou son nœud non.
 - **Constante** : la patte bute sur la face arrière de la bande, 9 mm derrière la face avant
   du bec, elle-même au ras de la face avant du télémètre (au jeu près). En réglant le
   télémètre sur « mesure depuis l'avant », la longueur vaut donc lecture + 9 mm ; sinon
@@ -145,8 +145,10 @@ bec : sous 5 kg, la suspente reste dans l'axe du faisceau. Vues : [impression](a
 - Deux rainures pour un élastique qui tient le télémètre, un trou de dragonne dans la face
   arrière, 21 cm³.
 
-Matière : PETG comme le reste. Chez JLC3DP, nylon 3201PA-F ; la résine convient aussi (le
-support ne serre rien), mais le bec sous tension casserait au premier choc sérieux.
+**Matière recommandée : PETG** (ou ASA) sur votre imprimante ou au fablab, 4 périmètres,
+25 % de remplissage, comme le reste du banc. Chez JLC3DP : **nylon 3201PA-F**. Pas de résine
+pour cette pièce : le bec travaille en tension et prend des chocs, et la résine casse au
+lieu de plier.
 
 ## Ce qu'il faut acheter
 
@@ -321,7 +323,7 @@ le 5 octobre 2026.
 | `socle.stl`, `coulisseau.stl` | SLS, nylon 3201PA-F | gris-noir | pièces de structure ; le nylon est tenace (35 % d'allongement) et n'a pas de sens de couche |
 | `poulie.stl`, `bobine_tete.stl`, `bobine_ecrou.stl`, `entretoises_grappe.stl` | SLS, nylon 3201PA-F | gris-noir | trop petites pour le FDM de JLC3DP (taille minimale 30 × 30 × 15 mm en ASA) |
 | `cible.stl` | SLS, nylon Precimid 1172 Pro | blanc, grain mat | elle doit être blanche et mate pour le point laser ; à 7 mm d'épaisseur, elle est aussi sous la taille minimale du FDM |
-| `support_laser.stl` | SLS, nylon 3201PA-F (ou résine 9000HE si le banc reste à l'abri) | gris-noir | le bec de l'encoche travaille en tension |
+| `support_laser.stl` | SLS, nylon 3201PA-F | gris-noir | le bec de l'encoche travaille en tension et prend des chocs : pas de résine |
 
 - **Pas de PLA** : sa tenue en température est de 65 °C, il se déforme dans une voiture au
   soleil.
@@ -565,8 +567,9 @@ Par ordre d'intérêt ; aucune n'est faite.
 
 ## Le dépôt et le site
 
-Ce dossier est un dépôt git : `scad/` (modèles), `stl/` (fichiers à imprimer), `apercu/`
-(images et schémas), `outils/` (scripts qui produisent les STL, les images et le site).
+Ce dossier est un dépôt git public : `scad/` (modèles), `stl/` (fichiers à imprimer),
+`apercu/` (images et schémas), `outils/` (scripts qui produisent les STL, les images et le
+site).
 
 Le site de présentation est construit à partir de ce fichier par `outils/site.py` : il
 reprend ces sections, les images et propose les STL au téléchargement. GitHub Actions le
