@@ -117,6 +117,28 @@ The pins are smooth, except for a 3.5 mm knurled end that is 0.1 mm larger: that
 into the plastic and holds the pin. A fully smooth pin would only hold if the hole came out
 of the printer within a few hundredths of a millimetre.
 
+### The same from Europe
+
+All the fasteners are sold singly by visseriefixations.fr (France). None of the European
+shops checked also stocks the wheels: they come from a 3D-printing shop. Prices read on 8 October 2026,
+shipping not included (it is only shown in the basket).
+
+| Part | Shop reference | You need | Price | Link |
+|---|---|---|---|---|
+| V wheels Ø 24 × 10 in POM, 5 mm bore, 625ZZ bearings fitted | set of 6 | 5 of 6 | €12.90 | [3delectroshop.fr](https://3delectroshop.fr/roulements-et-rotules/504-roulettes-v-slot-en-pom-avec-roulements-625zz.html) |
+| M5 × 25 button head screws, ISO 7380, A2 stainless | TBHC05/025A2 | 4 | €0.08 each | [visseriefixations.fr](https://www.visseriefixations.fr/vis-a-six-pans-creux/tete-bombee-hexagonale-creuse/tbhc-inox-a2-iso-7380/tbhc-m5x25-inox-a2-iso-7380.html) |
+| M5 lock nuts with nylon insert, DIN 985, A2 stainless | ECRNYL05A2 | 5 | €0.04 each | [visseriefixations.fr](https://www.visseriefixations.fr/ecrous/ecrous-autofreines/ecrou-hexagonal-autofreine-nylstop/ecrou-nylstop-inox-a2-din-985/ecrou-nylstop-m5-inox-a2-din-985-99867-99867.html) |
+| M5 × 80 socket head cap screw, DIN 912, A2 stainless, partly threaded | TCHC05/080A2PF | 1 | €0.59 | [visseriefixations.fr](https://www.visseriefixations.fr/vis-a-six-pans-creux/tete-cylindrique-hexagonale-creuse/inox-a2/tchc-inox-a2-filetage-partiel-din-912/tchc-m5x80-inox-a2-pf-din-912.html) |
+| Ø 5 × 40 plain dowel pin, ISO 2338 h8, A1 stainless (pulley axle) | GOUCYL05/040A2ISO | 1 | €0.80 | [visseriefixations.fr](https://www.visseriefixations.fr/goupilles/goupille-cylindrique-decolletee/iso-2338b-h8-inox-a1/goupille-cylindrique-rectifiee-h8-5x40-inox-a1-iso-2338b.html) |
+| Ø 3 × 12 grooved pins, DIN 1474, A1 stainless (target hinge) | GOUCANG0503/012IDI | 2 | €0.24 each | [visseriefixations.fr](https://www.visseriefixations.fr/goupilles/goupilles-cannelees-embrochables-din-1474-g05-iso-8741/inox/goupille-cannelee-g05-3x12-inox-a1-din-1474-13489-13489.html) |
+
+**Fasteners: €2.39, plus shipping; wheels: €12.90, plus shipping.** The cord is any 2 mm
+cord.
+
+The Ø 5 pin is plain from end to end here, as this shop has no grooved pin in 5 × 40: it is held
+only by the fit of its hole, so set `axle_d` with the gauge. Its tolerance must be h8: an m6
+pin, which is more common, does not go through the bearing.
+
 ## Assembly
 
 The full diagram, with the hardware (labels in French): [schema_montage.png](apercu/schema_montage.png).

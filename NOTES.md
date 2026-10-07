@@ -162,22 +162,43 @@ Prix indicatifs relevés en ligne ou estimés ; à vérifier au moment de la com
 | Pièce et dimensions | Qté (1 banc / 10) | Prix relevé | Lien |
 |---|---|---|---|
 | Roue V pour profilé V-slot, POM, Ø 24 × 10,2 mm, alésage 5 mm, 2 roulements 625ZZ montés | 4 / 40 | 12,90 € le lot de 6 | [3delectroshop.fr](https://3delectroshop.fr/roulements-et-rotules/504-roulettes-v-slot-en-pom-avec-roulements-625zz.html) ; par lots : [AliExpress](https://fr.aliexpress.com/item/1005001588321075.html) |
-| Vis à tête bombée six pans creux M5 × 25, ISO 7380, filetée sur toute la longueur, tête Ø 9,5 × 2,75 mm, clé de 3 (roues) | 4 / 40 | 0,13 € pièce | [marleva.net](https://www.marleva.net/visserie-boulonnerie/vis-bhc-tete-bombee-6-pans-creux-iso-7380-inox-a2/vis-bhc-m-5-x-25-inox-a2.html) |
+| Vis à tête bombée six pans creux M5 × 25, ISO 7380, filetée sur toute la longueur, tête Ø 9,5 × 2,75 mm, clé de 3 (roues) | 4 / 40 | 0,08 € pièce | [visseriefixations.fr](https://www.visseriefixations.fr/vis-a-six-pans-creux/tete-bombee-hexagonale-creuse/tbhc-inox-a2-iso-7380/tbhc-m5x25-inox-a2-iso-7380.html) |
 | Roulement à billes 625ZZ, 5 × 16 × 5 mm (poulie) | 1 / 10 | 0 € pour un banc : le prendre sur une des 2 roues en trop du lot de 6 ; sinon 1,10 € pièce | [reprap-france.com](https://www.reprap-france.com/produit/1234568282-roulement-a-billes-625zz) |
 | Goupille cylindrique lisse Ø 5 h8 × 40 mm, ISO 2338, inox A1 (axe de poulie) | 1 / 10 | 0,80 € pièce (0,48 € par 100) | [visseriefixations.fr](https://www.visseriefixations.fr/goupilles/goupille-cylindrique-decolletee/iso-2338b-h8-inox-a1/goupille-cylindrique-rectifiee-h8-5x40-inox-a1-iso-2338b.html) |
-| Vis à tête cylindrique six pans creux M5 × 80, DIN 912, tête Ø 8,5 × 5 mm, clé de 4 (bobines) | 1 / 10 | 0,88 € pièce | [marleva.net](https://www.marleva.net/visserie-boulonnerie/vis-chc-tete-cylindique-6-pans-creux-inox-a2-din-912/chc05080i2-vis-chc-m-5-x-80-inox-a2.html) |
-| Écrou frein à bague nylon M5, DIN 985, 8 mm sur plats, hauteur 5 mm (roues et bobines) | 5 / 50 | 0,06 € pièce | [marleva.net](https://www.marleva.net/3747-ecrou-hexagonal-autobloquant-m-5-inox-a2.html) |
+| Vis à tête cylindrique six pans creux M5 × 80, DIN 912, tête Ø 8,5 × 5 mm, clé de 4 (bobines) | 1 / 10 | 0,59 € pièce | [visseriefixations.fr](https://www.visseriefixations.fr/vis-a-six-pans-creux/tete-cylindrique-hexagonale-creuse/inox-a2/tchc-inox-a2-filetage-partiel-din-912/tchc-m5x80-inox-a2-pf-din-912.html) |
+| Écrou frein à bague nylon M5, DIN 985, 8 mm sur plats, hauteur 5 mm (roues et bobines) | 5 / 50 | 0,04 € pièce | [visseriefixations.fr](https://www.visseriefixations.fr/ecrous/ecrous-autofreines/ecrou-hexagonal-autofreine-nylstop/ecrou-nylstop-inox-a2-din-985/ecrou-nylstop-m5-inox-a2-din-985-99867-99867.html) |
 | Goupille cannelée Ø 3 × 12 mm, DIN 1474, cannelée sur la moitié de sa longueur (charnière) | 2 / 20 | 0,24 € pièce | [visseriefixations.fr](https://www.visseriefixations.fr/goupilles/goupilles-cannelees-embrochables-din-1474-g05-iso-8741/inox/goupille-cannelee-g05-3x12-inox-a1-din-1474-13489-13489.html) |
 | Cordelette Ø 2 mm, longueur 1,5 m | 1 / 10 | 0 € | reste de suspente, drisse, paracorde |
 | Lest de 5 kg | 1 / — | 0 € | votre poche à eau, ou un bidon d'eau de 5 L à poignée |
 | Sangle velcro 20 mm | — | 0 € | fonds de tiroir |
-| **Visserie d'un banc** | | **≈ 3 €, hors port** | |
+| **Visserie d'un banc** | | **2,39 €, hors port** | |
 | Impression des 7 fichiers du banc et du support (≈ 210 cm³, ≈ 130 g de PETG ; plus grande pièce 164 × 80 × 31 mm) | 1 / 10 | 5–25 € | fablab, ou [devis JLC3DP](https://jlc3dp.com/3d-printing-quote) |
 | Télémètre Bluetooth HOTO QWCJY001, 99,5 × 44,1 × 23,3 mm, 30 m, ±2 mm | 1 | 35–39 € | [ulen.eu](https://ulen.eu/fr/product/hoto-qwcjy001-telemetre-laser-bluetooth/), [domotique-store.fr](https://www.domotique-store.fr/maison/outillage/4240-metre-laser-intelligent-bluetooth-hoto-qwcjy001.html), [AliExpress](https://www.aliexpress.com/i/1005002004493544.html) |
 
-Prix relevés sur les pages produit le 4 octobre 2026 ; les frais de port ne sont pas vérifiés.
-Le lot de 5 roues d'aboutfilament.fr (8,49 €) était en rupture ce jour-là ; celui de
-3delectroshop.fr était en stock.
+Prix relevés sur les pages produit le 4 octobre 2026, ceux de la visserie et des roues relus
+le 8 ; les frais de port ne sont pas vérifiés (ils ne s'affichent que dans le panier).
+Le lot de 5 roues d'aboutfilament.fr (8,49 €) était en rupture le 4 ; celui de
+3delectroshop.fr était en stock le 8 (4 lots).
+
+**Toute la visserie sur un seul site européen : visseriefixations.fr**, à l'unité, sans
+minimum de commande affiché. Recherche du 8 octobre 2026 sur une douzaine de sites :
+
+- **Aucun des sites examinés n'a à la fois les roues V et les goupilles.** Les boutiques V-slot
+  et d'impression 3D (Systeal, Roboter-Bausatz, RatRig, Vslot-Poland, Motedis) n'ont pas de
+  goupille Ø 5 × 40 ; les marchands de visserie n'ont pas de roues. Il faut deux commandes.
+- **bricovis.fr** a les mêmes références aux mêmes prix : c'est l'équivalent exact.
+- **marleva.net**, retenu le 4 octobre pour les vis, ne convient pas pour les goupilles : sa
+  5 × 40 est en tolérance m6, trop grosse pour l'alésage du roulement, et il n'a pas de
+  goupille cannelée.
+- **vis-express.fr** a tout, mais à ≈ 23 € au lieu de 2,39 €.
+- Aucun de ces marchands n'a la goupille Ø 5 × 40 en cannelée DIN 1474 : elle y est lisse
+  (ISO 2338 h8), donc tenue par le seul serrage de son trou. Régler `axle_d` au calibre.
+  visseriefixations.fr n'en avait que 7 en stock immédiat, le reste sous 10 jours.
+- La vis M5 × 25 peut y être livrée en filetage total ou partiel, la norme ne le fixant
+  pas : les deux conviennent, l'écrou est au bout. La M5 × 80 n'existe qu'en filetage partiel
+  (≈ 22 mm), ce qui convient aussi.
+- Autre source de roues : roboter-bausatz.de, lot de 5 à 7,39 € (Ø 23,89 × 10,23, roulements
+  625ZZ), mais 14,99 € de port vers la France.
 
 Le chemin le moins cher : roues sur AliExpress (≈ 3 €), la visserie à l'unité en
 quincaillerie (≈ 4 €), impression dans un fablab (≈ 5 €), cordelette et lest de récupération,

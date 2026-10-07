@@ -118,6 +118,28 @@ Les goupilles sont lisses, sauf un bout moleté de 3,5 mm, plus gros de 0,1 mm :
 mord dans le plastique et retient la goupille. Une goupille entièrement lisse ne tiendrait
 que si le trou sort de l'imprimante à quelques centièmes près.
 
+### La même chose en Europe
+
+Toute la visserie se trouve à l'unité chez visseriefixations.fr (France). Aucun des sites
+européens examinés n'a aussi les roues : elles viennent d'une boutique d'impression 3D. Prix
+lus le 8 octobre 2026, port non compris (il ne s'affiche que dans le panier).
+
+| Pièce | Référence du site | Il en faut | Prix | Lien |
+|---|---|---|---|---|
+| Roues V Ø 24 × 10 en POM, alésage 5, roulements 625ZZ montés | lot de 6 | 5 sur 6 | 12,90 € | [3delectroshop.fr](https://3delectroshop.fr/roulements-et-rotules/504-roulettes-v-slot-en-pom-avec-roulements-625zz.html) |
+| Vis M5 × 25 tête bombée, ISO 7380, inox A2 | TBHC05/025A2 | 4 | 0,08 € pièce | [visseriefixations.fr](https://www.visseriefixations.fr/vis-a-six-pans-creux/tete-bombee-hexagonale-creuse/tbhc-inox-a2-iso-7380/tbhc-m5x25-inox-a2-iso-7380.html) |
+| Écrous frein M5 à bague nylon, DIN 985, inox A2 | ECRNYL05A2 | 5 | 0,04 € pièce | [visseriefixations.fr](https://www.visseriefixations.fr/ecrous/ecrous-autofreines/ecrou-hexagonal-autofreine-nylstop/ecrou-nylstop-inox-a2-din-985/ecrou-nylstop-m5-inox-a2-din-985-99867-99867.html) |
+| Vis M5 × 80 tête cylindrique, DIN 912, inox A2, filetage partiel | TCHC05/080A2PF | 1 | 0,59 € | [visseriefixations.fr](https://www.visseriefixations.fr/vis-a-six-pans-creux/tete-cylindrique-hexagonale-creuse/inox-a2/tchc-inox-a2-filetage-partiel-din-912/tchc-m5x80-inox-a2-pf-din-912.html) |
+| Goupille lisse Ø 5 × 40, ISO 2338 h8, inox A1 (axe de la poulie) | GOUCYL05/040A2ISO | 1 | 0,80 € | [visseriefixations.fr](https://www.visseriefixations.fr/goupilles/goupille-cylindrique-decolletee/iso-2338b-h8-inox-a1/goupille-cylindrique-rectifiee-h8-5x40-inox-a1-iso-2338b.html) |
+| Goupilles cannelées Ø 3 × 12, DIN 1474, inox A1 (charnière de la cible) | GOUCANG0503/012IDI | 2 | 0,24 € pièce | [visseriefixations.fr](https://www.visseriefixations.fr/goupilles/goupilles-cannelees-embrochables-din-1474-g05-iso-8741/inox/goupille-cannelee-g05-3x12-inox-a1-din-1474-13489-13489.html) |
+
+**Visserie : 2,39 €, plus le port ; roues : 12,90 €, plus le port.** La cordelette est
+n'importe quelle cordelette de 2 mm.
+
+La goupille Ø 5 est ici lisse d'un bout à l'autre, ce marchand n'ayant pas de cannelée en
+5 × 40 : elle ne tient que par le serrage de son trou, donc réglez `axle_d` au calibre. Sa tolérance doit être h8 :
+une goupille m6, plus courante, ne passe pas dans le roulement.
+
 ## Montage
 
 Le schéma complet, avec la visserie : [schema_montage.png](apercu/schema_montage.png).
