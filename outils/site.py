@@ -10,7 +10,7 @@ import markdown
 RACINE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OUT = sys.argv[1] if len(sys.argv) > 1 else os.path.join(RACINE, "_site")
 TITRE = "Banc de calage parapente"
-SOUS_TITRE = "Un banc de calage de suspentes imprimé en 3D, au laser et à la poche à eau de 5 kg, pour moins de 60 €."
+SOUS_TITRE = "Banc de calage des suspentes et support de télémètre laser, imprimés en 3D : 8 fichiers, 27 € de quincaillerie, une poche à eau de 5 kg."
 
 STYLE = """
 :root { --bg: #f4f5f7; --surface: #ffffff; --fg: #1a2330; --muted: #5d6b7c; --line: #d7dde6; --accent: #1b5fc7; --accent-fg: #fff; --code: #eef1f5; }
@@ -22,7 +22,9 @@ header.banniere { background: var(--surface); border-bottom: 1px solid var(--lin
 header.banniere .in { max-width: 62rem; margin-inline: auto; padding: 2.5rem 1.25rem 2rem; display: grid; gap: .75rem; }
 header.banniere h1 { margin: 0; font: 600 2.4rem/1.1 "Barlow Semi Condensed", "Arial Narrow", Arial, sans-serif; text-wrap: balance; }
 header.banniere p { margin: 0; color: var(--muted); max-width: 60ch; }
-header.banniere .vues { display: grid; grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); gap: 1rem; margin-top: .5rem; }
+header.banniere .vues { display: grid; grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); gap: 1rem; margin-top: .5rem; }
+header.banniere figure { margin: 0; }
+header.banniere figcaption { font-size: .85rem; color: var(--muted); margin-top: .3rem; }
 header.banniere img { width: 100%; height: auto; border: 1px solid var(--line); border-radius: 6px; background: #fff; }
 .page { max-width: 62rem; margin-inline: auto; padding: 1.5rem 1.25rem 4rem; display: grid; grid-template-columns: minmax(0, 1fr); gap: 2rem; }
 @media (min-width: 60rem) { .page { grid-template-columns: 14rem minmax(0, 1fr); align-items: start; } nav.sommaire { position: sticky; top: 1rem; } }
@@ -60,6 +62,7 @@ def main():
     readme = open(os.path.join(RACINE, "README.md"), encoding="utf-8").read()
     # le titre de premier niveau et le tableau d'images d'entrée passent dans la bannière
     readme = re.sub(r"^# .*\n", "", readme, count=1)
+    readme = re.sub(r"\n\| Le banc en service \|.*?\n\n", "\n\n", readme, count=1, flags=re.S)   # le tableau d'images d'entrée est remplacé par la bannière
     corps = markdown.markdown(readme, extensions=["tables", "fenced_code", "toc", "sane_lists"],
                               extension_configs={"toc": {"toc_depth": "2"}})
     corps = corps.replace("<table>", '<div class="scroll"><table>').replace("</table>", "</table></div>")
@@ -95,8 +98,9 @@ def main():
 <h1>{TITRE}</h1>
 <p>{html.escape(SOUS_TITRE)}</p>
 <div class="vues">
-<img src="apercu/banc_ouvert_avant.png" alt="Le banc en service, vu du côté de la voile">
-<img src="apercu/banc_plie.png" alt="Le banc plié pour le transport">
+<figure><img src="apercu/banc_ouvert_avant.png" alt="Le banc en service, vu du côté de la voile"><figcaption>Le banc en service</figcaption></figure>
+<figure><img src="apercu/banc_plie.png" alt="Le banc plié pour le transport"><figcaption>Plié : 164 × 93 × 52 mm</figcaption></figure>
+<figure><img src="apercu/support_laser_arriere.png" alt="Le support du télémètre laser"><figcaption>Le support du laser, à vos cotes</figcaption></figure>
 </div>
 </div></header>
 <div class="page">
