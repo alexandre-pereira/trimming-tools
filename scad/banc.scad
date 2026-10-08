@@ -83,17 +83,20 @@ fence_t  = 3;      // épaisseur des joues
 fence_z  = 3.5;    // hauteur des joues au-dessus du dessus du coulisseau : elles montent jusqu'au dessus de la sangle tendue
 fence_y  = post_w/2 + elev_w + 0.5;   // face intérieure des joues extérieures
 
-// --- Poulie Ø25 sur un roulement 625ZZ, axe = goupille cylindrique Ø5 h8 × 40 emmanchée dans les joues ---
+// --- Poulie Ø25 sur un roulement 625ZZ, axe = goupille cannelée Ø5 × 30 (DIN 1472) emmanchée dans les joues ---
 // Elle est logée dans le bloc des crochets, sous le passage du coulisseau : rien ne dépasse du socle.
 // Le roulement supprime le frottement de l'axe, qui fausserait la tension de la suspente.
 pul_r    = 12.5;
 pul_w    = 9.4;
 slot_w   = 5 + 2*spacer_h + 0.2;   // fente de la poulie entre les joues (roulement 5 + une entretoise de chaque côté + jeu)
 cord_d   = 2;      // cordelette 2 mm
-axle_d   = 4.95;   // trou des joues, hexagonal (cote sur plats) : ses six pans serrent la goupille Ø5 sans colle,
-                   // et ses angles laissent la matière se déformer sans fendre la joue.
+axle_d   = 5.0;    // trou des joues, rond, au diamètre nominal de la goupille comme le veut sa norme : la partie lisse
+                   // y entre juste, et ce sont les cannelures de l'autre moitié qui mordent dans la joue, sans colle.
                    // Cette cote et ear_d se règlent sur votre imprimante avec calibre_goupilles.scad, avant d'imprimer le banc.
-axle_l   = 40;     // longueur de la goupille : elle reste 5 mm en retrait de chaque flanc, hors du passage des roues
+axle_l   = 30;     // longueur de la goupille : cannelée sur 15 mm depuis un bout, lisse sur le reste
+axle_in  = 7;      // retrait du bout cannelé sous le flanc par où on l'enfonce : les cannelures s'arrêtent alors juste avant
+                   // le roulement, qui reste sur la partie lisse, et l'autre bout tient sur 6,7 mm dans la joue d'en face.
+                   // (Une goupille de 40 mm moletée à un bout se centre : 5 mm de retrait de chaque côté.)
 
 // --- Cible articulée à l'avant du coulisseau, verrouillée d'équerre quand elle est relevée ---
 // Relevée et poussée vers le bas, sa languette se coince entre la face avant du coulisseau et une
@@ -110,8 +113,8 @@ ear_r     = 4;
 knuckle_w = 7;     // charnons de la cible
 knuckle_r = 3.5;
 hinge_d   = 3.4;   // lumière des charnons, pour la moitié lisse de la goupille Ø3
-ear_d     = 2.95;  // trou des oreilles, hexagonal (cote sur plats) : il serre sans colle le bout moleté (ou cannelé) d'une
-                   // goupille Ø3 × 12. La moitié de la goupille prise dans l'oreille ne bouge plus, l'autre sert d'axe à la cible.
+ear_d     = 3.0;   // trou des oreilles, rond, au diamètre nominal : la moitié cannelée d'une goupille Ø3 × 12 (DIN 1472)
+                   // y mord sans colle et ne bouge plus ; sa moitié lisse sert d'axe à la cible.
                    // Les lumières des charnons sont borgnes côté intérieur : la goupille ne peut pas non plus rentrer.
 lift      = 5.5;   // course de soulèvement pour déverrouiller
 lip_z     = 6.5;   // sommet de la lèvre, au-dessus du dessous du coulisseau
@@ -166,8 +169,7 @@ module socle() {
         // fente de la poulie, débouchante en haut et en bas : la poulie se pose par le dessus
         translate([axle_x - pul_r - 1, -slot_w/2, -lug_drop - 1]) cube([2*pul_r + 2, slot_w, lug_drop + T + 2]);
         // goupille Ø5 de la poulie, emmanchée dans les deux joues
-        translate([axle_x, -b - 1, axle_z]) rotate([-90, 0, 0]) rotate([0, 0, 90])
-            cylinder(d = axle_d / cos(30), h = base_w + 2, $fn = 6);                // six pans, une pointe vers le haut
+        translate([axle_x, -b - 1, axle_z]) rotate([-90, 0, 0]) cylinder(d = axle_d, h = base_w + 2);
         // canal de la cordelette, ouvert vers le haut, de la poulie jusqu'au bout du socle (il traverse la butée avant :
         // en fin de course, le nœud est au-dessus du bout du socle)
         translate([axle_x, -chan_w/2, z_cord - cord_d/2 - 1]) cube([x_end - axle_x + 1, chan_w, T]);
@@ -221,8 +223,7 @@ module coulisseau() {
             hull() for (dy = [-adj, adj]) translate([x, -wheel_y + dy, sl_t - nut_h]) nut_m5(nut_h + 1);
         }
         // axe de charnière : logements des goupilles Ø3 dans les oreilles
-        translate([hx, -sl_w, sl_t + hinge_z]) rotate([-90, 0, 0]) rotate([0, 0, 90])
-            cylinder(d = ear_d / cos(30), h = 2*sl_w, $fn = 6);                     // six pans, une pointe vers le haut
+        translate([hx, -sl_w, sl_t + hinge_z]) rotate([-90, 0, 0]) cylinder(d = ear_d, h = 2*sl_w);
         // axe des bobines : vis M5 à travers la nervure
         translate([px, -post_w, sl_t + pin_z]) rotate([-90, 0, 0]) cylinder(d = pin_d, h = 2*post_w);
         // plancher échancré sous les chapeaux : c'est par là que la boucle de l'élévateur passe sous le chapeau
@@ -351,7 +352,7 @@ module asm_axe() {       // vis CHC M5×80 : tête noyée dans un chapeau, écro
 }
 module asm_axe_poulie() {       // goupille, roulement 625 et ses deux entretoises
     translate([axle_x, 0, axle_z]) rotate([-90, 0, 0]) {
-        translate([0, 0, -axle_l/2]) cylinder(d = 5, h = axle_l, $fn = 24);
+        translate([0, 0, -base_w/2 + axle_in]) cylinder(d = 5, h = axle_l, $fn = 24);
         translate([0, 0, -2.5]) difference() { cylinder(d = 16, h = 5, $fn = 48); translate([0, 0, -1]) cylinder(d = 8.4, h = 7, $fn = 24); }
         for (s = [-1, 1]) translate([0, 0, s*(2.5 + spacer_h/2) - spacer_h/2]) cylinder(d = 8, h = spacer_h, $fn = 24);
     }

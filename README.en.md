@@ -40,17 +40,19 @@ then the laser holder, in the version for your distance meter.
 
 ### Print this first: the pin gauge
 
-The pins are held by a press fit in hexagonal holes, and that fit is a matter of a few
-hundredths of a millimetre, less than the accuracy of a printer. `calibre_goupilles.stl`
-([image](apercu/calibre_goupilles.png)) carries the same holes in eight sizes, from 4.85 to
-5.20 mm and from 2.85 to 3.20 mm; the number engraved above each hole is its size in
-hundredths (295 = 2.95 mm).
+The pins are grooved over one half and smooth over the other, and their holes are round. The
+smooth half must just slide in, the grooved half must be forced in: the grooves bite into
+the plastic and hold the pin. But a printer makes a hole within one or two tenths of a
+millimetre, usually too small. So `calibre_goupilles.stl`
+([image](apercu/calibre_goupilles.png)) carries these holes in eight diameters, from 4.90 to
+5.25 mm and from 2.90 to 3.25 mm; the number engraved above each hole is its diameter in
+hundredths (300 = 3.00 mm).
 
-Print it on the same printer and in the same material as the bench, then push your pins all
-the way in, smooth end first. Find the largest hole the pin cannot be pulled out of by hand,
-and keep the size just below it. The model is drawn for 4.95 and 2.95: if you find something
-else, enter your two sizes as `axle_d` and `ear_d` in `scad/banc.scad` and regenerate the
-base and the carriage.
+Print it on the same printer and in the same material as the bench, and offer your pins to
+it smooth end first. Keep the smallest hole the smooth half enters by hand, then check that
+the grooved half has to be forced in and does not come back out. The model is drawn for 5.00
+and 3.00: if you find something else, enter your two diameters as `axle_d` and `ear_d` in
+`scad/banc.scad` and regenerate the base and the carriage.
 
 ### The laser holder, sized for your distance meter
 
@@ -113,9 +115,9 @@ Everything on AliExpress, from rated sellers. Prices read on 5 October 2026 (pin
 your water bag, and there is no glue and no threadlocker. The laser is not counted: a 30 m
 Bluetooth distance meter (HOTO QWCJY001 or equivalent) costs €30 to €40.
 
-The pins are smooth, except for a 3.5 mm knurled end that is 0.1 mm larger: that end bites
-into the plastic and holds the pin. A fully smooth pin would only hold if the hole came out
-of the printer within a few hundredths of a millimetre.
+These pins are smooth, except for a 3.5 mm knurled end that is 0.1 mm larger: fine grooves
+all round, which bite into the plastic and hold the pin. Standard grooved pins (DIN 1472),
+which could not be found on AliExpress, are in the next table.
 
 ### The same from Europe
 
@@ -129,15 +131,15 @@ shipping not included (it is only shown in the basket).
 | M5 × 25 button head screws, ISO 7380, A2 stainless | TBHC05/025A2 | 4 | €0.08 each | [visseriefixations.fr](https://www.visseriefixations.fr/vis-a-six-pans-creux/tete-bombee-hexagonale-creuse/tbhc-inox-a2-iso-7380/tbhc-m5x25-inox-a2-iso-7380.html) |
 | M5 lock nuts with nylon insert, DIN 985, A2 stainless | ECRNYL05A2 | 5 | €0.04 each | [visseriefixations.fr](https://www.visseriefixations.fr/ecrous/ecrous-autofreines/ecrou-hexagonal-autofreine-nylstop/ecrou-nylstop-inox-a2-din-985/ecrou-nylstop-m5-inox-a2-din-985-99867-99867.html) |
 | M5 × 80 socket head cap screw, DIN 912, A2 stainless, partly threaded | TCHC05/080A2PF | 1 | €0.59 | [visseriefixations.fr](https://www.visseriefixations.fr/vis-a-six-pans-creux/tete-cylindrique-hexagonale-creuse/inox-a2/tchc-inox-a2-filetage-partiel-din-912/tchc-m5x80-inox-a2-pf-din-912.html) |
-| Ø 5 × 40 plain dowel pin, ISO 2338 h8, A1 stainless (pulley axle) | GOUCYL05/040A2ISO | 1 | €0.80 | [visseriefixations.fr](https://www.visseriefixations.fr/goupilles/goupille-cylindrique-decolletee/iso-2338b-h8-inox-a1/goupille-cylindrique-rectifiee-h8-5x40-inox-a1-iso-2338b.html) |
-| Ø 3 × 12 grooved pins, DIN 1474, A1 stainless (target hinge) | GOUCANG0503/012IDI | 2 | €0.24 each | [visseriefixations.fr](https://www.visseriefixations.fr/goupilles/goupilles-cannelees-embrochables-din-1474-g05-iso-8741/inox/goupille-cannelee-g05-3x12-inox-a1-din-1474-13489-13489.html) |
+| Ø 5 × 30 grooved pin, DIN 1472, A2 stainless (pulley axle) | GOUCANG0205/030A2 | 1 | €0.58 | [visseriefixations.fr](https://www.visseriefixations.fr/goupilles/goupilles-cannelees-d-ajustage-din-1472-g02-iso-8745/inox/goupille-cannelee-g02-5x30-inox-a2-din-1472.html) |
+| Ø 3 × 12 grooved pins, DIN 1472, stainless (target hinge) | GOUCANG0203/012A2 | 2 | €0.23 each | [visseriefixations.fr](https://www.visseriefixations.fr/goupilles/goupilles-cannelees-d-ajustage-din-1472-g02-iso-8745/inox/goupille-cannelee-g02-3x12-inox-din-1472.html) |
 
-**Fasteners: €2.39, plus shipping; wheels: €12.90, plus shipping.** The cord is any 2 mm
+**Fasteners: €2.15, plus shipping; wheels: €12.90, plus shipping.** The cord is any 2 mm
 cord.
 
-The Ø 5 pin is plain from end to end here, as this shop has no grooved pin in 5 × 40: it is held
-only by the fit of its hole, so set `axle_d` with the gauge. Its tolerance must be h8: an m6
-pin, which is more common, does not go through the bearing.
+The DIN 1472 pin is the one made for hinge axles: grooved over half its length, more and
+more deeply towards the end, smooth over the other half. The pulley pin is 30 mm long, not
+40: its grooves then stop short of the bearing, which must stay on the smooth part.
 
 ## Assembly
 
@@ -145,7 +147,8 @@ The full diagram, with the hardware (labels in French): [schema_montage.png](ape
 
 1. **Pulley**: take a bearing out of a spare wheel and press it into the pulley. Place the
    pulley in its slot with a spacer on each side and push the Ø 5 pin, smooth end first,
-   through both hooks, until it sits below the surface of the sides.
+   through both hooks: until its grooved end is 7 mm below the side (5 mm for the 40 mm
+   knurled pin). Push it with the M5 × 80 screw.
 2. **Wheels**: a lock nut in each of the 4 pockets of the carriage, then for each wheel an
    M5 × 25 screw from underneath, through the wheel and a spacer.
 3. **Play**: tighten the fixed side, push the two other wheels to the bottom of their groove
@@ -153,7 +156,7 @@ The full diagram, with the hardware (labels in French): [schema_montage.png](ape
 4. **Spools**: on the M5 × 80 screw, one spool, the rib of the carriage, the other spool, the
    lock nut in the cap. Leave it alone from then on.
 5. **Target**: between the lugs of the carriage, a Ø 3 pin on each side, smooth end first,
-   pushed in flush: the knurled end stays in the lug.
+   pushed in flush: the grooved half stays in the lug.
 6. **Cord**: figure-eight knot in the well behind the target; the cord runs in the channel of
    the base, goes over the pulley and is tied to the handle of the bag. Weigh the full bag at
    **5.00 kg**.

@@ -102,7 +102,7 @@ Deux variantes plus courtes ont été essayées puis écartées :
 | `bobine_ecrou.stl` | bobine dont le chapeau loge l'écrou frein | [image](apercu/bobine_ecrou.png) | 2 cm³ |
 | `entretoises_grappe.stl` | les 8 entretoises (4 pour les roues, 2 pour la poulie, 2 de rechange) réunies par une barrette, à détacher au cutter | [image](apercu/entretoises_grappe.png) | 1 cm³ |
 | `support_laser_<modèle>.stl` | support du télémètre, côté voile, avec son bec à encoche ; une version par télémètre | [en service](apercu/support_laser_arriere.png), [le bec](apercu/support_laser_bec.png) | ≈ 20 à 50 cm³ |
-| `calibre_goupilles.stl` | barrette d'essai de 152 × 15 × 12 mm, à imprimer avant le banc : les trous à six pans des goupilles en huit cotes (voir « Calibre des goupilles ») | [image](apercu/calibre_goupilles.png) | 15 cm³ |
+| `calibre_goupilles.stl` | barrette d'essai de 152 × 15 × 12 mm, à imprimer avant le banc : les trous des goupilles en huit diamètres (voir « Calibre des goupilles ») | [image](apercu/calibre_goupilles.png) | 15 cm³ |
 
 Une pièce par fichier, chaque fichier à imprimer une fois ; seules les entretoises sont
 groupées, parce qu'un service d'impression refuse les pièces minuscules. Le calibre ne fait
@@ -164,14 +164,14 @@ Prix indicatifs relevés en ligne ou estimés ; à vérifier au moment de la com
 | Roue V pour profilé V-slot, POM, Ø 24 × 10,2 mm, alésage 5 mm, 2 roulements 625ZZ montés | 4 / 40 | 12,90 € le lot de 6 | [3delectroshop.fr](https://3delectroshop.fr/roulements-et-rotules/504-roulettes-v-slot-en-pom-avec-roulements-625zz.html) ; par lots : [AliExpress](https://fr.aliexpress.com/item/1005001588321075.html) |
 | Vis à tête bombée six pans creux M5 × 25, ISO 7380, filetée sur toute la longueur, tête Ø 9,5 × 2,75 mm, clé de 3 (roues) | 4 / 40 | 0,08 € pièce | [visseriefixations.fr](https://www.visseriefixations.fr/vis-a-six-pans-creux/tete-bombee-hexagonale-creuse/tbhc-inox-a2-iso-7380/tbhc-m5x25-inox-a2-iso-7380.html) |
 | Roulement à billes 625ZZ, 5 × 16 × 5 mm (poulie) | 1 / 10 | 0 € pour un banc : le prendre sur une des 2 roues en trop du lot de 6 ; sinon 1,10 € pièce | [reprap-france.com](https://www.reprap-france.com/produit/1234568282-roulement-a-billes-625zz) |
-| Goupille cylindrique lisse Ø 5 h8 × 40 mm, ISO 2338, inox A1 (axe de poulie) | 1 / 10 | 0,80 € pièce (0,48 € par 100) | [visseriefixations.fr](https://www.visseriefixations.fr/goupilles/goupille-cylindrique-decolletee/iso-2338b-h8-inox-a1/goupille-cylindrique-rectifiee-h8-5x40-inox-a1-iso-2338b.html) |
+| Goupille cannelée Ø 5 × 30 mm, DIN 1472 (G02), inox A2, cannelée sur 15 mm depuis un bout (axe de poulie) | 1 / 10 | 0,58 € pièce | [visseriefixations.fr](https://www.visseriefixations.fr/goupilles/goupilles-cannelees-d-ajustage-din-1472-g02-iso-8745/inox/goupille-cannelee-g02-5x30-inox-a2-din-1472.html) |
 | Vis à tête cylindrique six pans creux M5 × 80, DIN 912, tête Ø 8,5 × 5 mm, clé de 4 (bobines) | 1 / 10 | 0,59 € pièce | [visseriefixations.fr](https://www.visseriefixations.fr/vis-a-six-pans-creux/tete-cylindrique-hexagonale-creuse/inox-a2/tchc-inox-a2-filetage-partiel-din-912/tchc-m5x80-inox-a2-pf-din-912.html) |
 | Écrou frein à bague nylon M5, DIN 985, 8 mm sur plats, hauteur 5 mm (roues et bobines) | 5 / 50 | 0,04 € pièce | [visseriefixations.fr](https://www.visseriefixations.fr/ecrous/ecrous-autofreines/ecrou-hexagonal-autofreine-nylstop/ecrou-nylstop-inox-a2-din-985/ecrou-nylstop-m5-inox-a2-din-985-99867-99867.html) |
-| Goupille cannelée Ø 3 × 12 mm, DIN 1474, cannelée sur la moitié de sa longueur (charnière) | 2 / 20 | 0,24 € pièce | [visseriefixations.fr](https://www.visseriefixations.fr/goupilles/goupilles-cannelees-embrochables-din-1474-g05-iso-8741/inox/goupille-cannelee-g05-3x12-inox-a1-din-1474-13489-13489.html) |
+| Goupille cannelée Ø 3 × 12 mm, DIN 1472 (G02), inox, cannelée sur 6 mm depuis un bout (charnière) | 2 / 20 | 0,23 € pièce | [visseriefixations.fr](https://www.visseriefixations.fr/goupilles/goupilles-cannelees-d-ajustage-din-1472-g02-iso-8745/inox/goupille-cannelee-g02-3x12-inox-din-1472.html) |
 | Cordelette Ø 2 mm, longueur 1,5 m | 1 / 10 | 0 € | reste de suspente, drisse, paracorde |
 | Lest de 5 kg | 1 / — | 0 € | votre poche à eau, ou un bidon d'eau de 5 L à poignée |
 | Sangle velcro 20 mm | — | 0 € | fonds de tiroir |
-| **Visserie d'un banc** | | **2,39 €, hors port** | |
+| **Visserie d'un banc** | | **2,15 €, hors port** | |
 | Impression des 7 fichiers du banc et du support (≈ 210 cm³, ≈ 130 g de PETG ; plus grande pièce 164 × 80 × 31 mm) | 1 / 10 | 5–25 € | fablab, ou [devis JLC3DP](https://jlc3dp.com/3d-printing-quote) |
 | Télémètre Bluetooth HOTO QWCJY001, 99,5 × 44,1 × 23,3 mm, 30 m, ±2 mm | 1 | 35–39 € | [ulen.eu](https://ulen.eu/fr/product/hoto-qwcjy001-telemetre-laser-bluetooth/), [domotique-store.fr](https://www.domotique-store.fr/maison/outillage/4240-metre-laser-intelligent-bluetooth-hoto-qwcjy001.html), [AliExpress](https://www.aliexpress.com/i/1005002004493544.html) |
 
@@ -185,15 +185,28 @@ minimum de commande affiché. Recherche du 8 octobre 2026 sur une douzaine de si
 
 - **Aucun des sites examinés n'a à la fois les roues V et les goupilles.** Les boutiques V-slot
   et d'impression 3D (Systeal, Roboter-Bausatz, RatRig, Vslot-Poland, Motedis) n'ont pas de
-  goupille Ø 5 × 40 ; les marchands de visserie n'ont pas de roues. Il faut deux commandes.
+  goupille Ø 5 utilisable ; les marchands de visserie n'ont pas de roues. Il faut deux
+  commandes.
 - **bricovis.fr** a les mêmes références aux mêmes prix : c'est l'équivalent exact.
 - **marleva.net**, retenu le 4 octobre pour les vis, ne convient pas pour les goupilles : sa
   5 × 40 est en tolérance m6, trop grosse pour l'alésage du roulement, et il n'a pas de
   goupille cannelée.
-- **vis-express.fr** a tout, mais à ≈ 23 € au lieu de 2,39 €.
-- Aucun de ces marchands n'a la goupille Ø 5 × 40 en cannelée DIN 1474 : elle y est lisse
-  (ISO 2338 h8), donc tenue par le seul serrage de son trou. Régler `axle_d` au calibre.
-  visseriefixations.fr n'en avait que 7 en stock immédiat, le reste sous 10 jours.
+- **vis-express.fr** a tout, mais à ≈ 23 € au lieu de ≈ 2 € ; il a la DIN 1472 en 5 × 40
+  (5,10 € pièce).
+- **Le choix de la goupille cannelée** (fiche Bossard BN 883 du marchand) : la DIN 1472 est
+  cannelée sur la moitié de sa longueur, de zéro au milieu jusqu'au maximum au bout, pour un
+  trou rond au diamètre nominal, tolérance H11. C'est la goupille des axes de charnière. Les
+  autres ne conviennent pas à la poulie : la DIN 1474 a son renflement maximal au milieu,
+  donc sous le roulement, et les DIN 1471, 1473 et 1475 sont cannelées sur toute leur
+  longueur ou en leur milieu.
+- **Pourquoi 30 mm pour la poulie** : visseriefixations.fr n'a la DIN 1472 Ø 5 qu'en 10 à
+  30 mm (inox) ; en 5 × 40, il n'a que les trois types qui ne conviennent pas. En 30 mm, les
+  cannelures font 15 mm : le bout cannelé 7 mm sous le flanc, elles s'arrêtent 0,5 mm avant
+  le roulement, et le bout lisse tient sur 6,7 mm dans l'autre crochet.
+- Stock immédiat lu le 8 octobre : 9 goupilles Ø 5 × 30, 88 goupilles Ø 3 × 12 ; le reste
+  sous 10 jours.
+- La goupille lisse Ø 5 × 40 ISO 2338 h8 retenue le 4 octobre est abandonnée : rien ne la
+  retenait que l'ajustement de son trou.
 - La vis M5 × 25 peut y être livrée en filetage total ou partiel, la norme ne le fixant
   pas : les deux conviennent, l'écrou est au bout. La M5 × 80 n'existe qu'en filetage partiel
   (≈ 22 mm), ce qui convient aussi.
@@ -209,15 +222,14 @@ Ce qui a fait baisser la facture :
 - **Le roulement de la poulie ne coûte rien** pour un seul banc : les roues se vendent par
   lot de 6, il en reste deux, et chacune contient deux roulements 625 qui se chassent à la
   main ou avec une vis.
-- **L'axe de poulie est une simple goupille lisse**, sans vis ni écrou.
+- **L'axe de poulie est une simple goupille cannelée**, sans vis ni écrou.
 - **Plus aucune rondelle à acheter** : les rondelles M5 sont remplacées par 6 entretoises
   imprimées (4 pour les roues, 2 pour la poulie), fournies dans `entretoises_grappe.stl` avec
   deux de rechange ; la
   rondelle M4 du nœud est supprimée.
 - **Charnière sur deux goupilles**, sans vis ni écrou, et **bobines sans rondelle**.
 - **Ni colle ni frein-filet** : un seul modèle d'écrou, l'écrou frein, pour les roues et les bobines ;
-  les goupilles tiennent par serrage dans des trous à six pans, où leur bout moleté ou
-  cannelé mord.
+  les goupilles tiennent par leurs cannelures, qui mordent dans un trou rond.
 - **Pas de mousqueton ni de Dyneema neuve** : n'importe quelle cordelette de 2 mm tient 5 kg ;
   elle se noue directement à la poignée du lest.
 - **Lest** : la poche à eau que vous avez déjà, ou un bidon d'eau du commerce.
@@ -245,14 +257,15 @@ existe et notez le prix** avant de commander.
 | Vis à tête cylindrique six pans creux DIN 912, inox 304 | « M5 10 pièces », longueur « 80 mm » | 1 | 4,9 / 5 sur 1 534 avis | [vis DIN912 HZYUEGOU](https://fr.aliexpress.com/item/32968483467.html) |
 | Goupille inox 304 Ø 5 × 40, moletée à un bout (Ø 5,1 sur 3,5 mm), axe de poulie | « M5-5pcs », longueur « 40mm » | 1 | 5,0 / 5 sur 57 avis, dont 9 en M5 (8 à 50 mm ; aucun sur la longueur 40) | [goupilles moletées 304](https://fr.aliexpress.com/item/1005007894767899.html) |
 | Goupille inox 304 Ø 3 × 12, moletée à un bout (Ø 3,1 sur 3,5 mm), charnières | « M3-10pcs », longueur « 12 mm » | 2 | même annonce, 14 avis en M3 dont 2 sur cette variante | [goupilles moletées 304](https://fr.aliexpress.com/item/1005007894767899.html) |
+| Cordelette de 2 mm (paracorde à une âme) | « 10 meters », couleur au choix | 1,5 m | 4,9 / 5 sur 108 avis | [paracorde 2 mm](https://fr.aliexpress.com/item/1005011930498059.html) |
 
 Les goupilles moletées remplacent les goupilles lisses retenues le 5 octobre
 ([annonce](https://fr.aliexpress.com/item/1005004143852668.html), 4,8 / 5 sur 36 avis) : une
 goupille lisse ne tient que si le trou sort à quelques centièmes près. Je n'ai trouvé sur
-AliExpress aucune goupille cannelée DIN 1474 ; ces goupilles moletées à un bout, vendues
-comme axes de charnière, font le même travail. Leurs cotes viennent du tableau de l'annonce,
-qui les donne pour mesurées à la main sur un seul lot.
-| Cordelette de 2 mm (paracorde à une âme) | « 10 meters », couleur au choix | 1,5 m | 4,9 / 5 sur 108 avis | [paracorde 2 mm](https://fr.aliexpress.com/item/1005011930498059.html) |
+AliExpress aucune goupille cannelée normalisée ; ces goupilles moletées à un bout, vendues
+comme axes de charnière, font le même travail : leur moletage est une couronne de fines
+cannelures. Leurs cotes viennent du tableau de l'annonce, qui les donne pour mesurées à la
+main sur un seul lot. La Ø 5 × 40 se centre dans le socle, 5 mm en retrait de chaque flanc.
 
 La même liste, à cocher, est sur une page à part : <https://claude.ai/artifact/KuYeWNqA6emn3GKmHpZLea>
 (page privée, ouverte avec votre compte Claude).
@@ -284,8 +297,8 @@ Une réserve :
 - **Sur les roues**, vérifiez à réception la largeur sur les deux roulements : le modèle
   compte 11 mm (paramètre `wheel_stack`).
 - **Goupille de l'axe de poulie** : sa tolérance n'est pas indiquée. Si le roulement ne glisse
-  pas sur sa partie lisse, celle de visseriefixations.fr (Ø 5 h8 × 40, tableau plus haut) a
-  une tolérance garantie ; elle est lisse d'un bout à l'autre, donc régler `axle_d` au calibre.
+  pas sur sa partie lisse, la goupille cannelée de visseriefixations.fr (Ø 5 × 30 DIN 1472,
+  tableau plus haut) a une tolérance normalisée.
 
 ### Prises de filet vérifiées
 
@@ -301,7 +314,7 @@ L'écrou est tout au bout, donc il faut du filet au bout ; et en M5 × 25, les v
 n'existent qu'entièrement filetées. Les deux roulements de la roue reposent donc sur le
 filet, ce qui ne gêne pas : leurs bagues intérieures sont serrées entre la tête de vis et
 l'entretoise, elles ne tournent pas sur la vis. C'est le montage d'origine de ces roues
-(OpenBuilds). Ce qui tourne (la poulie, la cible) est sur des goupilles lisses.
+(OpenBuilds). Ce qui tourne (la poulie, la cible) est sur la moitié lisse d'une goupille.
 
 Il faut du filet sur les 7 derniers millimètres de la M5 × 80 : une DIN 912 normale en a 22.
 
@@ -318,36 +331,40 @@ Deux corrections sont sorties de cette vérification :
 |---|---|
 | Roues | écrou frein à bague nylon, noyé dans un logement à six pans du coulisseau |
 | Bobines des élévateurs | écrou frein noyé dans un chapeau |
-| Goupilles de charnière Ø 3 | trou à six pans de 2,95 mm sur plats dans l'oreille : ses pans serrent le bout moleté (ou cannelé) de la goupille ; la lumière borgne du charnon l'empêche de rentrer |
-| Axe de poulie Ø 5 | trou à six pans de 4,95 mm sur plats dans les deux crochets ; le bout moleté mord dans l'un des deux |
+| Goupilles de charnière Ø 3 | goupille cannelée sur une moitié : ses cannelures mordent dans le trou rond Ø 3 de l'oreille ; la lumière borgne du charnon l'empêche de rentrer |
+| Axe de poulie Ø 5 | goupille cannelée sur une moitié : ses cannelures mordent dans le trou rond Ø 5 d'un crochet, l'autre crochet porte son bout lisse |
 | Roulement dans la poulie | emmanché dans son logement, retenu par une lèvre |
 
-### Calibre des goupilles
+### Goupilles cannelées, trous ronds, et le calibre
 
-Comment un trou à six pans tient une goupille ronde : sa cote sur plats est un peu plus
-petite que la goupille. Celle-ci touche chaque pan en son milieu, sur une bande étroite
-(≈ 0,7 mm pour la Ø 5), et écrase ces six bandes en entrant ; la matière refoulée se loge
-dans les angles, restés vides. Dans un trou rond, c'est tout l'anneau qui devrait s'étirer,
-et la pièce se fendrait pour un dixième de trop.
+Une goupille cannelée porte trois cannelures refoulées dans l'acier : de chaque côté d'une
+cannelure, la matière forme un bourrelet qui dépasse du diamètre nominal. Enfoncée dans un
+trou rond percé à ce diamètre, la goupille s'y coince par ses bourrelets, sans que le trou
+ait besoin d'être précis : c'est fait pour les trous simplement percés. Dans du plastique,
+les bourrelets y creusent leur sillon.
 
-Ce que ça ne garantit pas : le serrage tracé est de 0,05 mm au diamètre, alors qu'une
-imprimante tient un trou à 0,1 ou 0,2 mm près, et JLC3DP annonce ± 0,3 mm. Selon la machine,
-la goupille peut ne pas entrer, ou flotter. Deux précautions :
+Jusqu'au 8 octobre 2026, le modèle avait des trous à six pans, un peu plus étroits que la
+goupille, pour serrer une goupille lisse. Abandonné pour deux raisons :
 
-- **Des goupilles moletées ou cannelées.** Leur bout moleté dépasse de 0,1 mm au diamètre et
-  mord dans le plastique : il tient encore dans un trou sorti un peu trop grand, où une
-  goupille lisse flotterait. C'est
-  dans les charnières que cela compte : rien d'autre que ce serrage n'empêche la goupille de
-  sortir vers l'extérieur. Celle de la poulie est chargée en travers par la cordelette et
-  prise sur 15 mm dans chaque crochet : libre, elle glisserait sans sortir.
+- ce serrage se jouait à 0,05 mm au diamètre, alors qu'une imprimante tient un trou à 0,1 ou
+  0,2 mm près, et que JLC3DP annonce ± 0,3 mm ;
+- une goupille cannelée n'a que trois bourrelets, à 120° : dans un trou à six pans, ils
+  peuvent tomber dans les angles et ne rien toucher. Il lui faut un trou rond.
+
+Ce qui reste à régler est le diamètre du trou, parce qu'une imprimante sort les petits trous
+un peu trop petits : la moitié lisse doit y entrer juste, pas à force.
+
 - **`calibre_goupilles.stl`, à imprimer d'abord** ([image](apercu/calibre_goupilles.png)),
-  sur la même imprimante et dans la même matière. Il porte les deux trous en huit cotes, de
-  4,85 à 5,20 mm et de 2,85 à 3,20 mm, imprimés comme sur le banc (axe horizontal, une pointe
-  vers le haut, même longueur de prise). Le nombre gravé au-dessus d'un trou est sa cote en
-  centièmes : 295 = 2,95 mm. Enfoncer ses goupilles à fond, le bout lisse en premier, repérer
-  le plus grand trou d'où elles ne ressortent pas à la main, et reporter la cote juste en
-  dessous dans `axle_d` et `ear_d` (`scad/banc.scad`), puis regénérer le socle et le
-  coulisseau.
+  sur la même imprimante et dans la même matière. Il porte les deux trous en huit diamètres,
+  de 4,90 à 5,25 mm et de 2,90 à 3,25 mm, imprimés comme sur le banc (axe horizontal, même
+  longueur de prise). Le nombre gravé au-dessus d'un trou est son diamètre en centièmes :
+  300 = 3,00 mm. Présenter ses goupilles par le bout lisse, retenir le plus petit trou où la
+  moitié lisse entre à la main, vérifier que la moitié cannelée y entre à force et ne
+  ressort plus, puis reporter ce diamètre dans `axle_d` et `ear_d` (`scad/banc.scad`) et
+  regénérer le socle et le coulisseau.
+- **Où le serrage compte** : dans les charnières, rien d'autre que les cannelures n'empêche
+  la goupille de sortir vers l'extérieur. Celle de la poulie est chargée en travers par la
+  cordelette : même libre, elle glisserait sans sortir.
 
 Rien de tout cela n'a été imprimé : le calibre est justement le premier essai à faire.
 
@@ -393,8 +410,8 @@ le 5 octobre 2026.
   rien : sa goupille tourne librement dans la lumière du charnon. À éviter pour le socle et
   le coulisseau : une goupille y est emmanchée à force, ce qui laisse le plastique sous
   contrainte en permanence, et une résine cassante finit par se fendre autour.
-- **Tolérance annoncée : ± 0,3 mm** dans toutes ces matières. Le serrage des goupilles
-  (trous à six pans) et le jeu des roues en dépendent : commander un seul jeu d'abord.
+- **Tolérance annoncée : ± 0,3 mm** dans toutes ces matières. Le diamètre des trous de
+  goupilles et le jeu des roues en dépendent : commander un seul jeu d'abord.
 - Les cotes du modèle ont été pensées pour une imprimante à dépôt de fil ; en nylon fritté,
   les trous sortent plus près de la cote. Le plus sûr est de commander d'abord
   `calibre_goupilles.stl` dans la matière du socle et dans celle du coulisseau, et d'en
@@ -450,8 +467,8 @@ Je n'ai pas pu lire le prix : le devis demande un compte.
 
 | Emplacement | Ce qui bouge dessus | Ce qu'il faut |
 |---|---|---|
-| Charnière de la cible | la cible tourne et coulisse sur l'axe | **goupille** Ø3 × 12, moletée à un bout ou cannelée DIN 1474 : ce bout serré dans l'oreille, la partie lisse pour la cible ; surtout pas une vis |
-| Axe de poulie | la bague intérieure du roulement y est posée | **goupille** Ø5 × 40, moletée à un bout, ou cylindrique lisse h8 : le roulement glisse sur la partie lisse, et elle s'emmanche à force dans les crochets, 5 mm en retrait de chaque flanc |
+| Charnière de la cible | la cible tourne et coulisse sur l'axe | **goupille cannelée** Ø3 × 12 DIN 1472 (ou moletée à un bout) : la moitié cannelée dans l'oreille, la moitié lisse pour la cible ; surtout pas une vis |
+| Axe de poulie | la bague intérieure du roulement y est posée | **goupille cannelée** Ø5 × 30 DIN 1472, bout cannelé 7 mm sous le flanc (ou moletée à un bout Ø5 × 40, centrée) : le roulement reste sur la partie lisse, les cannelures mordent dans un crochet |
 | Bobines des élévateurs | rien : la vis est enfermée dans les bobines | vis CHC M5×80, filetée au bout pour l'écrou |
 | Roues | rien : la bague du roulement est serrée, elle ne tourne pas sur la vis | vis M5×25 tête bombée, forcément filetée sur toute sa longueur, et écrou frein |
 
@@ -465,10 +482,10 @@ lest ne sont pas comptés : chacun utilise le sien.
 | Roues V Ø24 × 10,23, roulements 625 | 40 | AliExpress, 4 lots de 10 ; en France : 3delectroshop.fr | 20–50 € (≈ 90 € en France) |
 | Vis M5×25 tête bombée (ISO 7380) | 40 | marleva.net | ≈ 5 € |
 | Roulements 625ZZ (poulies) | 10 | AliExpress (≈ 3 $ les 10), reprap-france.com (1,10 € pièce) ; ou les roues en trop | 0–11 € |
-| Goupilles cylindriques Ø5 h8 × 40, ISO 2338 | 10 | visseriefixations.fr | ≈ 8 € |
+| Goupilles cannelées Ø5 × 30, DIN 1472 | 10 | visseriefixations.fr | ≈ 6 € |
 | Vis CHC M5×80 | 10 | marleva.net, planetaventure.com (2,58 € le sachet de 10) | 3–9 € |
 | Écrous frein M5 | 50 | marleva.net | ≈ 3 € |
-| Goupilles Ø3 × 12, cannelées DIN 1474 | 20 | visseriefixations.fr | ≈ 5 € |
+| Goupilles cannelées Ø3 × 12, DIN 1472 | 20 | visseriefixations.fr | ≈ 5 € |
 | Cordelette de 2 mm | 15 m | bobine de drisse ou de paracorde 2 mm, magasin de sport ou AliExpress | 6–12 € |
 | Sangle velcro 20 mm | 10 | magasin de bricolage | ≈ 8 € |
 | **Quincaillerie pour 10 bancs** | | | **≈ 60–100 €** |
@@ -500,12 +517,12 @@ Détails : [A roue](apercu/schema_A_roue.png), [B poulie](apercu/schema_B_poulie
 
 1. **Poulie** : chasser un roulement 625 d'une roue en trop et l'emmancher dans la poulie,
    jusqu'à la lèvre. Poser la poulie dans sa fente, par le dessus du socle, une entretoise
-   imprimée de chaque côté du roulement. Enfoncer la goupille Ø5 × 40 par un flanc, le bout
-   lisse en premier, à travers le crochet, une entretoise, le roulement, l'autre entretoise
-   et l'autre crochet, jusqu'à ce qu'elle soit 5 mm en retrait des deux flancs (la pousser
-   avec une vis M5). Les trous des crochets sont à six pans : ils serrent la goupille, et son
-   bout moleté mord dans le premier crochet ; il n'y a rien à coller. La poulie doit tourner
-   sans aucun point dur.
+   imprimée de chaque côté du roulement. Enfoncer la goupille cannelée Ø5 × 30 par un flanc,
+   le bout lisse en premier, à travers le crochet, une entretoise, le roulement, l'autre
+   entretoise et l'autre crochet, jusqu'à ce que son bout cannelé soit 7 mm sous le flanc (la
+   pousser avec la vis M5 × 80). Ses cannelures mordent dans le premier crochet et s'arrêtent
+   avant le roulement ; il n'y a rien à coller. Avec la goupille moletée Ø5 × 40, s'arrêter à
+   5 mm sous le flanc. La poulie doit tourner sans aucun point dur.
 2. **Roues** : glisser un écrou frein M5 dans chacun des 4 logements du dessus du coulisseau,
    bague nylon vers le haut, puis poser le coulisseau sur le socle. Pour chaque roue, une vis
    M5×25 monte par le dessous (tête sous la roue), traverse la roue présentée dans la rainure
@@ -523,7 +540,7 @@ Détails : [A roue](apercu/schema_A_roue.png), [B poulie](apercu/schema_B_poulie
    est définitif, on n'y touche plus.
 5. **Cible** : présenter la cible entre les oreilles. De chaque côté, enfoncer une goupille
    Ø3 × 12, le bout lisse en premier, jusqu'à ce qu'elle affleure l'oreille (petit maillet ou
-   pince). Le trou à six pans de l'oreille serre son bout moleté : elle ne ressort pas,
+   pince). Sa moitié cannelée mord dans le trou de l'oreille : elle ne ressort pas,
    même banc retourné, sans colle ; la lumière du charnon est fermée côté intérieur, donc elle
    ne peut pas non plus rentrer. La cible doit tourner et monter de 5,5 mm librement.
 6. **Cordelette** : relever la cible. Le puits du nœud est juste derrière elle, sur le
@@ -604,9 +621,9 @@ Par ordre d'intérêt ; aucune n'est faite.
 - **Largeur des roues sur leurs roulements** : le modèle compte 11 mm (deux roulements de
   5 mm et leur cale de 1 mm, qui dépassent la roue de 0,4 mm par face). La mesurer sur vos
   roues ; si elle diffère, corriger `wheel_stack`.
-- **Serrage des goupilles** : les trous des crochets (4,95 mm sur plats, pour la goupille Ø5)
-  et des oreilles (2,95 mm, pour les goupilles Ø3) sont à six pans. Les goupilles doivent
-  entrer à force, au maillet ou à l'étau, et ne plus bouger à la main. Ces deux cotes se
+- **Serrage des goupilles** : les trous des crochets (Ø 5,00) et des oreilles (Ø 3,00) sont
+  ronds, au diamètre nominal des goupilles. La moitié lisse doit y entrer juste, la moitié
+  cannelée à force, au maillet ou à l'étau, et ne plus bouger à la main. Ces deux cotes se
   règlent avant d'imprimer le banc, avec `calibre_goupilles.stl` (voir « Calibre des
   goupilles »). La goupille de la poulie doit rester en retrait des deux flancs.
 - **Logement du roulement** (Ø16,15) dans la poulie : selon l'imprimante, il peut falloir

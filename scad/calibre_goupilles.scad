@@ -1,28 +1,28 @@
 // ============================================================
 //  Calibre des goupilles : à imprimer AVANT le banc, sur la même imprimante et dans la même matière.
 //
-//  Les goupilles du banc tiennent par serrage dans des trous à six pans (axle_d et ear_d dans
-//  banc.scad). Ce serrage se joue à quelques centièmes de millimètre, moins que la précision d'une
-//  imprimante : la barrette reprend donc ces trous dans huit cotes, de 0,05 en 0,05 mm. On y essaie
-//  ses goupilles, puis on reporte dans banc.scad la cote du trou où elles entrent à force et ne
-//  bougent plus à la main.
+//  Les goupilles du banc sont cannelées sur la moitié de leur longueur, et leurs trous sont ronds, au
+//  diamètre nominal (axle_d et ear_d dans banc.scad). Une imprimante sort un trou à un ou deux
+//  dixièmes près, le plus souvent trop petit : la barrette reprend donc ces trous dans huit
+//  diamètres, de 0,05 en 0,05 mm. On y essaie ses goupilles, puis on reporte dans banc.scad le
+//  diamètre du plus petit trou où la moitié lisse entre sans forcer : la moitié cannelée, elle,
+//  doit y entrer à force et ne plus ressortir à la main.
 //
-//  Les trous sont imprimés comme sur le banc : axe horizontal, une pointe vers le haut, sur la même
-//  longueur de prise. Le nombre gravé au-dessus d'un trou est sa cote sur plats en centièmes de
-//  millimètre : 295 = 2,95 mm.
+//  Les trous sont imprimés comme sur le banc : axe horizontal, même longueur de prise.
+//  Le nombre gravé au-dessus d'un trou est son diamètre en centièmes de millimètre : 300 = 3,00 mm.
 // ============================================================
 
-pas = 0.05;   // écart de cote entre deux trous voisins
+pas = 0.05;   // écart de diamètre entre deux trous voisins
 n   = 8;      // trous par goupille
 
-// --- Goupille Ø5 de la poulie : le modèle vaut axle_d = 4,95 ---
-d5_min   = 4.85;   // plus petite cote sur plats (la plus grande : d5_min + (n - 1)*pas = 5,20)
-d5_prise = 15;     // longueur de prise dans une joue du socle
-d5_h     = 12;     // hauteur de la barrette : 3 mm de matière au-dessus et au-dessous du trou
+// --- Goupille Ø5 de la poulie : le modèle vaut axle_d = 5,00 ---
+d5_min   = 4.90;   // plus petit diamètre (le plus grand : d5_min + (n - 1)*pas = 5,25)
+d5_prise = 15;     // longueur cannelée de la goupille Ø5 × 30
+d5_h     = 12;     // hauteur de la barrette : 3,5 mm de matière au-dessus et au-dessous du trou
 d5_e     = 10;     // entraxe des trous
 
-// --- Goupilles Ø3 des charnières : le modèle vaut ear_d = 2,95 ---
-d3_min   = 2.85;   // de 2,85 à 3,20
+// --- Goupilles Ø3 des charnières : le modèle vaut ear_d = 3,00 ---
+d3_min   = 2.90;   // de 2,90 à 3,25
 d3_prise = 6;      // épaisseur d'une oreille du coulisseau (ear_t)
 d3_h     = 8;      // comme l'oreille : 4 mm de matière autour de l'axe (ear_r)
 d3_e     = 9;
@@ -57,8 +57,7 @@ module barrette(d_min, prise, h, e) {
         cube([n*e, prise, h]);
         for (i = [0 : n - 1]) {
             d = d_min + i*pas;
-            translate([(i + 0.5)*e, -1, h/2]) rotate([-90, 0, 0]) rotate([0, 0, 90])
-                cylinder(d = d / cos(30), h = prise + 2, $fn = 6);                  // six pans, une pointe vers le haut
+            translate([(i + 0.5)*e, -1, h/2]) rotate([-90, 0, 0]) cylinder(d = d, h = prise + 2, $fn = 72);
             translate([(i + 0.5)*e, prise/2, h - ch_p]) nombre(round(d*100));
         }
     }

@@ -40,17 +40,19 @@ puis le support du laser, dans la version de votre télémètre.
 
 ### À imprimer d'abord : le calibre des goupilles
 
-Les goupilles tiennent par serrage dans des trous à six pans, et ce serrage se joue à quelques
-centièmes de millimètre, moins que la précision d'une imprimante. `calibre_goupilles.stl`
-([image](apercu/calibre_goupilles.png)) porte les mêmes trous en huit cotes, de 4,85 à 5,20 mm
-et de 2,85 à 3,20 mm ; le nombre gravé au-dessus de chacun est sa cote en centièmes
-(295 = 2,95 mm).
+Les goupilles sont cannelées sur une moitié et lisses sur l'autre, et leurs trous sont ronds.
+La moitié lisse doit y entrer juste, la moitié cannelée à force : ce sont les cannelures qui
+mordent dans le plastique et retiennent la goupille. Or une imprimante sort un trou à un ou
+deux dixièmes près, le plus souvent trop petit. `calibre_goupilles.stl`
+([image](apercu/calibre_goupilles.png)) porte donc ces trous en huit diamètres, de 4,90 à
+5,25 mm et de 2,90 à 3,25 mm ; le nombre gravé au-dessus de chacun est son diamètre en
+centièmes (300 = 3,00 mm).
 
-Imprimez-le sur la même imprimante et dans la même matière que le banc, puis enfoncez-y vos
-goupilles à fond, le bout lisse en premier. Repérez le plus grand trou d'où la goupille ne
-ressort pas à la main, et retenez la cote juste en dessous. Le modèle est tracé pour 4,95 et 2,95 :
-si vous trouvez autre chose, reportez vos deux cotes dans `axle_d` et `ear_d` de
-`scad/banc.scad` et regénérez le socle et le chariot.
+Imprimez-le sur la même imprimante et dans la même matière que le banc, et présentez-y vos
+goupilles par le bout lisse. Retenez le plus petit trou où la moitié lisse entre à la main,
+puis vérifiez que la moitié cannelée y entre à force et ne ressort plus. Le modèle est tracé
+pour 5,00 et 3,00 : si vous trouvez autre chose, reportez vos deux diamètres dans `axle_d` et
+`ear_d` de `scad/banc.scad` et regénérez le socle et le chariot.
 
 ### Le support du laser, à la taille de votre télémètre
 
@@ -114,9 +116,10 @@ vérifiez la variante cochée avant de payer.
 est votre poche à eau, et il n'y a ni colle ni frein-filet. Le laser n'est pas compté : un
 télémètre Bluetooth de 30 m (HOTO QWCJY001 ou équivalent) vaut 30 à 40 €.
 
-Les goupilles sont lisses, sauf un bout moleté de 3,5 mm, plus gros de 0,1 mm : c'est lui qui
-mord dans le plastique et retient la goupille. Une goupille entièrement lisse ne tiendrait
-que si le trou sort de l'imprimante à quelques centièmes près.
+Ces goupilles sont lisses, sauf un bout moleté de 3,5 mm, plus gros de 0,1 mm : de fines
+cannelures tout autour, qui mordent dans le plastique et retiennent la goupille. Les
+goupilles cannelées normalisées (DIN 1472), introuvables sur AliExpress, sont dans le tableau
+suivant.
 
 ### La même chose en Europe
 
@@ -130,15 +133,16 @@ lus le 8 octobre 2026, port non compris (il ne s'affiche que dans le panier).
 | Vis M5 × 25 tête bombée, ISO 7380, inox A2 | TBHC05/025A2 | 4 | 0,08 € pièce | [visseriefixations.fr](https://www.visseriefixations.fr/vis-a-six-pans-creux/tete-bombee-hexagonale-creuse/tbhc-inox-a2-iso-7380/tbhc-m5x25-inox-a2-iso-7380.html) |
 | Écrous frein M5 à bague nylon, DIN 985, inox A2 | ECRNYL05A2 | 5 | 0,04 € pièce | [visseriefixations.fr](https://www.visseriefixations.fr/ecrous/ecrous-autofreines/ecrou-hexagonal-autofreine-nylstop/ecrou-nylstop-inox-a2-din-985/ecrou-nylstop-m5-inox-a2-din-985-99867-99867.html) |
 | Vis M5 × 80 tête cylindrique, DIN 912, inox A2, filetage partiel | TCHC05/080A2PF | 1 | 0,59 € | [visseriefixations.fr](https://www.visseriefixations.fr/vis-a-six-pans-creux/tete-cylindrique-hexagonale-creuse/inox-a2/tchc-inox-a2-filetage-partiel-din-912/tchc-m5x80-inox-a2-pf-din-912.html) |
-| Goupille lisse Ø 5 × 40, ISO 2338 h8, inox A1 (axe de la poulie) | GOUCYL05/040A2ISO | 1 | 0,80 € | [visseriefixations.fr](https://www.visseriefixations.fr/goupilles/goupille-cylindrique-decolletee/iso-2338b-h8-inox-a1/goupille-cylindrique-rectifiee-h8-5x40-inox-a1-iso-2338b.html) |
-| Goupilles cannelées Ø 3 × 12, DIN 1474, inox A1 (charnière de la cible) | GOUCANG0503/012IDI | 2 | 0,24 € pièce | [visseriefixations.fr](https://www.visseriefixations.fr/goupilles/goupilles-cannelees-embrochables-din-1474-g05-iso-8741/inox/goupille-cannelee-g05-3x12-inox-a1-din-1474-13489-13489.html) |
+| Goupille cannelée Ø 5 × 30, DIN 1472, inox A2 (axe de la poulie) | GOUCANG0205/030A2 | 1 | 0,58 € | [visseriefixations.fr](https://www.visseriefixations.fr/goupilles/goupilles-cannelees-d-ajustage-din-1472-g02-iso-8745/inox/goupille-cannelee-g02-5x30-inox-a2-din-1472.html) |
+| Goupilles cannelées Ø 3 × 12, DIN 1472, inox (charnière de la cible) | GOUCANG0203/012A2 | 2 | 0,23 € pièce | [visseriefixations.fr](https://www.visseriefixations.fr/goupilles/goupilles-cannelees-d-ajustage-din-1472-g02-iso-8745/inox/goupille-cannelee-g02-3x12-inox-din-1472.html) |
 
-**Visserie : 2,39 €, plus le port ; roues : 12,90 €, plus le port.** La cordelette est
+**Visserie : 2,15 €, plus le port ; roues : 12,90 €, plus le port.** La cordelette est
 n'importe quelle cordelette de 2 mm.
 
-La goupille Ø 5 est ici lisse d'un bout à l'autre, ce marchand n'ayant pas de cannelée en
-5 × 40 : elle ne tient que par le serrage de son trou, donc réglez `axle_d` au calibre. Sa tolérance doit être h8 :
-une goupille m6, plus courante, ne passe pas dans le roulement.
+La goupille DIN 1472 est celle des axes de charnière : cannelée sur la moitié de sa longueur,
+de plus en plus fort vers le bout, lisse sur l'autre moitié. Celle de la poulie mesure 30 mm
+et non 40 : ses cannelures s'arrêtent ainsi avant le roulement, qui doit rester sur la partie
+lisse.
 
 ## Montage
 
@@ -146,8 +150,8 @@ Le schéma complet, avec la visserie : [schema_montage.png](apercu/schema_montag
 
 1. **Poulie** : sortez un roulement d'une roue en trop, emmanchez-le dans la poulie. Posez la
    poulie dans sa fente avec une entretoise de chaque côté et enfoncez la goupille Ø 5, le
-   bout lisse en premier, à travers les deux crochets, jusqu'à ce qu'elle soit en retrait des
-   flancs.
+   bout lisse en premier, à travers les deux crochets : jusqu'à ce que son bout cannelé soit
+   7 mm sous le flanc (5 mm pour la goupille moletée de 40 mm). Poussez-la avec la vis M5 × 80.
 2. **Roues** : un écrou frein dans chacun des 4 logements du chariot, puis pour chaque roue
    une vis M5 × 25 par le dessous, à travers la roue et une entretoise.
 3. **Jeu** : serrez le côté fixe, poussez les deux autres roues au fond de leur rainure (trous
@@ -155,7 +159,7 @@ Le schéma complet, avec la visserie : [schema_montage.png](apercu/schema_montag
 4. **Bobines** : sur la vis M5 × 80, une bobine, la nervure du chariot, l'autre bobine, l'écrou
    frein dans le chapeau. On n'y touche plus.
 5. **Cible** : entre les oreilles du chariot, une goupille Ø 3 de chaque côté, le bout lisse
-   en premier, enfoncée à ras : le bout moleté reste dans l'oreille.
+   en premier, enfoncée à ras : la moitié cannelée reste dans l'oreille.
 6. **Cordelette** : nœud en huit dans le puits derrière la cible ; le brin file dans le canal
    du socle, passe sur la poulie et se noue à la poignée de la poche. Pesez la poche pleine à
    **5,00 kg**.
