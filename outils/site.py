@@ -27,7 +27,7 @@ TEXTES = {
     "en": {
         "readme": "README.en.md",
         "locale": "en_GB",
-        "sous_titre": "Measure your lines with a laser, under 5 kg, with two 3D-printed parts: 7 files for the bench, a holder sized for your distance meter, €27 of hardware.",
+        "sous_titre": "Measure your lines with a laser, under 5 kg, with two 3D-printed parts: 7 files for the bench, a holder sized for your distance meter, €30 of hardware.",
         "etiquette": "Free tool to 3D-print",
         "telecharger": "Download the STL files",
         "source": "Source code",
@@ -46,7 +46,7 @@ TEXTES = {
     "fr": {
         "readme": "README.md",
         "locale": "fr_FR",
-        "sous_titre": "Mesurer ses suspentes au laser, sous 5 kg, avec deux pièces imprimées en 3D : 7 fichiers pour le banc, un support à la taille de votre télémètre, 27 € de quincaillerie.",
+        "sous_titre": "Mesurer ses suspentes au laser, sous 5 kg, avec deux pièces imprimées en 3D : 7 fichiers pour le banc, un support à la taille de votre télémètre, 30 € de quincaillerie.",
         "etiquette": "Outil gratuit à imprimer en 3D",
         "telecharger": "Télécharger les fichiers STL",
         "source": "Code source",

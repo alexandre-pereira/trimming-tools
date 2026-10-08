@@ -38,24 +38,19 @@ async function render(file, defs) {
 }
 
 const mode = process.argv[2] || "all";
+// noms à la suite du mode : seulement ces pièces ou ces contrôles (« print socle coulisseau », « asm asm_divers »,
+// « check x_cible_vis ») ; « print » avec des noms ne refait pas les supports de laser
+const seules = process.argv.slice(3);
 if (mode === "all" || mode === "print") {
   for (const p of ["socle", "coulisseau", "poulie", "cible", "bobine_tete", "bobine_ecrou", "entretoises_grappe"]) {
+    if (seules.length && !seules.includes(p)) continue;
     const { stl, log } = await render("banc.scad", { part: `"${p}"` });
     if (!stl) { console.log(p, "ECHEC", log.join("\n")); continue; }
     fs.writeFileSync(path.join(outPrint, p + ".stl"), stl);
     console.log(p, JSON.stringify(stats(stl)), log.filter(l => /warn|error/i.test(l)).join(" | "));
   }
 }
-if (mode === "all" || mode === "print" || mode === "calibre") {
-  // la barrette d'essai des goupilles, à imprimer avant le banc
-  const { stl, log } = await render("calibre_goupilles.scad", {});
-  if (!stl) console.log("calibre_goupilles ECHEC", log.join("\n"));
-  else {
-    fs.writeFileSync(path.join(outPrint, "calibre_goupilles.stl"), stl);
-    console.log("calibre_goupilles", JSON.stringify(stats(stl)), log.filter(l => /warn|error/i.test(l)).join(" | "));
-  }
-}
-if (mode === "all" || mode === "print" || mode === "lasers") {
+if (mode === "all" || (mode === "print" && !seules.length) || mode === "lasers") {
   // un support par télémètre de la liste outils/lasers.json (cotes constructeur ; le jeu est dans le .scad)
   const lasers = JSON.parse(fs.readFileSync("c:/Users/alexa/banc3d/outils/lasers.json", "utf8"));
   for (const f of fs.readdirSync(outPrint)) if (/^support_laser.*\.stl$/.test(f)) fs.unlinkSync(path.join(outPrint, f));
@@ -88,6 +83,7 @@ if (mode === "all" || mode === "print" || mode === "lasers") {
 if (mode === "all" || mode === "asm") {
   for (const [dir, plie] of [["./asm", "false"], ["./asm_plie", "true"]])
     for (const p of ["asm_socle", "asm_coulisseau", "asm_cible", "asm_poulie", "asm_roues", "asm_divers", "asm_table", "asm_elevateurs", "asm_bobines"]) {
+      if (seules.length && !seules.includes(p)) continue;
       const { stl, log } = await render("banc.scad", { part: `"${p}"`, plie });
       if (!stl) { console.log(dir, p, "ECHEC", log.slice(-3).join("\n")); continue; }
       fs.writeFileSync(path.join(dir, p + ".stl"), stl);
@@ -98,9 +94,10 @@ if (mode === "all" || mode === "check") {
   // [contrôle, cible rabattue ?, position du coulisseau de 0 à 1 (-1 = position par défaut)]
   const checks = [["x_socle_coulisseau", "false", -1], ["x_socle_coulisseau", "true", -1], ["x_socle_coulisseau", "false", 1],
     ["x_socle_poulie", "false", -1], ["x_socle_roues", "true", -1], ["x_socle_roues", "false", 1],
-    ["x_coulisseau_cible", "false", -1], ["x_coulisseau_cible", "true", -1], ["x_cible_reste", "false", -1], ["x_cible_reste", "true", -1],
+    ["x_coulisseau_cible", "false", -1], ["x_coulisseau_cible", "true", -1], ["x_cible_vis", "false", -1], ["x_cible_vis", "true", -1], ["x_cible_reste", "false", -1], ["x_cible_reste", "true", -1],
     ["x_coulisseau_bobines", "false", -1], ["x_coulisseau_elevateurs", "false", -1]];
   for (const [p, plie, pos] of checks) {
+    if (seules.length && !seules.includes(p)) continue;
     const { stl } = await render("banc.scad", { part: `"${p}"`, plie, pos, "$fn": 24 });
     const tag = `${p} plie=${plie} pos=${pos}`;
     if (!stl) console.log(tag, "-> vide (aucune interférence)");

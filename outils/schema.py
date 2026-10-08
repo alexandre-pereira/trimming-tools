@@ -174,21 +174,22 @@ def p_roue():
 
 
 def p_poulie():
-    P = [(np.concatenate([tube((0, -72, 0), Y, 30, 5, n=20), tube((0, -72, 0), Y, 15, 5.5, n=20)]), ACIER),   # goupille Ø5 × 30 et sa moitié cannelée
+    P = [(np.concatenate([vis((0, -74, 0), Y, 40, 5, tete=8.5, htete=5), ecrou((0, 92, 0), Y, 5, h=5)]), ACIER),   # vis CHC M5×40 et son écrou frein
          (box((-9, -30, -9), (9, -22, 9)), BLEU),                                  # joue du socle
          (tube((0, -8, 0), Y, 3.3, 8, 5.3), BLANC),
          (tube((0, 10, 0), Y, 5, 16, 5), ACIER),                                   # roulement 625
          (tube((0, 30, 0), Y, 10, 25, 16.2), GRIS),                                # poulie
          (tube((0, 56, 0), Y, 3.3, 8, 5.3), BLANC),
          (box((-9, 72, -9), (9, 80, 9)), BLEU)]
-    L = [((0, -60, -2.5), "goupille cannelée Ø5 × 30 (DIN 1472) : moitié lisse en premier,\njusqu'à ce que le bout cannelé soit 7 mm sous le flanc", -215, 175),
-         ((0, -26, 9), "joue du socle : trou rond Ø5,\noù mordent les cannelures", -60, -90),
+    L = [((0, -60, -2.5), "vis M5×40 à tête cylindrique (CHC) : sa tête et son écrou\nsont noyés dans les joues, rien ne dépasse des flancs", -215, 175),
+         ((0, -26, 9), "joue du socle : passage Ø5,3\net logement de la tête de vis", -60, -90),
          ((0, -6, -4), "entretoise imprimée", -60, 150),
-         ((0, 12.5, 8), "roulement 625ZZ (5 × 16 × 5), à emmancher\ndans la poulie ; il glisse sur la partie lisse", -110, -160),
+         ((0, 12.5, 8), "roulement 625ZZ (5 × 16 × 5), à emmancher\ndans la poulie ; il tourne autour de la vis", -110, -160),
          ((0, 35, -12.5), "poulie imprimée Ø25", -40, 110),
          ((0, 58, 4), "entretoise imprimée", -20, -130),
-         ((0, 76, -9), "joue du socle", -20, 80)]
-    return panel("B — Poulie de renvoi, sur roulement à billes", P, L, -22, 16, margin=120, axes=[((0, -88, 0), (0, 86, 0))])
+         ((0, 76, -9), "joue du socle : logement\nde l'écrou frein", -90, 90),
+         ((0, 94.5, 4), "écrou frein M5", -10, -90)]
+    return panel("B — Poulie de renvoi, sur roulement à billes", P, L, -22, 16, margin=120, axes=[((0, -92, 0), (0, 102, 0))])
 
 
 def bobine(y0, sens):
@@ -225,13 +226,14 @@ def p_axe():
 def p_charniere():
     slot = np.concatenate([tube((0, 6, 0), Y, 7, 7, 3.4), tube((0, 6, -5.5), Y, 7, 7, 3.4), box((-3.5, 6, -5.5), (3.5, 13, 0)),
                            box((-3.5, 6, -9), (-0.5, 13, 40))])
-    P = [(np.concatenate([tube((0, -34, 0), Y, 12, 3, n=20), tube((0, -34, 0), Y, 6, 3.5, n=20)]), ACIER),   # goupille Ø3 × 12 et sa moitié cannelée
-         (np.concatenate([box((-4, -10, -12), (4, -4, 0)), tube((0, -10, 0), Y, 6, 8, 2.9)]), BLEU2),
+    P = [(np.concatenate([vis((0, -26, 0), Y, 12, 3, tete=5.7, htete=1.65), ecrou((0, -1.5, 0), Y, 3, h=4)]), ACIER),   # vis M3×12 et son écrou frein
+         (np.concatenate([box((-5, -10, -12), (5, -4, 0)), tube((0, -10, 0), Y, 6, 10, 3.3)]), BLEU2),
          (slot, BLANC)]
-    L = [((0, -28, 1.5), "goupille cannelée Ø3 × 12 (DIN 1472) :\nsa moitié cannelée se serre dans l'oreille,\nsa moitié lisse sert d'axe", -60, -120),
-         ((0, -7, -8), "oreille du coulisseau : trou rond Ø3,\noù mordent les cannelures, sans colle", -230, 80),
+    L = [((0, -20, 1.5), "vis M3×12 à tête bombée : sa tête porte\nsur l'oreille, son bout sert d'axe à la cible", -60, -120),
+         ((0, -7, -8), "oreille du coulisseau : la vis y est\nbloquée entre sa tête et son écrou", -230, 80),
+         ((0, 0.5, -3), "écrou frein M3, logé dans la face\nintérieure de l'oreille", 60, 140),
          ((-2, 10, 25), "cible", 60, -40),
-         ((2, 13, -3), "charnon à lumière borgne : la cible tourne\net coulisse sur la partie lisse ;\nla goupille ne peut ni sortir ni rentrer", 60, 40)]
+         ((2, 13, -3), "charnon à lumière borgne : la cible tourne\net coulisse sur le bout de la vis ;\nil empêche l'écrou de ressortir", 60, 40)]
     return panel("D — Charnière de la cible (×2)", P, L, -30, 16, margin=130, axes=[((0, -40, 0), (0, 20, 0))])
 
 
@@ -258,7 +260,7 @@ def p_verrou(W=1000, H=640):
     for (x, z, tx, ty, t) in [(-6, -6, 30, 470, "coulisseau"), (0, -4, 20, 300, "face avant du coulisseau :\nla languette s'y appuie"),
                                (4.6, -7, 520, 500, "lèvre inclinée : en poussant la cible vers le bas,\nsa languette s'y coince, sans jeu"),
                                (1.5, 10, 520, 110, "cible relevée et verrouillée :\nelle ne peut basculer ni en avant ni en arrière"),
-                               (3.5, 4, 520, 200, "axe de charnière (goupille Ø3)"),
+                               (3.5, 4, 520, 200, "axe de charnière (vis M3)"),
                                (9.5, 3, 560, 300, "pour rabattre : SOULEVER de 5,5 mm\n(la languette sort de la lèvre), puis RABATTRE")]:
         dr.line([(X(x), Zc(z)), (tx - 6 if tx > X(x) else tx + 230, ty + 12)], fill=(0, 0, 0), width=2)
         dr.ellipse([X(x) - 4, Zc(z) - 4, X(x) + 4, Zc(z) + 4], fill=(0, 0, 0)); T(tx, ty, t)
@@ -279,7 +281,7 @@ def p_ensemble():
             Hw.append(vis((x, y, -33), Z, 25, 5, tete=9.5, htete=2.75))                      # vis des roues, dessous
             Pw.append(tube((x, y, 27), Z, 2.7, 8, 5.3))                                      # entretoise imprimée
             Hw.append(ecrou((x, y, zsb + up + 20), Z, 5, h=5))                               # écrous frein, dessus
-    Hw.append(tube((-67, -100, 0), Y, 30, 5, n=20))                                           # goupille de la poulie
+    Hw += [vis((-67, -100, 0), Y, 40, 5, tete=8.5, htete=5), ecrou((-67, 42, 0), Y, 5, h=5)]    # vis de la poulie et son écrou frein
     Pw += [tube((-67, -30, 0), Y, 3.3, 8, 5.3), tube((-67, 20, 0), Y, 3.3, 8, 5.3)]           # ses entretoises
     Hw.append(tube((-67, -20, 0), Y, 5, 16, 5))                                               # roulement 625
     pz, px = zsb + up + 12, xs + 72
@@ -287,13 +289,13 @@ def p_ensemble():
     Hw.append(ecrou((px, -84, pz), Y, 5, h=5))
     P.append((np.concatenate([move(bobine(96, -1), (px, 0, pz)), move(bobine(-70, 1), (px, 0, pz))]), BLANC))            # bobines
     hz = zsb + up + 15.5
-    Hw += [tube((xs + 51.5, -68, hz), Y, 12, 3, n=20), tube((xs + 51.5, 56, hz), Y, 12, 3, n=20)]
+    Hw += [vis((xs + 51.5, -68, hz), Y, 12, 3, tete=5.7, htete=1.65), vis((xs + 51.5, 68, hz), (0, -1, 0), 12, 3, tete=5.7, htete=1.65)]
     P.append((np.concatenate(Hw), ACIER))
     P.append((np.concatenate(Pw), BLANC))
     L = [((xs + 10, -34.4, -27), "A  roues : vis M5×25 dessous,\nentretoise, écrou frein M5 dessus (×4)", 60, 60),
-         ((-67, -80, 0), "B  poulie sur roulement 625, 2 entretoises,\ngoupille cannelée Ø5 × 30 emmanchée dans les joues", -400, 40),
+         ((-67, -80, 0), "B  poulie sur roulement 625, 2 entretoises,\nvis M5×40 et écrou frein noyés dans les joues", -400, 40),
          ((px, 150, pz), "C  élévateurs : vis CHC M5×80,\n2 bobines, écrou frein", 50, -110),
-         ((xs + 51.5, 62, hz), "D  charnières : goupille cannelée Ø3 × 12 (×2)", 150, 70),
+         ((xs + 51.5, 62, hz), "D  charnières : vis M3×12 et écrou frein M3 (×2)", 150, 70),
          ((xs + 32, 0, zsb + up + 8), "E  puits du nœud\nde la cordelette", -420, -150),
          ((xs + 50, 0, zsb + up + 120), "cible", 90, -20),
          ((xs - 28, 20, zsb + up + 4), "coulisseau", -230, -30),
@@ -363,12 +365,12 @@ if __name__ == "__main__":
     d.text((lx, y + 20), "Visserie et pièces achetées", font=f_tit, fill=(0, 0, 0))
     lines = ["A   4 roues V Ø24 × 10,2, roulements 625 inclus",
              "A   4 vis M5×25 tête bombée, 4 écrous frein M5, 4 entretoises imprimées",
-             "B   1 roulement 625ZZ, 1 goupille cannelée Ø5 × 30 (ou moletée Ø5 × 40), 2 entretoises et 1 poulie imprimées",
+             "B   1 roulement 625ZZ, 1 vis CHC M5×40, 1 écrou frein M5, 2 entretoises et 1 poulie imprimées",
              "C   1 vis CHC M5×80, 1 écrou frein M5, 2 bobines imprimées",
-             "D   2 goupilles Ø3 × 12, cannelées (ou moletées à un bout)",
+             "D   2 vis M3×12 tête bombée, 2 écrous frein M3",
              "E   cordelette de 2 mm, lest de 5 kg",
              "",
-             "Ni colle ni frein-filet : écrous frein et goupilles cannelées.",
+             "Ni colle ni frein-filet : des vis et des écrous frein partout.",
              "Sangle velcro autour du bloc pour le transport."]
     for i, s in enumerate(lines):
         d.text((lx, y + 80 + i * 40), s, font=f_lst, fill=(0, 0, 0))

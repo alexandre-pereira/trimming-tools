@@ -5,7 +5,7 @@
 To check the trim of your wing, every line has to be measured under the same tension. Here,
 two 3D-printed parts do the job with a laser distance meter and a 5 L water bag: a **bench**
 that sits on the edge of a table and tensions the line to 5 kg, and a **laser holder** that
-catches the line's attachment tab at the wing end. Hardware: €27.
+catches the line's attachment tab at the wing end. Hardware: €30.
 
 | The bench, line under tension | Folded: 164 × 93 × 52 mm | The laser holder and its notch |
 |---|---|---|
@@ -37,22 +37,6 @@ then the laser holder, in the version for your distance meter.
 | `poulie.stl` | the pulley of the cord ([image](apercu/poulie.png)) |
 | `bobine_tete.stl`, `bobine_ecrou.stl` | the two riser spools ([image](apercu/bobine_tete.png)) |
 | `entretoises_grappe.stl` | 8 small spacers on a sprue, to cut off with a craft knife ([image](apercu/entretoises_grappe.png)) |
-
-### Print this first: the pin gauge
-
-The pins are grooved over one half and smooth over the other, and their holes are round. The
-smooth half must just slide in, the grooved half must be forced in: the grooves bite into
-the plastic and hold the pin. But a printer makes a hole within one or two tenths of a
-millimetre, usually too small. So `calibre_goupilles.stl`
-([image](apercu/calibre_goupilles.png)) carries these holes in eight diameters, from 4.90 to
-5.25 mm and from 2.90 to 3.25 mm; the number engraved above each hole is its diameter in
-hundredths (300 = 3.00 mm).
-
-Print it on the same printer and in the same material as the bench, and offer your pins to
-it smooth end first. Keep the smallest hole the smooth half enters by hand, then check that
-the grooved half has to be forced in and does not come back out. The model is drawn for 5.00
-and 3.00: if you find something else, enter your two diameters as `axle_d` and `ear_d` in
-`scad/banc.scad` and regenerate the base and the carriage.
 
 ### The laser holder, sized for your distance meter
 
@@ -93,70 +77,68 @@ the sun.
 
 If you have it printed by [JLC3DP](https://jlc3dp.com/3d-printing-quote): everything in
 **SLS 3201PA-F nylon**, except the target in white **SLA 9000HE resin**. Allow ≈ $44 for the
-parts of the bench and ≈ $10 for shipping. The parts that grip pins or pull on a line (base,
-carriage, laser holder) must not be in resin: it breaks instead of bending.
+parts of the bench and ≈ $10 for shipping. The parts clamped by screws or pulled by a line
+(base, carriage, laser holder) must not be in resin: it breaks instead of bending.
 
 ## What to buy
 
-Everything on AliExpress, from rated sellers. Prices read on 5 October 2026 (pins: on the
-8th); check the selected variant before paying. The variant names are those shown on the listings.
+Nothing but screws and lock nuts, all on AliExpress, from rated sellers. Prices read on
+5 October 2026 (M5 × 40 screw, M3 screws and nuts: on the 8th); check the selected variant
+before paying. The variant names are those shown on the listings.
 
 | Part | Variant to select | You need | Price | Link |
 |---|---|---|---|---|
 | Black V wheels Ø 24, bearings fitted | “10PC BigBlack Wheel” | 5 of 10 | €6.69 | [listing](https://fr.aliexpress.com/item/1005003090749056.html) |
-| M5 × 25 button head screws | “10Pcs M5x25” | 4 of 10 | €4.29 | [listing](https://fr.aliexpress.com/item/32850409234.html) |
-| M5 lock nuts (nylon insert) | “M5 X 50pcs” | 5 of 50 | €3.39 | [listing](https://fr.aliexpress.com/item/1005002375633274.html) |
-| M5 × 80 socket head cap screw | “M5 10 pièces” (10 pieces), then “80 mm” | 1 of 10 | €5.09 | [listing](https://fr.aliexpress.com/item/32968483467.html) |
-| Ø 5 × 40 knurled pin (pulley axle) | “M5-5pcs”, then “40mm” | 1 of 5 | €2.11 | [listing](https://fr.aliexpress.com/item/1005007894767899.html) |
-| Ø 3 × 12 knurled pins (target hinge) | “M3-10pcs”, then “12 mm” | 2 of 10 | €1.02 | [same listing](https://fr.aliexpress.com/item/1005007894767899.html) |
+| M5 × 25 button head screws (wheels) | “10Pcs M5x25” | 4 of 10 | €4.29 | [listing](https://fr.aliexpress.com/item/32850409234.html) |
+| M3 × 12 button head screws (target hinge) | “30Pcs M3x12” | 2 of 30 | €3.69 | [same listing](https://fr.aliexpress.com/item/32850409234.html) |
+| M5 × 80 socket head cap screw (spools) | “M5 10 pièces” (10 pieces), then “80 mm” | 1 of 10 | €5.09 | [listing](https://fr.aliexpress.com/item/32968483467.html) |
+| M5 × 40 socket head cap screw (pulley axle) | “M5 10 pièces” (10 pieces), then “40 mm” | 1 of 10 | €3.09 | [same listing](https://fr.aliexpress.com/item/32968483467.html) |
+| M5 lock nuts with nylon insert | “M5 X 50pcs” | 6 of 50 | €3.39 | [listing](https://fr.aliexpress.com/item/1005002375633274.html) |
+| M3 lock nuts with nylon insert | “M3 X 50pcs” | 2 of 50 | €2.26 | [same listing](https://fr.aliexpress.com/item/1005002375633274.html) |
 | 2 mm cord | “10 meters” | 1.5 m | €1.62 | [listing](https://fr.aliexpress.com/item/1005011930498059.html) |
 
-**≈ €27 including shipping.** The pulley bearing is taken from the fifth wheel, the weight is
-your water bag, and there is no glue and no threadlocker. The laser is not counted: a 30 m
-Bluetooth distance meter (HOTO QWCJY001 or equivalent) costs €30 to €40.
-
-These pins are smooth, except for a 3.5 mm knurled end that is 0.1 mm larger: fine grooves
-all round, which bite into the plastic and hold the pin. Standard grooved pins (DIN 1472),
-which could not be found on AliExpress, are in the next table.
+**≈ €30 including shipping.** The pulley bearing is taken from the fifth wheel, the weight is
+your water bag, and there is no glue and no threadlocker: everything is screwed through
+clearance holes, with a lock nut at the end. The laser is not counted: a
+30 m Bluetooth distance meter (HOTO QWCJY001 or equivalent) costs €30 to €40.
 
 ### The same from Europe
 
 All the fasteners are sold singly by visseriefixations.fr (France). None of the European
-shops checked also stocks the wheels: they come from a 3D-printing shop. Prices read on 8 October 2026,
-shipping not included (it is only shown in the basket).
+shops checked also stocks the wheels: they come from a 3D-printing shop. Prices read on
+8 October 2026, shipping not included (it is only shown in the basket).
 
 | Part | Shop reference | You need | Price | Link |
 |---|---|---|---|---|
 | V wheels Ø 24 × 10 in POM, 5 mm bore, 625ZZ bearings fitted | set of 6 | 5 of 6 | €12.90 | [3delectroshop.fr](https://3delectroshop.fr/roulements-et-rotules/504-roulettes-v-slot-en-pom-avec-roulements-625zz.html) |
-| M5 × 25 button head screws, ISO 7380, A2 stainless | TBHC05/025A2 | 4 | €0.08 each | [visseriefixations.fr](https://www.visseriefixations.fr/vis-a-six-pans-creux/tete-bombee-hexagonale-creuse/tbhc-inox-a2-iso-7380/tbhc-m5x25-inox-a2-iso-7380.html) |
-| M5 lock nuts with nylon insert, DIN 985, A2 stainless | ECRNYL05A2 | 5 | €0.04 each | [visseriefixations.fr](https://www.visseriefixations.fr/ecrous/ecrous-autofreines/ecrou-hexagonal-autofreine-nylstop/ecrou-nylstop-inox-a2-din-985/ecrou-nylstop-m5-inox-a2-din-985-99867-99867.html) |
-| M5 × 80 socket head cap screw, DIN 912, A2 stainless, partly threaded | TCHC05/080A2PF | 1 | €0.59 | [visseriefixations.fr](https://www.visseriefixations.fr/vis-a-six-pans-creux/tete-cylindrique-hexagonale-creuse/inox-a2/tchc-inox-a2-filetage-partiel-din-912/tchc-m5x80-inox-a2-pf-din-912.html) |
-| Ø 5 × 30 grooved pin, DIN 1472, A2 stainless (pulley axle) | GOUCANG0205/030A2 | 1 | €0.58 | [visseriefixations.fr](https://www.visseriefixations.fr/goupilles/goupilles-cannelees-d-ajustage-din-1472-g02-iso-8745/inox/goupille-cannelee-g02-5x30-inox-a2-din-1472.html) |
-| Ø 3 × 12 grooved pins, DIN 1472, stainless (target hinge) | GOUCANG0203/012A2 | 2 | €0.23 each | [visseriefixations.fr](https://www.visseriefixations.fr/goupilles/goupilles-cannelees-d-ajustage-din-1472-g02-iso-8745/inox/goupille-cannelee-g02-3x12-inox-din-1472.html) |
+| M5 × 25 button head screws, ISO 7380, A2 stainless (wheels) | TBHC05/025A2 | 4 | €0.08 each | [visseriefixations.fr](https://www.visseriefixations.fr/vis-a-six-pans-creux/tete-bombee-hexagonale-creuse/tbhc-inox-a2-iso-7380/tbhc-m5x25-inox-a2-iso-7380.html) |
+| M3 × 12 button head screws, ISO 7380, A2 stainless (target hinge) | TBHC03/012A2 | 2 | €0.05 each | [visseriefixations.fr](https://www.visseriefixations.fr/vis-a-six-pans-creux/tete-bombee-hexagonale-creuse/tbhc-inox-a2-iso-7380/tbhc-m3x12-inox-a2-iso-7380.html) |
+| M5 × 40 socket head cap screw, DIN 912, A2 stainless (pulley axle) | TCHC05/040A2PF | 1 | €0.13 | [visseriefixations.fr](https://www.visseriefixations.fr/vis-a-six-pans-creux/tete-cylindrique-hexagonale-creuse/inox-a2/tchc-inox-a2-filetage-partiel-din-912/tchc-m5x40-inox-a2-pf-din-912.html) |
+| M3 lock nuts with nylon insert, DIN 985, A2 stainless | ECRNYL03A2 | 2 | €0.04 each | [visseriefixations.fr](https://www.visseriefixations.fr/ecrous/ecrous-autofreines/ecrou-hexagonal-autofreine-nylstop/ecrou-nylstop-inox-a2-din-985/ecrou-nylstop-m3-inox-a2-din-985-17062-17062.html) |
+| M5 lock nuts with nylon insert, DIN 985, A2 stainless | ECRNYL05A2 | 6 | €0.04 each | [visseriefixations.fr](https://www.visseriefixations.fr/ecrous/ecrous-autofreines/ecrou-hexagonal-autofreine-nylstop/ecrou-nylstop-inox-a2-din-985/ecrou-nylstop-m5-inox-a2-din-985-99867-99867.html) |
+| M5 × 80 socket head cap screw, DIN 912, A2 stainless (spools) | TCHC05/080A2PF | 1 | €0.59 | [visseriefixations.fr](https://www.visseriefixations.fr/vis-a-six-pans-creux/tete-cylindrique-hexagonale-creuse/inox-a2/tchc-inox-a2-filetage-partiel-din-912/tchc-m5x80-inox-a2-pf-din-912.html) |
 
-**Fasteners: €2.15, plus shipping; wheels: €12.90, plus shipping.** The cord is any 2 mm
+**Fasteners: €1.46, plus shipping; wheels: €12.90, plus shipping.** The cord is any 2 mm
 cord.
-
-The DIN 1472 pin is the one made for hinge axles: grooved over half its length, more and
-more deeply towards the end, smooth over the other half. The pulley pin is 30 mm long, not
-40: its grooves then stop short of the bearing, which must stay on the smooth part.
 
 ## Assembly
 
 The full diagram, with the hardware (labels in French): [schema_montage.png](apercu/schema_montage.png).
 
 1. **Pulley**: take a bearing out of a spare wheel and press it into the pulley. Place the
-   pulley in its slot with a spacer on each side and push the Ø 5 pin, smooth end first,
-   through both hooks: until its grooved end is 7 mm below the side (5 mm for the 40 mm
-   knurled pin). Push it with the M5 × 80 screw.
+   pulley in its slot with a spacer on each side. Slide an M5 lock nut into its pocket, on one
+   side of the base, pass the M5 × 40 screw through from the other side and screw it in (4 mm
+   hex key) until the head seats, without forcing. Head and nut stay below the sides.
 2. **Wheels**: a lock nut in each of the 4 pockets of the carriage, then for each wheel an
    M5 × 25 screw from underneath, through the wheel and a spacer.
 3. **Play**: tighten the fixed side, push the two other wheels to the bottom of their groove
    (slotted holes), tighten. The carriage must roll by itself when you tilt the base.
 4. **Spools**: on the M5 × 80 screw, one spool, the rib of the carriage, the other spool, the
    lock nut in the cap. Leave it alone from then on.
-5. **Target**: between the lugs of the carriage, a Ø 3 pin on each side, smooth end first,
-   pushed in flush: the grooved half stays in the lug.
+5. **Target**: slide an M3 lock nut into the pocket of each lug of the carriage, on the inner
+   side, then place the target between the lugs: it keeps the nuts in. On each side, screw an
+   M3 × 12 screw through the lug (2 mm hex key) until its head seats. The end of the screw is
+   the axle of the target.
 6. **Cord**: figure-eight knot in the well behind the target; the cord runs in the channel of
    the base, goes over the pulley and is tied to the handle of the bag. Weigh the full bag at
    **5.00 kg**.

@@ -83,20 +83,19 @@ fence_t  = 3;      // épaisseur des joues
 fence_z  = 3.5;    // hauteur des joues au-dessus du dessus du coulisseau : elles montent jusqu'au dessus de la sangle tendue
 fence_y  = post_w/2 + elev_w + 0.5;   // face intérieure des joues extérieures
 
-// --- Poulie Ø25 sur un roulement 625ZZ, axe = goupille cannelée Ø5 × 30 (DIN 1472) emmanchée dans les joues ---
+// --- Poulie Ø25 sur un roulement 625ZZ, axe = vis CHC M5×40 et écrou frein, noyés dans les joues ---
 // Elle est logée dans le bloc des crochets, sous le passage du coulisseau : rien ne dépasse du socle.
 // Le roulement supprime le frottement de l'axe, qui fausserait la tension de la suspente.
 pul_r    = 12.5;
 pul_w    = 9.4;
 slot_w   = 5 + 2*spacer_h + 0.2;   // fente de la poulie entre les joues (roulement 5 + une entretoise de chaque côté + jeu)
 cord_d   = 2;      // cordelette 2 mm
-axle_d   = 5.0;    // trou des joues, rond, au diamètre nominal de la goupille comme le veut sa norme : la partie lisse
-                   // y entre juste, et ce sont les cannelures de l'autre moitié qui mordent dans la joue, sans colle.
-                   // Cette cote et ear_d se règlent sur votre imprimante avec calibre_goupilles.scad, avant d'imprimer le banc.
-axle_l   = 30;     // longueur de la goupille : cannelée sur 15 mm depuis un bout, lisse sur le reste
-axle_in  = 7;      // retrait du bout cannelé sous le flanc par où on l'enfonce : les cannelures s'arrêtent alors juste avant
-                   // le roulement, qui reste sur la partie lisse, et l'autre bout tient sur 6,7 mm dans la joue d'en face.
-                   // (Une goupille de 40 mm moletée à un bout se centre : 5 mm de retrait de chaque côté.)
+axle_d   = 5.3;    // passage de la vis M5 dans les joues
+axle_l   = 40;     // vis CHC M5×40 (DIN 912, tête Ø8,5 × 5) et écrou frein M5 (5 mm)
+axle_hd  = 9.5;    // profondeur du logement de la tête (Ø9), côté -y : la tige lisse de la vis (18 mm) arrive ainsi
+                   // jusque sous le roulement, et le bout fileté s'arrête 0,5 mm sous le flanc d'en face
+axle_nd  = 6.5;    // profondeur du logement à six pans de l'écrou frein, côté +y : la vis le dépasse de 1 mm (bague nylon
+                   // en prise). Tête et écrou restent sous les flancs, hors du passage des roues.
 
 // --- Cible articulée à l'avant du coulisseau, verrouillée d'équerre quand elle est relevée ---
 // Relevée et poussée vers le bas, sa languette se coince entre la face avant du coulisseau et une
@@ -109,13 +108,17 @@ tg_wide_z = 11;    // la plaque s'élargit au-dessus des oreilles
 hinge_x   = 3.5;   // axe de charnière : en avant de la face avant du coulisseau…
 hinge_z   = 4;     // …et au-dessus de son dessus. hinge_z - hinge_x = jeu de la cible rabattue (0,5)
 ear_t     = 6;     // oreilles du coulisseau
-ear_r     = 4;
+ear_r     = 5;     // rayon des oreilles autour de l'axe ; leur dessus est arasé à ear_h pour ne pas épaissir le banc plié
+ear_h     = 4.5;   // dessus des oreilles, au-dessus de l'axe de charnière : 1,6 mm de matière au-dessus du logement de l'écrou
 knuckle_w = 7;     // charnons de la cible
 knuckle_r = 3.5;
-hinge_d   = 3.4;   // lumière des charnons, pour la moitié lisse de la goupille Ø3
-ear_d     = 3.0;   // trou des oreilles, rond, au diamètre nominal : la moitié cannelée d'une goupille Ø3 × 12 (DIN 1472)
-                   // y mord sans colle et ne bouge plus ; sa moitié lisse sert d'axe à la cible.
-                   // Les lumières des charnons sont borgnes côté intérieur : la goupille ne peut pas non plus rentrer.
+hinge_d   = 3.4;   // lumière des charnons, où entre le bout de la vis M3
+ear_d     = 3.3;   // passage de la vis M3 dans les oreilles. Chaque charnière est une vis M3×12 à tête bombée : sa tête porte
+                   // sur le flanc de l'oreille, un écrou frein M3 la serre de l'autre côté, et les 5,6 mm qui dépassent
+                   // servent d'axe à la cible. La vis est donc bloquée sur l'oreille, vis et écrou, sans rien d'ajusté.
+ear_nut   = 4;     // profondeur du logement à six pans de l'écrou frein M3 (5,5 sur plats, 4 mm), sur la face intérieure
+                   // de l'oreille : il reste 2 mm de matière sous la tête de vis, et le charnon voisin, à 0,4 mm,
+                   // empêche l'écrou de ressortir.
 lift      = 5.5;   // course de soulèvement pour déverrouiller
 lip_z     = 6.5;   // sommet de la lèvre, au-dessus du dessous du coulisseau
 flap_h    = sl_t - 2.5;   // languette de verrouillage : elle descend jusqu'à 2,5 mm du dessous du coulisseau,
@@ -133,9 +136,10 @@ x_end    = -lug_len + base_l;                             // butée avant
 sl_w     = 2 * (wheel_y + edge);                          // largeur du coulisseau (≈ 85)
 z_sb     = wheel_z + wheel_stack/2 + spacer_h;            // dessous du coulisseau (1 mm au-dessus du socle)
 axle_x   = -lug_len/2;                                    // axe de poulie, au milieu des joues…
-axle_z   = 0;                                             // …juste sous les rainures : c'est le plus haut possible
+axle_z   = -1;                                            // …sous les rainures : le logement de la tête de vis (Ø9) laisse
+                                                          // ainsi 0,8 à 3 mm de matière sous le chanfrein où roule la roue
 groove_r = 10;                                            // fond de gorge (2 mm de matière autour du roulement)
-z_cord   = axle_z + groove_r + cord_d/2;                  // brin au départ de la poulie (≈ 11), 6 mm sous son arrivée au coulisseau
+z_cord   = axle_z + groove_r + cord_d/2;                  // brin au départ de la poulie (≈ 10), 7 mm sous son arrivée au coulisseau
 wheel_x0 = -sl_rear + edge;                               // roues arrière (repère du coulisseau) ; roues avant à wheel_x0 + wheel_px
 xs_min   = -lug_len + stop_t + wheel_od/2 - wheel_x0;     // coulisseau en butée arrière
 knot_x   = pit_x + 1;                                     // fente par où la cordelette sort du coulisseau (repère du coulisseau)
@@ -168,8 +172,11 @@ module socle() {
                                         [b - gd, zc - gf], [b + 1, zc - gf - gd - 1]]);
         // fente de la poulie, débouchante en haut et en bas : la poulie se pose par le dessus
         translate([axle_x - pul_r - 1, -slot_w/2, -lug_drop - 1]) cube([2*pul_r + 2, slot_w, lug_drop + T + 2]);
-        // goupille Ø5 de la poulie, emmanchée dans les deux joues
+        // vis M5 de la poulie, à travers les deux joues : logement rond de la tête d'un côté, logement à six pans de
+        // l'écrou frein de l'autre (deux pans horizontaux : il s'imprime sans support)
         translate([axle_x, -b - 1, axle_z]) rotate([-90, 0, 0]) cylinder(d = axle_d, h = base_w + 2);
+        translate([axle_x, -b - 1, axle_z]) rotate([-90, 0, 0]) cylinder(d = 9, h = axle_hd + 1);
+        translate([axle_x, b - axle_nd, axle_z]) rotate([-90, 0, 0]) cylinder(d = 8.3 / cos(30), h = axle_nd + 1, $fn = 6);
         // canal de la cordelette, ouvert vers le haut, de la poulie jusqu'au bout du socle (il traverse la butée avant :
         // en fin de course, le nœud est au-dessus du bout du socle)
         translate([axle_x, -chan_w/2, z_cord - cord_d/2 - 1]) cube([x_end - axle_x + 1, chan_w, T]);
@@ -177,9 +184,10 @@ module socle() {
         // il reste 3 mm de dessus, 4 mm de flanc derrière les rainures et 3 mm de paroi le long du canal
         for (i = [0 : n_cell - 1], y0 = alleg ? [-18, 6] : [-16, 6])
             translate([10 + i*(cell + 4), y0, -1]) cube([cell, alleg ? 12 : 10, T - (alleg ? 2 : 3)]);
-        // les deux crochets sont creusés par-dessous : 3 mm de paroi, et 2 mm de matière sous la goupille de la poulie
+        // les deux crochets sont creusés par-dessous : 3 mm de paroi, et 2 mm de matière sous les logements de la tête
+        // et de l'écrou de la vis de poulie
         if (alleg) for (y0 = [slot_w/2 + 3, -b + 3])
-            translate([x0 + 10, y0, -lug_drop - 1]) cube([lug_len - 13.5, lug_w - 6, lug_drop - 4]);
+            translate([x0 + 10, y0, -lug_drop - 1]) cube([lug_len - 13.5, lug_w - 6, lug_drop - 6.5]);
     }
 }
 
@@ -209,9 +217,12 @@ module coulisseau() {
                 translate([cx, y0, 0]) cube([cl, fence_t, sl_t + fence_z]);                    // joues extérieures
             prism_y(lip_y0, lip_y1 - lip_y0, lip);                                             // lèvres de verrouillage de la cible
             prism_y(-lip_y1, lip_y1 - lip_y0, lip);
-            for (y0 = [sl_w/2 - ear_t, -sl_w/2]) {                                             // oreilles de charnière
-                translate([sl_front - 2, y0, 0]) cube([2 + hinge_x + ear_r, ear_t, sl_t + hinge_z]);
-                translate([hx, y0, sl_t + hinge_z]) rotate([-90, 0, 0]) cylinder(r = ear_r, h = ear_t);
+            for (y0 = [sl_w/2 - ear_t, -sl_w/2]) intersection() {                              // oreilles de charnière
+                union() {
+                    translate([sl_front - 2, y0, 0]) cube([2 + hinge_x + ear_r, ear_t, sl_t + hinge_z]);
+                    translate([hx, y0, sl_t + hinge_z]) rotate([-90, 0, 0]) cylinder(r = ear_r, h = ear_t);
+                }
+                translate([sl_front - 3, y0 - 1, -1]) cube([hinge_x + ear_r + 5, ear_t + 2, sl_t + hinge_z + ear_h + 1]);   // dessus arasé
             }
         }
         for (x = [wheel_x0, wheel_x0 + wheel_px]) {
@@ -222,8 +233,11 @@ module coulisseau() {
             hull() for (dy = [-adj, adj]) translate([x, -wheel_y + dy, -1]) cylinder(d = 5.3, h = sl_t + 2);
             hull() for (dy = [-adj, adj]) translate([x, -wheel_y + dy, sl_t - nut_h]) nut_m5(nut_h + 1);
         }
-        // axe de charnière : logements des goupilles Ø3 dans les oreilles
+        // axe de charnière : passage des vis M3 dans les oreilles, et logement à six pans de leur écrou frein sur la face
+        // intérieure (deux pans horizontaux : il s'imprime sans support)
         translate([hx, -sl_w, sl_t + hinge_z]) rotate([-90, 0, 0]) cylinder(d = ear_d, h = 2*sl_w);
+        for (s = [-1, 1]) translate([hx, s*(sl_w/2 - ear_t - 1), sl_t + hinge_z]) rotate([-90*s, 0, 0])
+            cylinder(d = 5.8 / cos(30), h = ear_nut + 1, $fn = 6);
         // axe des bobines : vis M5 à travers la nervure
         translate([px, -post_w, sl_t + pin_z]) rotate([-90, 0, 0]) cylinder(d = pin_d, h = 2*post_w);
         // plancher échancré sous les chapeaux : c'est par là que la boucle de l'élévateur passe sous le chapeau
@@ -350,16 +364,26 @@ module asm_axe() {       // vis CHC M5×80 : tête noyée dans un chapeau, écro
         translate([0, 0, bob_y - pocket - 1 + 0.2]) cylinder(d = 9, h = 5, $fn = 6);
     }
 }
-module asm_axe_poulie() {       // goupille, roulement 625 et ses deux entretoises
+module asm_axe_poulie() {       // vis CHC M5×40, écrou frein, roulement 625 et ses deux entretoises
     translate([axle_x, 0, axle_z]) rotate([-90, 0, 0]) {
-        translate([0, 0, -base_w/2 + axle_in]) cylinder(d = 5, h = axle_l, $fn = 24);
+        translate([0, 0, -base_w/2 + axle_hd - 5]) cylinder(d = 8.5, h = 5, $fn = 24);
+        translate([0, 0, -base_w/2 + axle_hd]) cylinder(d = 5, h = axle_l, $fn = 24);
+        translate([0, 0, base_w/2 - axle_nd]) cylinder(d = 9, h = 5, $fn = 6);
         translate([0, 0, -2.5]) difference() { cylinder(d = 16, h = 5, $fn = 48); translate([0, 0, -1]) cylinder(d = 8.4, h = 7, $fn = 24); }
         for (s = [-1, 1]) translate([0, 0, s*(2.5 + spacer_h/2) - spacer_h/2]) cylinder(d = 8, h = spacer_h, $fn = 24);
+    }
+}
+module asm_vis_charnieres() {   // vis M3×12 à tête bombée : tête sur le flanc de l'oreille, écrou frein sur sa face intérieure
+    translate([xs + sl_front + hinge_x, 0, z_sb + sl_t + hinge_z]) for (s = [-1, 1]) rotate([90*s, 0, 0]) {
+        translate([0, 0, -sl_w/2 - 1.65]) cylinder(d = 5.7, h = 1.65, $fn = 24);
+        translate([0, 0, -sl_w/2]) cylinder(d = 3, h = 12, $fn = 16);
+        translate([0, 0, -sl_w/2 + ear_t - ear_nut]) cylinder(d = 6.3, h = ear_nut, $fn = 6);
     }
 }
 module asm_divers() {
     asm_axe();
     asm_axe_poulie();
+    asm_vis_charnieres();
     if (!plie) {   // cordelette : du haut de la poulie à la fente du coulisseau, dans le canal, puis brin vertical vers la poche
         dx = xs + knot_x - axle_x; dz = z_sb + 1 - z_cord;
         translate([axle_x, 0, z_cord]) rotate([0, atan2(dx, dz), 0]) cylinder(d = cord_d, h = norm([dx, dz]), $fn = 12);
@@ -418,5 +442,6 @@ else if (part == "x_socle_roues")      intersection() { socle(); asm_roues(); }
 else if (part == "x_coulisseau_cible") intersection() { asm_coulisseau(); asm_cible(); }
 else if (part == "x_coulisseau_bobines")    intersection() { asm_coulisseau(); asm_bobines(); }
 else if (part == "x_coulisseau_elevateurs") intersection() { asm_coulisseau(); asm_elevateurs(); }
+else if (part == "x_cible_vis")        intersection() { asm_cible(); asm_vis_charnieres(); }
 else if (part == "x_cible_reste")      intersection() { asm_cible(); union() { socle(); asm_poulie(); asm_roues(); asm_axe(); asm_bobines(); } }
 else assemblage();
