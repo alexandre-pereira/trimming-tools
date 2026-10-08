@@ -164,5 +164,5 @@ holder.
   checked.
 - The OpenSCAD models are in `scad/`, the scripts that regenerate the STL files, the images
   and this site in `outils/`. Repository: <https://github.com/alexandre-pereira/trimming-tools>,
-  site: <https://trimming-tools.weflare.fr>.
+  site: <https://trimming-tools.wesoar.fr>.
 - Nothing has been printed or tried under load yet: this is a model, not a tested product.
