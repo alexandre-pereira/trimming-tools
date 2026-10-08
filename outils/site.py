@@ -6,7 +6,7 @@ et en français (dans fr/, depuis README.md) : ce qui change dans un README se r
 Il est reconstruit à chaque modification du dépôt par GitHub Actions (.github/workflows/pages.yml),
 donc la page suit le dossier : ce qui change dans les README, stl/ ou apercu/ change sur le site.
 
-L'habillage (weflare.css, weflare.svg, weflare-mark.svg) est celui de tous les outils WeFlare : les
+L'habillage (wesoar.css, wesoar.svg, wesoar-mark.svg) est celui de tous les outils WeSoar : les
 mêmes fichiers sont dans le dépôt de chaque outil.
 """
 import os, re, shutil, sys, html, json
@@ -36,7 +36,7 @@ TEXTES = {
         "supports_titre": "The laser holder, in the version for your distance meter",
         "supports": "Leica DISTO and Bosch models under €500, at the manufacturer's dimensions (length × width × thickness) plus 0.5 mm of clearance. Other distance meter: see further down.",
         "taille": "%d kB",
-        "cree": "Developed and offered free of charge by WeFlare.",
+        "cree": "Developed and offered free of charge by WeSoar.",
         "autres": "Other free tools:",
         "outils": [("https://trim.weflare.fr/", "Wing Trim, the app to measure and trim your lines"),
                    ("https://soundings.weflare.fr/", "PG Soundings, the free-flight forecast inside Windy")],
@@ -55,7 +55,7 @@ TEXTES = {
         "supports_titre": "Le support du laser, dans la version de votre télémètre",
         "supports": "Leica DISTO et Bosch à moins de 500 €, aux cotes du constructeur (longueur × largeur × épaisseur) plus 0,5 mm de jeu. Autre télémètre : voir plus bas.",
         "taille": "%d Ko",
-        "cree": "Développé et offert gratuitement par WeFlare.",
+        "cree": "Développé et offert gratuitement par WeSoar.",
         "autres": "Autres outils gratuits :",
         "outils": [("https://trim.weflare.fr/", "Wing Trim, l'application de mesure et de calage des suspentes"),
                    ("https://soundings.weflare.fr/fr/", "PG Soundings, la prévision du vol libre dans Windy")],
@@ -64,7 +64,7 @@ TEXTES = {
     },
 }
 
-# ce qui est propre à cette page ; le reste vient de la feuille commune des outils WeFlare
+# ce qui est propre à cette page ; le reste vient de la feuille commune des outils WeSoar
 STYLE = """
 .tt-vues { display: grid; grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); gap: 12px; }
 .tt-vues figure { margin: 0; padding: 10px; }
@@ -238,11 +238,11 @@ def main():
     if os.path.exists(cname):
         shutil.copy(cname, OUT)
         site = "https://" + lire(cname).strip()
-    shutil.copy(os.path.join(OUTILS, "weflare-mark.svg"), os.path.join(OUT, "favicon.svg"))
+    shutil.copy(os.path.join(OUTILS, "wesoar-mark.svg"), os.path.join(OUT, "favicon.svg"))
 
-    # le logo WeFlare est dessiné dans la page, pour prendre la couleur du texte
-    logo = lire(OUTILS, "weflare.svg").strip().replace("<svg ", '<svg class="wf-logo" ', 1)
-    style = lire(OUTILS, "weflare.css") + STYLE
+    # le logo WeSoar est dessiné dans la page, pour prendre la couleur du texte
+    logo = lire(OUTILS, "wesoar.svg").strip().replace("<svg ", '<svg class="wf-logo" ', 1)
+    style = lire(OUTILS, "wesoar.css") + STYLE
     for langue in LANGUES:
         dossier = OUT if langue == LANGUES[0] else os.path.join(OUT, langue)
         os.makedirs(dossier, exist_ok=True)

@@ -687,8 +687,8 @@ tableau des supports du laser est écrit dans les deux par `outils/generer_stl.m
 visiteur dont le navigateur est en français arrive sur la page française, et le choix fait
 avec le sélecteur EN / FR est retenu.
 
-L'habillage (`outils/weflare.css`, `weflare.svg`, `weflare-mark.svg` : feuille de style,
-logo, icône de l'onglet) est celui de tous les outils WeFlare ; les mêmes fichiers sont dans
+L'habillage (`outils/wesoar.css`, `wesoar.svg`, `wesoar-mark.svg` : feuille de style,
+logo, icône de l'onglet) est celui de tous les outils WeSoar ; les mêmes fichiers sont dans
 le dépôt de PG Soundings (`scripts/`). Une modification s'y reporte telle quelle ; ce qui
 est propre à cette page reste dans `site.py`.
 
